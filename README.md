@@ -6,7 +6,7 @@ Repository for Enigma Dragons game The Interview
 
 ### Kanban Board
 
-[Project Kanban Board](https://zube.io/enigmadragons/the-interview/w/all/kanban)
+[Project Kanban Board](https://zube.io/enigmadragons/the-interview/w/interview/kanban)
 
 ----
 
