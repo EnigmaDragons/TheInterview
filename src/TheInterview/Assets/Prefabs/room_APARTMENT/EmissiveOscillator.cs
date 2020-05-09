@@ -11,12 +11,6 @@ public sealed class EmissiveOscillator : MonoBehaviour
 	 private float glow;
  
 
-     void Start () 
-     {
-		 emissionColor = material.GetColor("_EmissionColor");
-     }
-     
-
      void Update () 
      {
          glow = (2 + Mathf.Cos(Time.time * frequency)) * amplitude;
