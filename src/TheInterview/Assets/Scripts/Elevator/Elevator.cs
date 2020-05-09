@@ -229,7 +229,7 @@ public class Elevator : MonoBehaviour {
 					}
 
 					if (canUseControls && hit.transform.tag == "ElevatorNumericButton" && !Moving) {
-						Message.Publish(new ElevatorControlButtonsPressed());
+						Message.Publish(new ElevatorControlButtonsPressed(GetInstanceID()));
 						InputFloor += hit.transform.name;
 						hit.transform.GetComponent<MeshRenderer> ().enabled = true;
 						ElevatorNumericButtons.Add (hit.transform.GetComponent<MeshRenderer> ());
@@ -239,7 +239,7 @@ public class Elevator : MonoBehaviour {
 					}
 
 					if (canUseControls && hit.transform.tag == "ElevatorGoButton" && !Moving) {
-						Message.Publish(new ElevatorControlButtonsPressed());
+						Message.Publish(new ElevatorControlButtonsPressed(GetInstanceID()));
 						if (InputFloor != "" && InputFloor.Length < 4) {
 							if (InputFloor == "0-1") {
 								InputFloor = "-99";
