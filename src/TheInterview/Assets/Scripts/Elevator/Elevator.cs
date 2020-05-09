@@ -207,6 +207,7 @@ public class Elevator : MonoBehaviour {
 						RaycastHit hit = hits [i];
 
 					if (hit.transform.tag == "ElevatorButtonOpen" && !isOpen) {
+						Message.Publish(new ElevatorControlButtonsPressed());
 						BtnSoundFX.clip = ElevatorBtn;
 						BtnSoundFX.volume = ElevatorBtnVolume;
 						BtnSoundFX.Play ();
@@ -228,6 +229,7 @@ public class Elevator : MonoBehaviour {
 					}
 
 					if (canUseControls && hit.transform.tag == "ElevatorNumericButton" && !Moving) {
+						Message.Publish(new ElevatorControlButtonsPressed());
 						InputFloor += hit.transform.name;
 						hit.transform.GetComponent<MeshRenderer> ().enabled = true;
 						ElevatorNumericButtons.Add (hit.transform.GetComponent<MeshRenderer> ());
@@ -237,7 +239,7 @@ public class Elevator : MonoBehaviour {
 					}
 
 					if (canUseControls && hit.transform.tag == "ElevatorGoButton" && !Moving) {
-						
+						Message.Publish(new ElevatorControlButtonsPressed());
 						if (InputFloor != "" && InputFloor.Length < 4) {
 							if (InputFloor == "0-1") {
 								InputFloor = "-99";
