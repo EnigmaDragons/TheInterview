@@ -40,6 +40,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_StepCycle = 0f;
         private float m_NextStep = 0f;
         private bool m_Jumping = false;
+        private bool m_IsRunning = false;
         private AudioSource m_AudioSource = new AudioSource();
 
         // Use this for initialization
@@ -207,13 +208,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
             float horizontal = CrossPlatformInputManager.GetAxis("Horizontal");
             float vertical = CrossPlatformInputManager.GetAxis("Vertical");
 
-            bool waswalking = m_IsWalking;
+            var waswalking = m_IsWalking;
+            var wasRunning = m_IsRunning;
+            m_IsRunning = Input.GetKey(KeyCode.LeftShift);
 
 #if !MOBILE_INPUT
             // On standalone builds, walk/run speed is modified by a key press.
             // keep track of whether or not the character is walking or running
-            m_IsWalking = !Input.GetKey(KeyCode.LeftShift);
+            m_IsWalking = !m_IsRunning;
 #endif
+            if (!wasRunning && m_IsRunning)
+                Message.Publish(new PlayerMoveStateStarted { State = PlayerMoveState.Running});
+            if (wasRunning && !m_IsRunning)
+                Message.Publish(new PlayerMoveStateEnded { State = PlayerMoveState.Running});
+            
             // set the desired speed to be walking or running
             speed = m_IsWalking ? m_WalkSpeed : m_RunSpeed;
             m_Input = new Vector2(horizontal, vertical);

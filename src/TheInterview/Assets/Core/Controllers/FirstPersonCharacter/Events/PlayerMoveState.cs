@@ -1,9 +1,7 @@
-﻿namespace Core.Controllers.FirstPersonCharacter.Events
+﻿
+public enum PlayerMoveState
 {
-    public enum PlayerMoveState
-    {
-        Stopped,
-        Walking,
-        Running
-    }
+    Stopped,
+    Walking,
+    Running
 }
