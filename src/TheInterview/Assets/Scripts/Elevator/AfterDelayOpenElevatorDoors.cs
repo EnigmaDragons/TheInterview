@@ -12,6 +12,6 @@ public class AfterDelayOpenElevatorDoors : MonoBehaviour
     private IEnumerator OpenElevatorDoorsAfterDelay()
     {
         yield return new WaitForSeconds(duration);
-        elevator.OpenDoors();
+        elevator.OpenPhysicalDoorsImmediately();
     }
 }

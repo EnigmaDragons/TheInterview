@@ -7,4 +7,7 @@ public static class FloorSizing
     
     public static int FloorNumber(this Transform t) 
         => Mathf.FloorToInt(t.position.y / HeightPerFloor + StartingFloorNumber);
+
+    public static float YPositionOfFloor(this int floorNumber)
+        => floorNumber * HeightPerFloor - StartingFloorNumber;
 }
