@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-public class Elevator : MonoBehaviour {
+public class Elevator : MonoBehaviour 
+{
 	private bool nearElevator = false;
 	private Rigidbody Player;
 	private Transform PlayerCam;
 
-	[SerializeField] private ElevatorManager elevatorManager;
+	[SerializeField] private bool DebugLogEnabled = true;
 	[SerializeField] private PlayerTrackerZone insideElevator;
 	
 	[Header("Interaction settings")]
@@ -37,9 +38,8 @@ public class Elevator : MonoBehaviour {
 
 	[Tooltip("The floor, where this elevator is placed. Set an unique value for each elevator.")]
 	public int CurrentFloor;
-	private int FloorCount;
-	[HideInInspector]
-	public int ElevatorFloor;
+
+	[SerializeField] private int DestinationFloor = -999; 
 	private Animation TargetElvAnim;
 	private TextMesh TargetElvTextInside;
 	private TextMesh TargetElvTextOutside;
@@ -97,12 +97,21 @@ public class Elevator : MonoBehaviour {
 	{
 		isUsable = false;
 	}
+
+	public void SetCurrentFloor(int currentFloor)
+	{
+		CurrentFloor = currentFloor;
+		TargetFloor = currentFloor;
+		UpdateText();
+	}
+	
+	public void SetDestination(int targetFloor)
+	{
+		DestinationFloor = targetFloor;
+	}
 	
 	void Awake () 
 	{
-		if (!elevatorManager)
-			throw new ArgumentException("ElevatorManager not configured");
-		
 		if (GetComponentInChildren<ReflectionProbe> ()) {
 			probe = GetComponentInChildren<ReflectionProbe> ();
 			probe.refreshMode = ReflectionProbeRefreshMode.OnAwake;
@@ -142,7 +151,7 @@ public class Elevator : MonoBehaviour {
 				playerExists = true;
 			}
 		} else {
-			Debug.LogWarning ("Elevator: Can't find Player. Please, check that your Player object has 'Player' tag.");
+			Debug.LogWarning("Elevator: Can't find Player. Please, check that your Player object has 'Player' tag.");
 			enabled = false;
 			playerExists = false;
 		}
@@ -151,26 +160,12 @@ public class Elevator : MonoBehaviour {
 			if (Player.GetComponentInChildren<Camera>().transform) {
 				PlayerCam = Player.GetComponentInChildren<Camera>().transform;
 			} else {
-				Debug.LogWarning ("Elevator: Can't find Player's camera. Please, check that your Player have a camera parented to it.");
+				Debug.LogWarning("Elevator: Can't find Player's camera. Please, check that your Player have a camera parented to it.");
 				enabled = false;
 			}
 		}
-		
-		elevatorManager.WasStarted += RandomInit;
 	}
-
-	void RandomInit()
-	{
-		if (elevatorManager) {
-			ElevatorFloor = elevatorManager.InitialFloor;
-		} else {
-			ElevatorFloor = 1;
-			//Debug.LogWarning ("No ElevatorManager has been found for '" + gameObject.name + "'. Initial floor will be set to 1. If you want to set your own floor or make it random, please make this object child to object with ElevatorManager script.");
-		}
-		TextOutside.text = ElevatorFloor.ToString();
-		TextInside.text = ElevatorFloor.ToString();
-	}
-
+	
 	private void Update() 
 	{
 		if (!isUsable || !nearElevator) 
@@ -212,7 +207,6 @@ public class Elevator : MonoBehaviour {
 		if (!Input.GetKeyDown(KeyCode.E)) 
 			return;
 		
-		Debug.Log("Elevator Interact Button Pressed");
 		var numHits = Physics.RaycastNonAlloc(PlayerCam.position, PlayerCam.forward, raycastHits, maxDistance: 3);
 
 		for(var i = 0; i < numHits; i++)
@@ -221,19 +215,30 @@ public class Elevator : MonoBehaviour {
 
 			if (!Moving && !isOpen && hit.transform.CompareTag("ElevatorDoor"))
 			{
-				Debug.Log("Elevator Player Open Doors Interact");
-
+				DebugLog("Open Doors Interact");
+				
 				OpenDoors();
 			}
 
-			if (hit.transform.CompareTag("ElevatorButtonOpen") && !isOpen)
+			if (hit.transform.CompareTag("RaycastInteract") && insideElevator.IsPlayerIn)
 			{
+				DebugLog("Use Control Panel");
+				
 				Message.Publish(new ElevatorControlButtonsPressed());
 				BtnSoundFX.clip = ElevatorBtn;
 				BtnSoundFX.volume = ElevatorBtnVolume;
 				BtnSoundFX.Play();
-				ElevatorOpenButton = hit.transform.GetComponent<MeshRenderer>();
-				ElevatorOpenButton.enabled = true;
+
+				if (DestinationFloor > -999) 
+					TravelTo(DestinationFloor);
+				else
+					DebugLog("No Destination Floor Set");
+			}
+
+			if (hit.transform.CompareTag("ElevatorButtonOpen") && !isOpen)
+			{
+//				ElevatorOpenButton = hit.transform.GetComponent<MeshRenderer>();
+//				ElevatorOpenButton.enabled = true;
 
 				OpenDoors();
 			}
@@ -242,16 +247,17 @@ public class Elevator : MonoBehaviour {
 			{
 				Message.Publish(new ElevatorControlButtonsPressed(GetInstanceID()));
 				InputFloor += hit.transform.name;
-				hit.transform.GetComponent<MeshRenderer>().enabled = true;
-				ElevatorNumericButtons.Add(hit.transform.GetComponent<MeshRenderer>());
-				BtnSoundFX.clip = ElevatorBtn;
-				BtnSoundFX.volume = ElevatorBtnVolume;
-				BtnSoundFX.Play();
+				DebugLog($"Target Floor: {InputFloor}");
+//				hit.transform.GetComponent<MeshRenderer>().enabled = true;
+//				ElevatorNumericButtons.Add(hit.transform.GetComponent<MeshRenderer>());
+				PlayButtonSound();
 			}
 
 			if (canUseControls && hit.transform.CompareTag("ElevatorGoButton") && !Moving)
 			{
+				DebugLog("Player Presses Go");
 				Message.Publish(new ElevatorControlButtonsPressed(GetInstanceID()));
+				
 				if (InputFloor != "" && InputFloor.Length < 4)
 				{
 					if (InputFloor == "0-1")
@@ -260,36 +266,8 @@ public class Elevator : MonoBehaviour {
 					}
 
 					TargetFloor = int.Parse(InputFloor);
-
-					if (CurrentFloor == TargetFloor)
-					{
-						TargetElvAnim = DoorsAnim;
-						TargetElvTextInside = TextInside;
-						TargetElvTextOutside = TextOutside;
-						BtnSoundFX.clip = ElevatorBtn;
-						BtnSoundFX.volume = ElevatorBtnVolume;
-						BtnSoundFX.Play();
-						ElevatorFloor = TargetFloor;
-
-						FloorCount = CurrentFloor;
-
-						if (CurrentFloor != ElevatorFloor)
-						{
-							if (hasReflectionProbe && UpdateReflectionEveryFrame)
-								probe.RenderProbe();
-
-							Invoke("ElevatorGO", 1);
-							ElevatorGoBtn = hit.transform.GetComponent<MeshRenderer>();
-							ElevatorGoBtn.enabled = true;
-							Moving = true;
-						}
-						else
-						{
-							OpenPhysicalDoorsImmediately();
-						}
-
-						InputFloor = "";
-					}
+					TravelTo(TargetFloor);
+					InputFloor = "";
 				}
 				else
 				{
@@ -312,63 +290,81 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 
+	private void PlayButtonSound()
+	{
+		BtnSoundFX.clip = ElevatorBtn;
+		BtnSoundFX.volume = ElevatorBtnVolume;
+		BtnSoundFX.Play();
+	}
+
+	public void TravelTo(int targetFloor)
+	{
+		TargetFloor = targetFloor;
+
+		if (CurrentFloor == TargetFloor)
+		{
+			OpenPhysicalDoorsImmediately();
+			return;
+		}
+
+		DebugLog($"Started Traveling to Floor {TargetFloor} from Floor {CurrentFloor}");
+		TargetElvAnim = DoorsAnim;
+		TargetElvTextInside = TextInside;
+		TargetElvTextOutside = TextOutside;
+
+		if (hasReflectionProbe && UpdateReflectionEveryFrame)
+			probe.RenderProbe();
+
+		StartCoroutine(ExecuteAfterDelay(BeginElevatorRide, 1));
+		Moving = true;
+	}
+
 	private void OpenDoors()
 	{
 		isOpen = true;
-		StartCoroutine(ExecuteAfterDelay(OpenPhysicalDoorsImmediately, OneFloorTime * Mathf.Abs(CurrentFloor - ElevatorFloor) + OpenDelay));
-
-		FloorCount = ElevatorFloor;
-		ElevatorFloor = CurrentFloor;
-
-		StartCoroutine(FloorsCounter());
+		StartCoroutine(ExecuteAfterDelay(OpenPhysicalDoorsImmediately, OneFloorTime * Mathf.Abs(CurrentFloor - TargetFloor) + OpenDelay));
+		StartCoroutine(SummonElevatorFromOutside());
 	}
 
-	void ElevatorGO()
-	{	
-		StartCoroutine ("FloorsCounterInside");
-		SoundFX.clip = ElevatorMove;
-		SoundFX.loop = true;
-		SoundFX.volume = 0;
-		SoundFX.pitch = 0.5f;
-		SpeedUp = true;	
-		SoundFX.Play ();
-	}
+	private void BeginElevatorRide() => StartCoroutine(RideElevatorInside());
 
 	void SlowDownStart() => SlowDown = true;
 
-	IEnumerator FloorsCounterInside(){
-		for (;;) {
-			TextOutside.text = FloorCount.ToString();
-			TextInside.text = FloorCount.ToString();
+	private IEnumerator RideElevatorInside()
+	{
+		while (isOpen)
+			yield return new WaitForSeconds(0.1f);
+		
+		StartElevatorMovingSoundFx();
 
-
-			if(TargetFloor - FloorCount == 1){
-				Invoke ("SlowDownStart", OneFloorTime/2);
-			}
-
-			if(FloorCount - TargetFloor == 1){
-				Invoke ("SlowDownStart", OneFloorTime/2);
-			}
-
-			if(TargetFloor == FloorCount){
+		while(true) 
+		{
+				
+			UpdateText();
+			if (TargetFloor == CurrentFloor) 
+			{
+				DebugLog("Has Arrived");
 				yield break;
 			}
+			
+			if (TargetFloor - CurrentFloor == 1 || CurrentFloor - TargetFloor == 1)
+				Invoke ("SlowDownStart", OneFloorTime/2);
 
-			yield return new WaitForSeconds (OneFloorTime);
-			if (CurrentFloor < TargetFloor) {
-				FloorCount++;
 
+			yield return new WaitForSeconds(OneFloorTime);
+			if (CurrentFloor < TargetFloor)
+				CurrentFloor++;
+			if (CurrentFloor > TargetFloor)
+				CurrentFloor--;
+			
+			DebugLog($"Floor {CurrentFloor}");
 
-			}
-			if (CurrentFloor > TargetFloor) {
-				FloorCount--;
-
-			}
-
-			if(FloorCount == TargetFloor){
+			if (CurrentFloor == TargetFloor) 
+			{
+				DebugLog($"Has Arrived At {TargetFloor}");
 				//Moving = false;
-				SoundFX.Stop ();
-				TargetBellSoundPlay ();
+				SoundFX.Stop();
+				TargetBellSoundPlay();
 
 				if (!isRigidbodyCharacter) {
 					Player.isKinematic = false;
@@ -392,25 +388,34 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FloorsCounter()
+	private void StartElevatorMovingSoundFx()
+	{
+		SoundFX.clip = ElevatorMove;
+		SoundFX.loop = true;
+		SoundFX.volume = 0.5f;
+		SoundFX.pitch = 0.5f;
+		SpeedUp = true;
+		SoundFX.Play();
+	}
+
+	private IEnumerator SummonElevatorFromOutside()
 	{
 		while(true) 
 		{
-			TextOutside.text = FloorCount.ToString();
-			TextInside.text = FloorCount.ToString();
+			UpdateText();
 
-			if(CurrentFloor == FloorCount){
+			if(CurrentFloor == TargetFloor){
 				if (Moved)
 					BellSoundPlay();
 				yield break;
 			}
 
 			yield return new WaitForSeconds (OneFloorTime);
-			if (CurrentFloor < FloorCount) {
-				FloorCount--;
+			if (CurrentFloor < TargetFloor) {
+				CurrentFloor--;
 			}
-			if (CurrentFloor > FloorCount) {
-				FloorCount++;
+			if (CurrentFloor > TargetFloor) {
+				CurrentFloor++;
 			}
 		}
 	}
@@ -434,8 +439,10 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 
-	void TargetBellSoundPlay(){
-		if(CurrentFloor == TargetFloor){
+	void TargetBellSoundPlay()
+	{
+		if(CurrentFloor == TargetFloor)
+		{
 			TargetSoundFX = SoundFX;
 			TargetSoundFX.clip = Bell;
 			TargetSoundFX.loop = false;
@@ -457,10 +464,8 @@ public class Elevator : MonoBehaviour {
 
 	void UpdateText()
 	{
-		TargetElvTextInside = TextInside;
-		TargetElvTextOutside = TextOutside;
-		TargetElvTextInside.text = ElevatorFloor.ToString();
-		TargetElvTextOutside.text = ElevatorFloor.ToString();
+		TextInside.text = CurrentFloor.ToString();
+		TextOutside.text = CurrentFloor.ToString();
 	}
 
 	void ResetButtons()
@@ -500,27 +505,25 @@ public class Elevator : MonoBehaviour {
 			Moving = false;
 		}
 	}
+	
 	public void CloseDoors()
 	{
-		if (!isOpen)
-			return;
-		
-		DoorsAnim [AnimName].normalizedTime = 1;
-		DoorsAnim [AnimName].speed = -DoorsAnimSpeed;
-		DoorsAnim.Play ();
-		isOpen = false;
-		if (ElevatorOpenButton != null){
+		DoorsAnim[AnimName].normalizedTime = 1;
+		DoorsAnim[AnimName].speed = -DoorsAnimSpeed;
+		DoorsAnim.Play();
+		if (ElevatorOpenButton != null)
 			ElevatorOpenButton.enabled = false;
-		}
+
+		StartCoroutine(ExecuteAfterDelay(() => isOpen = false, 1f));
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Debug.Log("Elevator Trigger Entered");
+		DebugLog("Elevator Trigger Entered");
 		if (other.gameObject != Player.gameObject) 
 			return;
 		
-		Debug.Log("Player Is Near Elevator");
+		DebugLog("Player Is Near Elevator");
 		nearElevator = true;
 
 		HotUpdateReflectionProbe();
@@ -539,11 +542,17 @@ public class Elevator : MonoBehaviour {
 
 	private void OnTriggerExit(Collider other)
 	{
-		Debug.Log("Elevator Trigger Exited");
+		DebugLog("Elevator Trigger Exited");
 		if (other.gameObject != Player.gameObject) 
 			return;
 		
 		nearElevator = false;
 		HotUpdateReflectionProbe();
+	}
+
+	private void DebugLog(string msg)
+	{
+		if (DebugLogEnabled)
+			Debug.Log($"Elevator - {msg}", gameObject);
 	}
 }
