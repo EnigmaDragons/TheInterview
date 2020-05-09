@@ -49,9 +49,200 @@ Transform:
   - {fileID: 8429078378359354015}
   - {fileID: 5126918996085609412}
   - {fileID: 4138951477956358493}
+  - {fileID: 2112725483310943914}
+  - {fileID: 4286714091794124473}
+  - {fileID: 3160172071542848329}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6892683837117370291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112725483310943914}
+  - component: {fileID: 5058876751151118968}
+  - component: {fileID: 3521483376931722646}
+  - component: {fileID: 2868486129167244692}
+  m_Layer: 0
+  m_Name: TopBarrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2112725483310943914
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892683837117370291}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.977, y: 122.97, z: 8.436}
+  m_LocalScale: {x: 3.3000002, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2929412384486382812}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &5058876751151118968
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892683837117370291}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &3521483376931722646
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892683837117370291}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5a256af8edb1fdb44acdf75e6a1c5178, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &2868486129167244692
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6892683837117370291}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &8601657676501549003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3160172071542848329}
+  - component: {fileID: 8604947202159070306}
+  - component: {fileID: 6735515262825415204}
+  - component: {fileID: 6587509837364433816}
+  m_Layer: 0
+  m_Name: BottomBarrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3160172071542848329
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601657676501549003}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 1.977, y: 3, z: 5.602}
+  m_LocalScale: {x: 3.3000002, y: 6, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2929412384486382812}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!33 &8604947202159070306
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601657676501549003}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &6735515262825415204
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601657676501549003}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5a256af8edb1fdb44acdf75e6a1c5178, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!64 &6587509837364433816
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8601657676501549003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &538367515407024956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -63,6 +254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -126,6 +322,101 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
     type: 3}
   m_PrefabInstance: {fileID: 538367515407024956}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1224579297645699920
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2929412384486382812}
+    m_Modifications:
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000013240823
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000013240823
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 270
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180.00002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299598755843895284, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_Name
+      value: Ceiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299598755843895284, guid: 0b16d01f16cc47741a2a156a1b20880a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0b16d01f16cc47741a2a156a1b20880a, type: 3}
+--- !u!4 &4286714091794124473 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3135600055679249897, guid: 0b16d01f16cc47741a2a156a1b20880a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1224579297645699920}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2058548695780401161
 PrefabInstance:
@@ -239,6 +530,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -313,6 +609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -389,6 +690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,6 +769,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -539,6 +850,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -613,6 +929,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -689,6 +1010,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -763,6 +1089,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -839,6 +1170,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -913,6 +1249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -989,6 +1330,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1063,6 +1409,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -1139,6 +1490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1213,6 +1569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
@@ -1289,6 +1650,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1363,6 +1729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stairs_Tight_1_Floor (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4735166215062869699, guid: cd94ed36a170db24489d0a302e035239,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6608775751648359373, guid: cd94ed36a170db24489d0a302e035239,
         type: 3}
