@@ -10,6 +10,10 @@ public class Elevator : MonoBehaviour {
 
 	[SerializeField] private ElevatorManager elevatorManager;
 	
+	[Header("Interaction settings")]
+	[SerializeField] private bool canUseControls = true;
+	[SerializeField] private bool isUsable = true;
+	
 	[Tooltip("Type your Player's tag here.")]
 	public string PlayerTag = "Player";
 	private Animation DoorsAnim;
@@ -89,7 +93,11 @@ public class Elevator : MonoBehaviour {
 	private bool ElvFound = false;
 	private GameObject ElevatorsParent;
 
-
+	public void DisablePlayerInteraction()
+	{
+		isUsable = false;
+	}
+	
 	// Use this for initialization
 	void Awake () {
 		if (!elevatorManager)
@@ -186,10 +194,9 @@ public class Elevator : MonoBehaviour {
 		TextOutside.text = ElevatorFloor.ToString();
 		TextInside.text = ElevatorFloor.ToString();
 	}
-	
 
 	void Update () {
-		if (inTrigger) {
+		if (isUsable && inTrigger) {
 
 			RaycastHit[] hits;
 				if (Input.GetKeyDown (KeyCode.E)) {
@@ -207,7 +214,7 @@ public class Elevator : MonoBehaviour {
 						ElevatorOpenButton.enabled = true;
 
 						isOpen = true;
-						Invoke ("DoorsOpening", OneFloorTime * Mathf.Abs (CurrentFloor - ElevatorFloor) + OpenDelay);
+						Invoke ("OpenDoors", OneFloorTime * Mathf.Abs (CurrentFloor - ElevatorFloor) + OpenDelay);
 
 						FloorCount = ElevatorFloor;
 						ElevatorFloor = CurrentFloor;
@@ -220,7 +227,7 @@ public class Elevator : MonoBehaviour {
 						StartCoroutine ("FloorsCounter");
 					}
 
-					if (hit.transform.tag == "ElevatorNumericButton" && !Moving) {
+					if (canUseControls && hit.transform.tag == "ElevatorNumericButton" && !Moving) {
 						InputFloor += hit.transform.name;
 						hit.transform.GetComponent<MeshRenderer> ().enabled = true;
 						ElevatorNumericButtons.Add (hit.transform.GetComponent<MeshRenderer> ());
@@ -229,7 +236,7 @@ public class Elevator : MonoBehaviour {
 						BtnSoundFX.Play ();
 					}
 
-					if (hit.transform.tag == "ElevatorGoButton" && !Moving) {
+					if (canUseControls && hit.transform.tag == "ElevatorGoButton" && !Moving) {
 						
 						if (InputFloor != "" && InputFloor.Length < 4) {
 							if (InputFloor == "0-1") {
@@ -264,7 +271,7 @@ public class Elevator : MonoBehaviour {
 										Moving = true;
 
 									} else {
-										DoorsOpening ();
+										OpenDoors ();
 									}
 									InputFloor = "";
 								} else {
@@ -286,9 +293,9 @@ public class Elevator : MonoBehaviour {
 							BtnSoundFX.Play ();
 						}
 						if (TargetFloor != CurrentFloor) {
-							DoorsClosing ();
+							CloseDoors();
 						} else if (!isOpen) {
-							DoorsOpening ();
+							OpenDoors();
 						}
 					}
 				}
@@ -394,7 +401,7 @@ public class Elevator : MonoBehaviour {
 	}
 
 	IEnumerator FloorsCounter(){
-		for (;;) {
+		while(true) {
 			TextOutside.text = FloorCount.ToString();
 			TextInside.text = FloorCount.ToString();
 
@@ -411,7 +418,6 @@ public class Elevator : MonoBehaviour {
 				FloorCount++;
 			}
 		}
-
 	}
 
 	void DoorsClosingSoundPlay(){
@@ -483,62 +489,64 @@ public class Elevator : MonoBehaviour {
 		TargetElvAnim.Play ();
 		ButtonsReset ();
 
-
 		//isOpen = true;
 	}
 
-	void DoorsOpening(){
+	public void OpenDoors(){
 		TargetFloor = 0;
-		TextsUpdate ();
-		DoorsAnim [AnimName].normalizedTime = 0;
-		DoorsAnim [AnimName].speed = DoorsAnimSpeed;
-		DoorsAnim.Play ();
-		ButtonsReset ();
+		TextsUpdate();
+		DoorsAnim[AnimName].normalizedTime = 0;
+		DoorsAnim[AnimName].speed = DoorsAnimSpeed;
+		DoorsAnim.Play();
+		ButtonsReset();
 	}
 	void DoorsClosingTimer(){
 		if(DoorsAnim[AnimName].speed > 0){
-			Invoke ("DoorsClosing", CloseDelay);
+			Invoke ("CloseDoors", CloseDelay);
 			isOpen = true;
 			Moving = false;
 		}
 	}
-	void DoorsClosing(){
-		if(isOpen){
-			DoorsAnim [AnimName].normalizedTime = 1;
-			DoorsAnim [AnimName].speed = -DoorsAnimSpeed;
-			DoorsAnim.Play ();
-			isOpen = false;
-			if(ElevatorOpenButton != null){
-				ElevatorOpenButton.enabled = false;
-			}
-	}
+	public void CloseDoors()
+	{
+		if (!isOpen)
+			return;
+		
+		DoorsAnim [AnimName].normalizedTime = 1;
+		DoorsAnim [AnimName].speed = -DoorsAnimSpeed;
+		DoorsAnim.Play ();
+		isOpen = false;
+		if (ElevatorOpenButton != null){
+			ElevatorOpenButton.enabled = false;
+		}
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
 		Debug.Log("Elevator Trigger Entered");
-		if(other.gameObject == Player.gameObject){
+		if(other.gameObject == Player.gameObject)
+		{
 			Debug.Log("Player Is Near Elevator");
 			inTrigger = true;
 			if(isReflectionProbe){
 				if(UpdateReflectionEveryFrame){
 					probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.EveryFrame;
-					probe.RenderProbe ();
+					probe.RenderProbe();
 				}
 			}
 		}
 	}
 	void OnTriggerExit(Collider other){
-		Debug.Log("Elevator Trigger Exitted");
-		if(other.gameObject == Player.gameObject){
+		Debug.Log("Elevator Trigger Exited");
+		if(other.gameObject == Player.gameObject)
+		{
 			inTrigger = false;
 			if(isReflectionProbe){
 				if(UpdateReflectionEveryFrame){
 					probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;
-					probe.RenderProbe ();
+					probe.RenderProbe();
 				}
 			}
 		}
 	}
-
 }
