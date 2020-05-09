@@ -1339,6 +1339,7 @@ GameObject:
   - component: {fileID: 114216818834575526}
   - component: {fileID: 111094543327852386}
   - component: {fileID: 82365187652466228}
+  - component: {fileID: 1201931269559730324}
   m_Layer: 0
   m_Name: Elevator
   m_TagString: Elevator
@@ -1407,6 +1408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef83689f16d06946925f8cfbf1e334c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elevatorManager: {fileID: 1201931269559730324}
   PlayerTag: Player
   DoorsAnimSpeed: 1
   OneFloorTime: 3
@@ -1540,6 +1542,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1201931269559730324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620237615631574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0314802e6a2fd9b42bac4b8e44939f6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RandomStartFloor: 0
+  InitialFloor: 1
+  _floor: 0
 --- !u!1 &1661198115829614
 GameObject:
   m_ObjectHideFlags: 0

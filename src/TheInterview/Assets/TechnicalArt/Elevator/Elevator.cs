@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ public class Elevator : MonoBehaviour {
 	private Rigidbody Player;
 	private Transform PlayerCam;
 
+	[SerializeField] private ElevatorManager elevatorManager;
+	
 	[Tooltip("Type your Player's tag here.")]
 	public string PlayerTag = "Player";
 	private Animation DoorsAnim;
@@ -84,12 +87,14 @@ public class Elevator : MonoBehaviour {
 	private AudioSource BtnSoundFX;
 
 	private bool ElvFound = false;
-	private ElevatorManager _elevatorManager;
 	private GameObject ElevatorsParent;
 
 
 	// Use this for initialization
 	void Awake () {
+		if (!elevatorManager)
+			throw new ArgumentException("ElevatorManager not configured");
+		
 		if (GetComponentInChildren<ReflectionProbe> ()) {
 			probe = GetComponentInChildren<ReflectionProbe> ();
 			probe.refreshMode = UnityEngine.Rendering.ReflectionProbeRefreshMode.OnAwake;
@@ -105,7 +110,7 @@ public class Elevator : MonoBehaviour {
 		if(transform.parent != null){
 			ElevatorsParent = transform.parent.gameObject;
 			if(ElevatorsParent.GetComponent<ElevatorManager>()){
-				_elevatorManager = ElevatorsParent.GetComponent<ElevatorManager> ();
+				elevatorManager = ElevatorsParent.GetComponent<ElevatorManager> ();
 			}
 		}
 
@@ -123,9 +128,6 @@ public class Elevator : MonoBehaviour {
 		SoundFX.priority = 256;
 
 		//
-
-
-
 		DoorsAnim = gameObject.GetComponent<Animation> ();
 		AnimName = DoorsAnim.clip.name;
 
@@ -167,17 +169,16 @@ public class Elevator : MonoBehaviour {
 			}
 		}
 
-		if (_elevatorManager) {
-			_elevatorManager.WasStarted += RandomInit;
+		if (elevatorManager) {
+			elevatorManager.WasStarted += RandomInit;
 		} else {
 			Debug.LogWarning ("Elevator: To use more than one elevator shaft, please create an empty gameobject in your scene, add the ElevatorManager.cs script on it and make elevators of one elevator shaft as child to this object. Repeate this for every different elevators shafts.");
 		}
-
 	}
 
 	void RandomInit(){
-		if (_elevatorManager) {
-			ElevatorFloor = _elevatorManager.InitialFloor;
+		if (elevatorManager) {
+			ElevatorFloor = elevatorManager.InitialFloor;
 		} else {
 			ElevatorFloor = 1;
 			//Debug.LogWarning ("No ElevatorManager has been found for '" + gameObject.name + "'. Initial floor will be set to 1. If you want to set your own floor or make it random, please make this object child to object with ElevatorManager script.");
@@ -192,7 +193,7 @@ public class Elevator : MonoBehaviour {
 
 			RaycastHit[] hits;
 				if (Input.GetKeyDown (KeyCode.E)) {
-
+					Debug.Log("Elevator Interact Button Pressed");
 					hits = Physics.RaycastAll (PlayerCam.position, PlayerCam.forward, 3);
 
 					for (int i = 0; i < hits.Length; i++) {
@@ -513,8 +514,11 @@ public class Elevator : MonoBehaviour {
 	}
 	}
 
-	void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other)
+	{
+		Debug.Log("Elevator Trigger Entered");
 		if(other.gameObject == Player.gameObject){
+			Debug.Log("Player Is Near Elevator");
 			inTrigger = true;
 			if(isReflectionProbe){
 				if(UpdateReflectionEveryFrame){
@@ -525,6 +529,7 @@ public class Elevator : MonoBehaviour {
 		}
 	}
 	void OnTriggerExit(Collider other){
+		Debug.Log("Elevator Trigger Exitted");
 		if(other.gameObject == Player.gameObject){
 			inTrigger = false;
 			if(isReflectionProbe){
