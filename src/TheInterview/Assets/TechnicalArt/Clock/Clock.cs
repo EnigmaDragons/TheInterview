@@ -12,13 +12,17 @@ public class Clock : MonoBehaviour {
 	public bool analog = true;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+		if (hours == null)
+			enabled = false;
 	}
 
 
-	void Update(){
-		if (analog) {
+	void Update()
+	{
+		if (analog) 
+		{
 			TimeSpan timespan = DateTime.Now.TimeOfDay;
 			hours.localRotation = Quaternion.Euler (0, 0, (float)timespan.TotalHours * hoursToDegrees);
 			minutes.localRotation = Quaternion.Euler (0, 0, (float)timespan.TotalMinutes * minutesToDegrees);
