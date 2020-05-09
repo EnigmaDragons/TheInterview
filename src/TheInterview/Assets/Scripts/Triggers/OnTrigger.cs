@@ -23,9 +23,10 @@ public class OnTrigger
             _actions = indexedUnityActions.ToDictionary(x => x.Index, x => x.Action);
 
         _hasTriggeredThisRun = true;
-        timesTriggeredEver.Value++;
+        if (timesTriggeredEver != null)
+            timesTriggeredEver.Value++;
         defaultAction.Invoke();
-        if (_actions.TryGetValue(timesTriggeredEver.Value, out var action))
+        if (_actions.TryGetValue(timesTriggeredEver?.Value ?? 0, out var action))
             action.Invoke();
     }
 }
