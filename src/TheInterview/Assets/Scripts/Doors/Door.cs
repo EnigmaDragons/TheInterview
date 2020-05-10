@@ -9,9 +9,11 @@ public class Door : MonoBehaviour
 	public bool isAutomatic = false;
 	public bool AutoClose = false;
 	public bool DoubleSidesOpen = false;
-	public string PlayerHeadTag = "MainCamera";
+	public string PlayerHeadTag = "Player";
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
+	[SerializeField] private AudioClip lockedSound;
+	[SerializeField] private AudioSource source;
 	private string _animName;
 	private bool inTrigger = false;
 	private bool isOpen = false;
@@ -20,40 +22,58 @@ public class Door : MonoBehaviour
 
 	public void SetCanBeOpened(bool state) => canBeOpened = state;
 	
-	void Start () 
+	void Start() 
 	{
-		anim = GetComponent<Animation> ();
-		_animName = anim.clip.name;
+		anim = GetComponent<Animation>();
+		if (anim != null && anim.clip != null)
+			_animName = anim.clip.name;
+		else
+			Debug.Log($"Door {name} cannot be opened, since it has no animations");
 	}
 	
-	void Update ()
+	void Update()
 	{
-		if (!canBeOpened || !inTrigger) 
+		if (!inTrigger) 
 			return;
 		
-		if(Input.GetKeyDown(KeyCode.E) && !isAutomatic)
+		if (Input.GetKeyDown(KeyCode.E) && !isAutomatic)
 		{
-			if (!isOpen) 
+			if (!canBeOpened)
 			{
-				isOpen = true;
-				OpenDoor();
-			} 
-			else 
+				if (source == null || lockedSound == null) 
+					return;
+				Debug.Log("Door - Locked Sound Effect");
+				source.clip = lockedSound;
+				source.Play();
+			}
+			else
 			{
-				isOpen = false;
-				CloseDoor();
+				if (!isOpen) 
+				{
+					isOpen = true;
+					OpenDoor();
+				} 
+				else 
+				{
+					isOpen = false;
+					CloseDoor();
+				}
 			}
 		}
 	}
-	void OpenDoor()
+	
+	public void OpenDoor()
 	{
+		if (!canBeOpened || isOpen)
+			return;
+		
 		Debug.Log("Opening Door");
 		anim [_animName].speed = 1 * OpenSpeed;
 		anim [_animName].normalizedTime = 0;
-		anim.Play (_animName);
+		anim.Play(_animName);
 	}
 	
-	void CloseDoor()
+	public void CloseDoor()
 	{
 		Debug.Log("Closing Door");
 		anim [_animName].speed = -1 * CloseSpeed;
