@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2009386610697149846}
   - component: {fileID: 6324565200236240659}
   - component: {fileID: 7727065048228611940}
+  - component: {fileID: 946900391442292605}
   m_Layer: 0
   m_Name: WeaknessButton
   m_TagString: RaycastInteract
@@ -48,11 +49,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger:
     isRecurring: 0
-    timesTriggeredEver: {fileID: 11400000, guid: 23d3235b303f45a4a94d419f774ffebf,
-      type: 2}
+    timesTriggeredEver: {fileID: 0}
     defaultAction:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 946900391442292605}
+          m_MethodName: Click
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     indexedUnityActions: []
 --- !u!33 &2009386610697149846
 MeshFilter:
@@ -80,7 +91,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0a37c3516a132246adaef7ce85a3eae, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -115,3 +126,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &946900391442292605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629437294961999326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe2761d95b5ce494885c464aaa357b9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speech: {fileID: 0}
+  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
