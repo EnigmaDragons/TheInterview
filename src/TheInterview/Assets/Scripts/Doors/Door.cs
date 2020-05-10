@@ -48,17 +48,11 @@ public class Door : MonoBehaviour
 			}
 			else
 			{
-				if (!isOpen) 
-				{
-					isOpen = true;
-					OpenDoor();
-				} 
-				else 
-				{
-					isOpen = false;
-					CloseDoor();
-				}
-			}
+				if (!isOpen)
+                    OpenDoor();
+                else
+                    CloseDoor();
+            }
 		}
 	}
 	
@@ -66,8 +60,9 @@ public class Door : MonoBehaviour
 	{
 		if (!canBeOpened || isOpen)
 			return;
-		
-		Debug.Log("Opening Door");
+
+        isOpen = true;
+        Debug.Log("Opening Door");
 		anim [_animName].speed = 1 * OpenSpeed;
 		anim [_animName].normalizedTime = 0;
 		anim.Play(_animName);
@@ -75,7 +70,8 @@ public class Door : MonoBehaviour
 	
 	public void CloseDoor()
 	{
-		Debug.Log("Closing Door");
+        isOpen = false;
+        Debug.Log("Closing Door");
 		anim [_animName].speed = -1 * CloseSpeed;
 		if (anim [_animName].normalizedTime > 0) {
 			anim [_animName].normalizedTime = anim [_animName].normalizedTime;

@@ -13,11 +13,22 @@ MonoBehaviour:
   m_Name: WeaknessReports
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
-  clip: {fileID: 0}
+  clip: {fileID: 8300000, guid: fb54202908d9e26469780e66e48bdf5f, type: 3}
   volume: 1
   subtitle: 
   onFinished:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 66df45689845bc545ba549207cb417f7, type: 2}
+        m_MethodName: WeaknessSelectedFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   secondsDelay: 0
   shouldInterupt: 1
