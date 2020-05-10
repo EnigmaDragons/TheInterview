@@ -32,4 +32,6 @@ public class NarratorSoundPlayer : ScriptableObject
         if (source != null && source.isPlaying)
             source.Stop();
     }
+
+    public void Stop() => StopIfPlaying();
 }
