@@ -1,1 +1,4 @@
-﻿public struct Finished<T> {}
+﻿public struct Finished<T>
+{
+    public T Message;
+}

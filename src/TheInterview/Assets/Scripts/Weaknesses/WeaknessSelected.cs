@@ -1,1 +1,4 @@
-﻿public struct WeaknessSelected {}
+﻿public struct WeaknessSelected
+{
+    public string Name;
+}

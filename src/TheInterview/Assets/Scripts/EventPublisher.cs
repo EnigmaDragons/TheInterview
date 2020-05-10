@@ -5,6 +5,7 @@ using UnityEngine;
 public class EventPublisher : ScriptableObject
 {
     public void ResetGameAfterDelay() => Message.Publish(new ResetGameAfterDelay());
-    public void WeaknessSelected() => Message.Publish(new WeaknessSelected());
-    public void WeaknessSelectedFinished() => Message.Publish(new Finished<WeaknessSelected>());
+    public void WeaknessSelected(string name = "") => Message.Publish(new WeaknessSelected { Name = name });
+    public void WeaknessSelectedFinished(string name = "") => Message.Publish(new Finished<WeaknessSelected> { Message = new WeaknessSelected { Name = name }});
+    public void HideOrbs() => Message.Publish(new HideOrbs());
 }
