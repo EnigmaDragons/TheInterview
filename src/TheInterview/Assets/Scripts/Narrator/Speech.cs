@@ -10,12 +10,18 @@ public class Speech : ScriptableObject
     [SerializeField] private float volume = 0.5f;
     [SerializeField] private string subtitle;
     [SerializeField] private UnityEvent onFinished;
+    [SerializeField] private float secondsDelay;
+    [SerializeField] private bool shouldInterupt = true;
 
     public IEnumerator AsyncPlay()
     {
-        narrator.Play(clip, volume);
-        yield return new WaitForSeconds(clip.length);
-        onFinished.Invoke();
+        if (shouldInterupt || !narrator.IsPlaying)
+        {
+            narrator.Play(clip, volume);
+            yield return new WaitForSeconds(clip.length);
+            yield return new WaitForSeconds(secondsDelay);
+            onFinished.Invoke();
+        }
     }
 
     public void Play() => Message.Publish(new PlaySpeech { Speech = this });
