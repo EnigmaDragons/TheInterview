@@ -9,4 +9,6 @@ public sealed class ColorVariable : ScriptableObject
         get => value;
         set => this.value = value;
     }
+
+    public ColorVariable(Color color) => value = color;
 }
