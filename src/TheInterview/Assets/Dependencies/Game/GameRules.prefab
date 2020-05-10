@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7408813273693018583}
   - component: {fileID: 7971746049877886148}
+  - component: {fileID: 6634296443514653097}
   m_Layer: 0
   m_Name: GameRules
   m_TagString: Untagged
@@ -48,3 +49,16 @@ MonoBehaviour:
     ConstantValue: 2
     FloatVariable: {fileID: 0}
   navigator: {fileID: 11400000, guid: 0571780278c9bfb4db35aafd2c143dd3, type: 2}
+--- !u!114 &6634296443514653097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126567620062983383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 063c91054e644541a55b56a7307e1b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
