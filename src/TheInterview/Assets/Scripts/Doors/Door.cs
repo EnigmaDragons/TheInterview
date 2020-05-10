@@ -9,7 +9,7 @@ public class Door : MonoBehaviour
 	public bool isAutomatic = false;
 	public bool AutoClose = false;
 	public bool DoubleSidesOpen = false;
-	public string PlayerHeadTag = "MainCamera";
+	public string PlayerHeadTag = "Player";
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
 	[SerializeField] private AudioClip lockedSound;
@@ -42,6 +42,7 @@ public class Door : MonoBehaviour
 			{
 				if (source == null || lockedSound == null) 
 					return;
+				Debug.Log("Door - Locked Sound Effect");
 				source.clip = lockedSound;
 				source.Play();
 			}

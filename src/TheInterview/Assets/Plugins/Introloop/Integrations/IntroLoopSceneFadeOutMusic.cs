@@ -5,7 +5,10 @@ public class IntroLoopSceneFadeOutMusic : MonoBehaviour
 {
     [SerializeField] private float fadeoutDuration = 3f;
 
-    void OnEnable()
+    void OnEnable() => Execute();
+    void Start() => Execute();
+
+    void Execute()
     {
         Debug.Log("IntroLoop fadeout");
         IntroloopPlayer.Instance.Stop(fadeoutDuration);
