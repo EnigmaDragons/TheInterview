@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 928002745753541015}
   - component: {fileID: 928002745753541014}
-  - component: {fileID: 6960765134745598082}
+  - component: {fileID: 8980316245261130581}
   m_Layer: 0
   m_Name: FullGame-SceneAreaManager
   m_TagString: Untagged
@@ -57,7 +57,7 @@ MonoBehaviour:
     Object: {fileID: 4657307333806501271}
   - Region: 5
     Object: {fileID: 7518244075902709908}
---- !u!114 &6960765134745598082
+--- !u!114 &8980316245261130581
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,10 +66,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 928002745753541013}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f3c1e50ee964f07a0dc3a55bbbe5025, type: 3}
+  m_Script: {fileID: 11500000, guid: b70a64aadd044ec8855c8e23db761393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeoutDuration: 3
+  music: {fileID: 11400000, guid: 0e0abfa7b10e5e047b85093e06c0e66c, type: 2}
+  musicPlayer: {fileID: 11400000, guid: 95f47694e0b28ce48a808ae15f18f4d8, type: 2}
 --- !u!1 &4657307333806501271
 GameObject:
   m_ObjectHideFlags: 0
