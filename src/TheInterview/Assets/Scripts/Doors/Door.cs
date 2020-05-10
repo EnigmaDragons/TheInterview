@@ -12,6 +12,8 @@ public class Door : MonoBehaviour
 	public string PlayerHeadTag = "MainCamera";
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
+	[SerializeField] private AudioClip lockedSound;
+	[SerializeField] private AudioSource source;
 	private string _animName;
 	private bool inTrigger = false;
 	private bool isOpen = false;
@@ -31,23 +33,34 @@ public class Door : MonoBehaviour
 	
 	void Update ()
 	{
-		if (!canBeOpened || !inTrigger) 
+		if (!inTrigger) 
 			return;
 		
-		if(Input.GetKeyDown(KeyCode.E) && !isAutomatic)
+		if (Input.GetKeyDown(KeyCode.E) && !isAutomatic)
 		{
-			if (!isOpen) 
+			if (!canBeOpened)
 			{
-				isOpen = true;
-				OpenDoor();
-			} 
-			else 
+				if (source == null || lockedSound == null) 
+					return;
+				source.clip = lockedSound;
+				source.Play();
+			}
+			else
 			{
-				isOpen = false;
-				CloseDoor();
+				if (!isOpen) 
+				{
+					isOpen = true;
+					OpenDoor();
+				} 
+				else 
+				{
+					isOpen = false;
+					CloseDoor();
+				}
 			}
 		}
 	}
+	
 	void OpenDoor()
 	{
 		Debug.Log("Opening Door");
