@@ -22,8 +22,11 @@ public class Door : MonoBehaviour
 	
 	void Start () 
 	{
-		anim = GetComponent<Animation> ();
-		_animName = anim.clip.name;
+		anim = GetComponent<Animation>();
+		if (anim != null && anim.clip != null)
+			_animName = anim.clip.name;
+		else
+			Debug.Log($"Door {name} cannot be opened, since it has no animations");
 	}
 	
 	void Update ()
