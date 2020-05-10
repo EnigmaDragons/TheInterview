@@ -22,7 +22,7 @@ public class Door : MonoBehaviour
 
 	public void SetCanBeOpened(bool state) => canBeOpened = state;
 	
-	void Start () 
+	void Start() 
 	{
 		anim = GetComponent<Animation>();
 		if (anim != null && anim.clip != null)
@@ -31,7 +31,7 @@ public class Door : MonoBehaviour
 			Debug.Log($"Door {name} cannot be opened, since it has no animations");
 	}
 	
-	void Update ()
+	void Update()
 	{
 		if (!inTrigger) 
 			return;
@@ -61,15 +61,18 @@ public class Door : MonoBehaviour
 		}
 	}
 	
-	void OpenDoor()
+	public void OpenDoor()
 	{
+		if (!canBeOpened || isOpen)
+			return;
+		
 		Debug.Log("Opening Door");
 		anim [_animName].speed = 1 * OpenSpeed;
 		anim [_animName].normalizedTime = 0;
-		anim.Play (_animName);
+		anim.Play(_animName);
 	}
 	
-	void CloseDoor()
+	public void CloseDoor()
 	{
 		Debug.Log("Closing Door");
 		anim [_animName].speed = -1 * CloseSpeed;
