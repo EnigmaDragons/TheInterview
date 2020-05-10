@@ -1,5 +1,5 @@
 ﻿
 public class DisableRegion
 {
-    public SceneRegion Region;
+    public string RegionName;
 }

@@ -10,4 +10,6 @@ public class Vector3Variable : ScriptableObject
         get { return value; }
         set { this.value = value; }
     }
+
+    public void SetVector3(Vector3 vector3) => value = vector3;
 }

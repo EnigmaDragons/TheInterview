@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class SceneRegionTrigger : TriggerZone
 {
-    [SerializeField] private SceneRegion enableRegion;
-    [SerializeField] private SceneRegion disableRegion;
+    [SerializeField] private string enableRegion;
+    [SerializeField] private string disableRegion;
 
     void Awake() => Action = SendMessages;
 
     private void SendMessages()
     {
-        Message.Publish(new EnableRegion { Region = enableRegion });
-        Message.Publish(new DisableRegion { Region = disableRegion });
+        Message.Publish(new EnableRegion { RegionName = enableRegion });
+        Message.Publish(new DisableRegion { RegionName = disableRegion });
     }
 }

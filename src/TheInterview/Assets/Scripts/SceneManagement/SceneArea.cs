@@ -4,6 +4,6 @@ using UnityEngine;
 [Serializable]
 public struct SceneArea
 {
-    public SceneRegion Region;
+    public string RegionName;
     public GameObject Object;
 }

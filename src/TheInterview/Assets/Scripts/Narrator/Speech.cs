@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Speech : ScriptableObject
 {
     [SerializeField] private NarratorSoundPlayer narrator;
+    [SerializeField] private NarratedBy voiceActor;
     [SerializeField] private AudioClip clip;
     [SerializeField] private float volume = 0.5f;
     [SerializeField] private string subtitle;
@@ -13,6 +14,8 @@ public class Speech : ScriptableObject
     [SerializeField] private float secondsDelay;
     [SerializeField] private bool shouldInterupt = true;
 
+    public NarratedBy NarratedBy => voiceActor;
+    
     public IEnumerator AsyncPlay()
     {
         if (shouldInterupt || !narrator.IsPlaying)

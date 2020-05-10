@@ -1,5 +1,5 @@
 ﻿
 public class EnableRegion
 {
-    public SceneRegion Region;
+    public string RegionName;
 }
