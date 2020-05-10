@@ -16,6 +16,28 @@ public sealed class GameMusicPlayer : ScriptableObject
         if (musicSource == null)
             Init(source);
     }
+
+    public void FadeOutMusic(MonoBehaviour script, float duration)
+    {
+        script.StartCoroutine(musicSource.FadeOutAsync(duration));
+    }
+    
+    public void PlaySelectedMusicOnce(AudioClip clipToPlay)
+    {
+        if (musicSource == null)
+        {
+            Debug.LogError($"nameof(musicSource) has not been initialized");
+            return;
+        }
+        
+        if (musicSource.isPlaying && musicSource.clip.name.Equals(clipToPlay.name))
+            return;
+        
+        StopMusicIfPlaying();
+        musicSource.clip = clipToPlay;
+        musicSource.loop = false;
+        musicSource.Play();
+    }
     
     public void PlaySelectedMusicLooping(AudioClip clipToPlay)
     {

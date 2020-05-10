@@ -166,6 +166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3108224436460602746}
   - component: {fileID: 3108224436460602747}
+  - component: {fileID: 2697363291434204691}
   m_Layer: 0
   m_Name: Scene2-SceneAreaManager
   m_TagString: Untagged
@@ -213,6 +214,19 @@ MonoBehaviour:
     Object: {fileID: 3108224437635784677}
   - Region: 4
     Object: {fileID: 3108224437244786592}
+--- !u!114 &2697363291434204691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3108224436460602693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f3c1e50ee964f07a0dc3a55bbbe5025, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeoutDuration: 3
 --- !u!1 &3108224437244786592
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,15 +2748,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b678245342b7a5443aed917e0a6b42ad, type: 3}
---- !u!4 &3108224436784834528 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7075105713875904338, guid: b678245342b7a5443aed917e0a6b42ad,
-    type: 3}
-  m_PrefabInstance: {fileID: 5263989439911641266}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3108224436784834531 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7075105713875904337, guid: b678245342b7a5443aed917e0a6b42ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 5263989439911641266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3108224436784834528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7075105713875904338, guid: b678245342b7a5443aed917e0a6b42ad,
     type: 3}
   m_PrefabInstance: {fileID: 5263989439911641266}
   m_PrefabAsset: {fileID: 0}
