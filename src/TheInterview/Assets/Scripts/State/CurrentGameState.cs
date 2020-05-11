@@ -19,6 +19,7 @@ public sealed class CurrentGameState : ScriptableObject
     public void SoftReset()
     {
         gameState = new GameState();
+        gameState.ShouldBeHired = true;
     }
 
     public void Subscribe(Action<GameStateChanged> onChange, object owner) => Message.Subscribe(onChange, owner);
@@ -40,4 +41,5 @@ public sealed class CurrentGameState : ScriptableObject
     }
 
     public bool ShouldBeHired => gameState.ShouldBeHired;
+    public void FailedHiring() => gameState.ShouldBeHired = false;
 }
