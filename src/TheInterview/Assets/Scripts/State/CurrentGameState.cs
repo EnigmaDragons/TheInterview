@@ -38,4 +38,6 @@ public sealed class CurrentGameState : ScriptableObject
         gameState = apply(gameState);
         Message.Publish(new GameStateChanged(gameState));
     }
+
+    public bool ShouldBeHired => gameState.ShouldBeHired;
 }
