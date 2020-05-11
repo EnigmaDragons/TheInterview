@@ -10,7 +10,9 @@ public class SceneRegionTrigger : TriggerZone
 
     private void SendMessages()
     {
-        Message.Publish(new EnableRegion { RegionName = enableRegion });
-        Message.Publish(new DisableRegion { RegionName = disableRegion });
+        if (!string.IsNullOrWhiteSpace(enableRegion))
+            Message.Publish(new EnableRegion { RegionName = enableRegion });
+        if (!string.IsNullOrWhiteSpace(disableRegion))
+            Message.Publish(new DisableRegion { RegionName = disableRegion });
     }
 }
