@@ -4,8 +4,9 @@ public sealed class IndexSelector<T>
     private readonly T[] _items;
     private int _index;
 
-    public IndexSelector(T[] items)
+    public IndexSelector(T[] items, int index = 0)
     {
+        _index = index;
         _items = items;
     }
 
