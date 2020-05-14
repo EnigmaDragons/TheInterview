@@ -856,7 +856,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 80}
+  m_SizeDelta: {x: 0, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2890657806542463197
 CanvasRenderer:
@@ -936,6 +936,7 @@ MonoBehaviour:
   left: {fileID: 7690335843567428840}
   right: {fileID: 9184744546527513361}
   choiceLabel: {fileID: 2338899125631139232}
+  defaultChoiceIndex: 0
   choices:
   - M.A.
   - M.S.
@@ -966,6 +967,7 @@ MonoBehaviour:
   left: {fileID: 3376805878267993494}
   right: {fileID: 3376805878197130125}
   choiceLabel: {fileID: 3376805877978767770}
+  defaultChoiceIndex: 0
   choices:
   - Mass-Scale Social Messaging
   - Robotelekinetics
