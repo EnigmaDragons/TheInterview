@@ -10,6 +10,7 @@ public class ChoiceField : MonoBehaviour
     [SerializeField] private Button left;
     [SerializeField] private Button right;
     [SerializeField] private TextMeshProUGUI choiceLabel;
+    [SerializeField] private bool useRandomStartingIndex = false;
     [SerializeField] private int defaultChoiceIndex = 0;
     [SerializeField] private string[] choices;
 
@@ -19,7 +20,8 @@ public class ChoiceField : MonoBehaviour
     {
         if (label != null)
             label.text = fieldType + ":";
-        _choices = new IndexSelector<string>(choices, defaultChoiceIndex);
+        var startingIndex = useRandomStartingIndex ? Rng.Int(0, choices.Length - 1) : defaultChoiceIndex;
+        _choices = new IndexSelector<string>(choices, startingIndex);
         left.onClick.AddListener(() => UpdateAfter(() => _choices.MovePrevious()));
         right.onClick.AddListener(() => UpdateAfter(() => _choices.MoveNext()));
         UpdateLabel();
@@ -27,10 +29,9 @@ public class ChoiceField : MonoBehaviour
 
     private void UpdateAfter(Action a)
     {
-        Debug.Log("Clicked Button");
         a();
         UpdateLabel();
-        Debug.Log($"New choice is {_choices.Current}");
+        Message.Publish(new SelectedResumeChoice { Field = fieldType, Value = _choices.Current });
     }
     
     private void UpdateLabel() => choiceLabel.text = _choices.Current;
