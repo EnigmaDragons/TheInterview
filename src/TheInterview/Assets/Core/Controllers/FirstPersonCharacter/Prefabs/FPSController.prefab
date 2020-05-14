@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8200000}
   - component: {fileID: 8023688337951745204}
   - component: {fileID: 321657193342449630}
+  - component: {fileID: 1449571098993103984}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -320,6 +321,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   eyes: {fileID: 2000000}
   interactRange: 3
+  interactLongRange: 20
+--- !u!114 &1449571098993103984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a50ac060472d4487a7c11eaf1a5ab0f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 11400000}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

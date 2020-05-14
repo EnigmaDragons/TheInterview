@@ -39,7 +39,7 @@ RectTransform:
   - {fileID: 7098550959505356737}
   - {fileID: 2961480287891325101}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5484,7 +5484,7 @@ RectTransform:
   - {fileID: 2766258580121987980}
   - {fileID: 2766258579166565784}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -7289,7 +7289,7 @@ RectTransform:
   - {fileID: 2766258579822444383}
   - {fileID: 2766258580272350492}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -20593,7 +20593,7 @@ RectTransform:
   - {fileID: 2766258580786403778}
   - {fileID: 2766258580120048062}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -28136,7 +28136,7 @@ RectTransform:
   - {fileID: 2766258580264537657}
   - {fileID: 2766258579175850345}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -31897,7 +31897,7 @@ RectTransform:
   - {fileID: 2766258579907903159}
   - {fileID: 2766258580201283585}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -43459,7 +43459,7 @@ RectTransform:
   - {fileID: 2766258581130117861}
   - {fileID: 2766258579710695195}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -44278,6 +44278,7 @@ GameObject:
   - component: {fileID: 3309597305568425091}
   - component: {fileID: 3309597305568425092}
   - component: {fileID: 2491895850471492035}
+  - component: {fileID: 6073227657285827630}
   m_Layer: 5
   m_Name: Digipad
   m_TagString: Untagged
@@ -44296,6 +44297,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 6619695001890773505}
   - {fileID: 357833411080946123}
   - {fileID: 2961480288357699793}
   - {fileID: 2766258579489821136}
@@ -44303,7 +44305,6 @@ RectTransform:
   - {fileID: 2766258579394574270}
   - {fileID: 2766258580114887157}
   - {fileID: 2766258580485983795}
-  - {fileID: 6619695001890773505}
   m_Father: {fileID: 3309597304867688688}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -44368,6 +44369,18 @@ MonoBehaviour:
   - {fileID: 2766258579394574268}
   - {fileID: 2766258580114887155}
   - {fileID: 2766258580485983794}
+--- !u!114 &6073227657285827630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3309597305568425094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 856304586da1400681e60e3b62158365, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5106088632349460553
 GameObject:
   m_ObjectHideFlags: 0
@@ -45050,7 +45063,7 @@ RectTransform:
   - {fileID: 7298186609511341890}
   - {fileID: 8967489356380054440}
   m_Father: {fileID: 3309597305568425093}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
