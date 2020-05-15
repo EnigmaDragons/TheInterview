@@ -59,7 +59,7 @@ public class PlayerInteraction : MonoBehaviour
     
     private void Update()
     {
-        var shouldExecute = Input.GetKeyDown(KeyCode.E);
+        var shouldExecute = InteractionInputs.IsPlayerSignallingInteraction();
         
         if (shouldExecute)
             UpdatePossibleInteractions();

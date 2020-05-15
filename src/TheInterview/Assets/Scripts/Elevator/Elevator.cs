@@ -210,7 +210,7 @@ public class Elevator : MonoBehaviour
 
 	private void UpdateInputs()
 	{
-		if (!Input.GetKeyDown(KeyCode.E)) 
+		if (!InteractionInputs.IsPlayerSignallingInteraction()) 
 			return;
 		
 		var numHits = Physics.RaycastNonAlloc(PlayerCam.position, PlayerCam.forward, raycastHits, maxDistance: 3);

@@ -50,7 +50,7 @@ public class Door : MonoBehaviour
 			SetCanBeOpened(false);
 		}
 		
-		if (Input.GetKeyDown(KeyCode.E) && !isAutomatic)
+		if (InteractionInputs.IsPlayerSignallingInteraction() && !isAutomatic)
 		{
 			if (!canBeOpened)
 			{
