@@ -15,6 +15,8 @@ public class Door : MonoBehaviour
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
 	[SerializeField] private AudioClip lockedSound;
+	[SerializeField] private AudioClip openSound;
+	[SerializeField] private AudioClip closeSound;
 	[SerializeField] private AudioSource source;
 	private string _animName;
 	private bool inTrigger = false;
@@ -76,8 +78,7 @@ public class Door : MonoBehaviour
 		if (!canBeOpened)
 		{
 			Debug.Log("Door - Locked Sound Effect");
-			source.clip = lockedSound;
-			source.Play();
+			PlaySound(lockedSound);
 			return;
 		}
 
@@ -87,15 +88,27 @@ public class Door : MonoBehaviour
 		
 		isOpen = true;
 		Debug.Log("Door - Opening");
+		PlaySound(openSound);
 		anim[_animName].speed = 1 * OpenSpeed;
 		anim[_animName].normalizedTime = 0;
 		anim.Play(_animName);
+	}
+
+	private void PlaySound(AudioClip c)
+	{
+		if (c == null)
+			return;
+		
+		source.Stop();
+		source.clip = c;
+		source.Play();
 	}
 	
 	public void CloseDoor()
 	{
         isOpen = false;
         Debug.Log("Closing Door");
+        PlaySound(closeSound);
 		anim [_animName].speed = -1 * CloseSpeed;
 		if (anim [_animName].normalizedTime > 0) {
 			anim [_animName].normalizedTime = anim [_animName].normalizedTime;

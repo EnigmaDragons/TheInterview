@@ -60,8 +60,12 @@ public class PlayerInteraction : MonoBehaviour
     private void Update()
     {
         var shouldExecute = Input.GetKeyDown(KeyCode.E);
-        if (checkBeforePlayerTriesToInteract || shouldExecute)
+        
+        if (shouldExecute)
             UpdatePossibleInteractions();
+        else if (checkBeforePlayerTriesToInteract && Time.frameCount % 6 == 0)
+            UpdatePossibleInteractions();
+        
         if (shouldExecute) 
             Interact();
     }
