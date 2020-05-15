@@ -36,7 +36,7 @@ public class PlayerInteraction : MonoBehaviour
                 var interactTrigger = hitObj.GetComponent<InteractTrigger>();
                 if (interactTrigger != null)
                 { 
-                    canInteract = true;
+                    canInteract = interactTrigger.CanTrigger();
                     _interactObjectName = hitObj.name;
                     _interact = () => interactTrigger.Execute();
                 }
@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
                 var interactTrigger = hitObj.GetComponent<LongRangeInteractTrigger>();
                 if (interactTrigger != null)
                 {  
-                    canInteract = true;
+                    canInteract = interactTrigger.CanTrigger();
                     _interactObjectName = hitObj.name;
                     _interact = () => interactTrigger.Execute();
                 }
