@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             var hit = _raycastHits[i];
             var hitObj = hit.collider.gameObject;
-            if (!hitObj.CompareTag("RaycastInteract")) 
+            if (!hitObj.CompareTag("RaycastInteract"))
                 continue;
             
             if (hit.distance <= interactRange)
