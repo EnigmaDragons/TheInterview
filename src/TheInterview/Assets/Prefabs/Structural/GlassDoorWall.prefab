@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 124
   m_IsActive: 1
 --- !u!4 &6918152411662138618
 Transform:
@@ -107,7 +107,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 124
   m_IsActive: 1
 --- !u!4 &8239698533081059584
 Transform:
@@ -137,6 +137,10 @@ PrefabInstance:
     - target: {fileID: 1000743313344242, guid: c21d71bf351c2704abe8a00f49a72a06, type: 3}
       propertyPath: m_Name
       value: GlassDecor_2m (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000743313344242, guid: c21d71bf351c2704abe8a00f49a72a06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 4521156128020330, guid: c21d71bf351c2704abe8a00f49a72a06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,6 +217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GlassDecor_2m (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1000743313344242, guid: c21d71bf351c2704abe8a00f49a72a06, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 124
+      objectReference: {fileID: 0}
     - target: {fileID: 4521156128020330, guid: c21d71bf351c2704abe8a00f49a72a06, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -284,9 +292,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8239698533081059584}
     m_Modifications:
+    - target: {fileID: 1252341900388678, guid: 39dc8e17e68667041a4ce46d7f7f6476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 124
+      objectReference: {fileID: 0}
     - target: {fileID: 1336128374007992, guid: 39dc8e17e68667041a4ce46d7f7f6476, type: 3}
       propertyPath: m_Name
       value: DoorGlassDecor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1336128374007992, guid: 39dc8e17e68667041a4ce46d7f7f6476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 124
+      objectReference: {fileID: 0}
+    - target: {fileID: 1411324007916140, guid: 39dc8e17e68667041a4ce46d7f7f6476, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 124
       objectReference: {fileID: 0}
     - target: {fileID: 4034978068496466, guid: 39dc8e17e68667041a4ce46d7f7f6476, type: 3}
       propertyPath: m_LocalPosition.x

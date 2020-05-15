@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
         {
             var hit = _raycastHits[i];
             var hitObj = hit.collider.gameObject;
-            if (!hitObj.CompareTag("RaycastInteract")) 
+            if (!hitObj.CompareTag("RaycastInteract"))
                 continue;
             
             if (hit.distance <= interactRange)
@@ -59,9 +59,13 @@ public class PlayerInteraction : MonoBehaviour
     
     private void Update()
     {
-        var shouldExecute = Input.GetKeyDown(KeyCode.E);
-        if (checkBeforePlayerTriesToInteract || shouldExecute)
+        var shouldExecute = InteractionInputs.IsPlayerSignallingInteraction();
+        
+        if (shouldExecute)
             UpdatePossibleInteractions();
+        else if (checkBeforePlayerTriesToInteract && Time.frameCount % 6 == 0)
+            UpdatePossibleInteractions();
+        
         if (shouldExecute) 
             Interact();
     }

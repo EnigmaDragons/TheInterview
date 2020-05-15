@@ -92,6 +92,7 @@ public class Elevator : MonoBehaviour
 
 	private RaycastHit[] raycastHits = new RaycastHit[10];
 	private bool Moved = false;
+	private Action _onArrival = () => { };
 	
 	public void DisablePlayerInteraction()
 	{
@@ -109,8 +110,13 @@ public class Elevator : MonoBehaviour
 	{
 		DestinationFloor = targetFloor;
 	}
+
+	public void SetOnArrivalAction(Action a)
+	{
+		_onArrival = a;
+	}
 	
-	void Awake () 
+	void Awake() 
 	{
 		if (GetComponentInChildren<ReflectionProbe> ()) {
 			probe = GetComponentInChildren<ReflectionProbe> ();
@@ -204,7 +210,7 @@ public class Elevator : MonoBehaviour
 
 	private void UpdateInputs()
 	{
-		if (!Input.GetKeyDown(KeyCode.E)) 
+		if (!InteractionInputs.IsPlayerSignallingInteraction()) 
 			return;
 		
 		var numHits = Physics.RaycastNonAlloc(PlayerCam.position, PlayerCam.forward, raycastHits, maxDistance: 3);
@@ -384,6 +390,7 @@ public class Elevator : MonoBehaviour
 				}
 
 				Invoke ("TargetElvOpening", OpenDelay);
+				_onArrival();
 			}
 		}
 	}
