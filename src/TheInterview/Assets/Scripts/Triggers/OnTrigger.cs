@@ -14,10 +14,11 @@ public class OnTrigger
 
     private bool _hasTriggeredThisRun;
     private Dictionary<int, UnityEvent> _actions;
+    public bool CanTrigger => isRecurring || !_hasTriggeredThisRun;
 
     public void Trigger()
     {
-        if (!isRecurring && _hasTriggeredThisRun)
+        if (!CanTrigger)
             return;
         if (_actions == null)
             _actions = indexedUnityActions.ToDictionary(x => x.Index, x => x.Action);

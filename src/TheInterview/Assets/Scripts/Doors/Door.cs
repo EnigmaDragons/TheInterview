@@ -9,6 +9,8 @@ public class Door : MonoBehaviour
 	public bool isAutomatic = false;
 	public bool AutoClose = false;
 	public bool DoubleSidesOpen = false;
+	public bool OneWay = false;
+	public PlayerTrackerZone otherSide;
 	public string PlayerHeadTag = "Player";
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
@@ -20,8 +22,12 @@ public class Door : MonoBehaviour
 	private Vector3 relativePos;
 	private Animation anim;
 
-	public void SetCanBeOpened(bool state) => canBeOpened = state;
-	
+	public void SetCanBeOpened(bool state)
+	{
+		canBeOpened = state;
+		Debug.Log($"Door {name} is {(state ? "Unlocked" : "Locked")}");
+	}
+
 	void Start() 
 	{
 		anim = GetComponent<Animation>();
@@ -33,8 +39,14 @@ public class Door : MonoBehaviour
 	
 	void Update()
 	{
-		if (!inTrigger) 
+		if (!inTrigger && (!OneWay || !otherSide.IsPlayerIn)) 
 			return;
+
+		if (isOpen && OneWay && otherSide.IsPlayerIn)
+		{
+			CloseDoor();
+			SetCanBeOpened(false);
+		}
 		
 		if (Input.GetKeyDown(KeyCode.E) && !isAutomatic)
 		{
@@ -58,13 +70,25 @@ public class Door : MonoBehaviour
 	
 	public void OpenDoor()
 	{
-		if (!canBeOpened || isOpen)
+		if (isOpen)
 			return;
+		
+		if (!canBeOpened)
+		{
+			Debug.Log("Door - Locked Sound Effect");
+			source.clip = lockedSound;
+			source.Play();
+			return;
+		}
 
-        isOpen = true;
-        Debug.Log("Opening Door");
-		anim [_animName].speed = 1 * OpenSpeed;
-		anim [_animName].normalizedTime = 0;
+		var isOnWrongSide = OneWay && otherSide.IsPlayerIn;
+		if (isOnWrongSide)
+			return;
+		
+		isOpen = true;
+		Debug.Log("Door - Opening");
+		anim[_animName].speed = 1 * OpenSpeed;
+		anim[_animName].normalizedTime = 0;
 		anim.Play(_animName);
 	}
 	
