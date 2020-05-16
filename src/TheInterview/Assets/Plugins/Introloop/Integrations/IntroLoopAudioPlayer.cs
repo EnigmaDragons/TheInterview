@@ -25,4 +25,9 @@ public class IntroLoopAudioPlayer : ScriptableObject
         var volume = PlayerPrefs.GetFloat(volumeValueName, 0.75f);
         mixer.SetFloat(volumeValueName, Mathf.Log10(volume) * 20);
     }
+
+    public void Stop()
+    {
+        IntroloopPlayer.Instance.Stop(1f);
+    }
 }
