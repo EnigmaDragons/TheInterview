@@ -10,4 +10,5 @@ public class EventPublisher : ScriptableObject
     public void HideOrbs() => Message.Publish(new HideOrbs());
     public void PresentNextQuestion() => Message.Publish(new PresentNextQuestion());
     public void PresentAnswers() => Message.Publish(new PresentAnswers());
+    public void InterviewScheduled() => Message.Publish(new InterviewScheduled());
 }

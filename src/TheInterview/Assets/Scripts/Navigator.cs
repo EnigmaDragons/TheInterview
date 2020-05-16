@@ -11,6 +11,7 @@ public class Navigator : ScriptableObject
     public void GoToCredits() => LoadScene("SimpleCreditsScene");
     public void GoToScene2() => LoadScene("Scene2-UrbanamicsBuilding");
     public void GoToScene3() => LoadScene("Scene3-TheInterview");
+    public void GoToApartment() => LoadScene("Scene1-Apartment");
 
     private void LoadScene(string sceneName)
     {
