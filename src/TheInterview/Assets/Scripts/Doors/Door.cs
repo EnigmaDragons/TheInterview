@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Door : MonoBehaviour 
 {
@@ -44,10 +43,11 @@ public class Door : MonoBehaviour
 		if (!inTrigger && (!OneWay || !otherSide.IsPlayerIn)) 
 			return;
 
-		if (isOpen && OneWay && otherSide.IsPlayerIn)
+		if (OneWay && otherSide.IsPlayerIn)
 		{
-			CloseDoor();
 			SetCanBeOpened(false);
+			if (isOpen)
+				CloseDoor();
 		}
 		
 		if (InteractionInputs.IsPlayerSignallingInteraction() && !isAutomatic)
