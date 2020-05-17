@@ -53,7 +53,6 @@ public class Elevator : MonoBehaviour
 	private MeshRenderer ElevatorGoBtn;
 	private List<MeshRenderer> ElevatorNumericButtons = new List<MeshRenderer>();
 	private AudioSource SoundFX;
-	private AudioSource TargetSoundFX;
 	private bool SpeedUp = false;
 	private bool SlowDown = false;
 	private static bool Moving = false;
@@ -92,6 +91,7 @@ public class Elevator : MonoBehaviour
 
 	private RaycastHit[] raycastHits = new RaycastHit[10];
 	private bool Moved = false;
+	private Action _onArrival = () => { };
 	
 	public void DisablePlayerInteraction()
 	{
@@ -109,8 +109,13 @@ public class Elevator : MonoBehaviour
 	{
 		DestinationFloor = targetFloor;
 	}
+
+	public void SetOnArrivalAction(Action a)
+	{
+		_onArrival = a;
+	}
 	
-	void Awake () 
+	void Awake() 
 	{
 		if (GetComponentInChildren<ReflectionProbe> ()) {
 			probe = GetComponentInChildren<ReflectionProbe> ();
@@ -122,19 +127,21 @@ public class Elevator : MonoBehaviour
 
 		playerExists = false;
 		Moving = false;
-		BtnSoundFX = GetComponent<AudioSource>();
-
-		//SoundFX initialisation
-		SoundFX = new GameObject ().AddComponent<AudioSource>();
-		SoundFX.transform.parent = gameObject.transform;
-		SoundFX.transform.position = gameObject.transform.position + new Vector3(0, 2.2f, 0);
-		SoundFX.gameObject.name = "SoundFX";
-		SoundFX.playOnAwake = false;
-		SoundFX.spatialBlend = 1;
-		SoundFX.minDistance = 0.1f;
-		SoundFX.maxDistance = 10;
-		SoundFX.rolloffMode = AudioRolloffMode.Linear;
-		SoundFX.priority = 256;
+		SoundFX = GetComponent<AudioSource>();
+		BtnSoundFX = SoundFX;
+		
+//		//SoundFX initialisation
+//		SoundFX = new GameObject ().AddComponent<AudioSource>();
+//		SoundFX.transform.parent = gameObject.transform;
+//		SoundFX.transform.position = gameObject.transform.position + new Vector3(0, 2.2f, 0);
+//		SoundFX.outputAudioMixerGroup = BtnSoundFX.outputAudioMixerGroup;
+//		SoundFX.gameObject.name = "SoundFX";
+//		SoundFX.playOnAwake = false;
+//		SoundFX.spatialBlend = 1;
+//		SoundFX.minDistance = 0.1f;
+//		SoundFX.maxDistance = 20;
+//		SoundFX.rolloffMode = AudioRolloffMode.Linear;
+//		SoundFX.priority = 256;
 
 		DoorsAnim = gameObject.GetComponent<Animation>();
 		AnimName = DoorsAnim.clip.name;
@@ -204,7 +211,7 @@ public class Elevator : MonoBehaviour
 
 	private void UpdateInputs()
 	{
-		if (!Input.GetKeyDown(KeyCode.E)) 
+		if (!InteractionInputs.IsPlayerSignallingInteraction()) 
 			return;
 		
 		var numHits = Physics.RaycastNonAlloc(PlayerCam.position, PlayerCam.forward, raycastHits, maxDistance: 3);
@@ -364,7 +371,7 @@ public class Elevator : MonoBehaviour
 				DebugLog($"Has Arrived At {TargetFloor}");
 				//Moving = false;
 				SoundFX.Stop();
-				TargetBellSoundPlay();
+				BellSoundPlay();
 
 				if (!isRigidbodyCharacter) {
 					Player.isKinematic = false;
@@ -384,12 +391,14 @@ public class Elevator : MonoBehaviour
 				}
 
 				Invoke ("TargetElvOpening", OpenDelay);
+				_onArrival();
 			}
 		}
 	}
 
 	private void StartElevatorMovingSoundFx()
 	{
+		DebugLog("Playing Moving Sounds");
 		SoundFX.clip = ElevatorMove;
 		SoundFX.loop = true;
 		SoundFX.volume = 0.5f;
@@ -439,27 +448,15 @@ public class Elevator : MonoBehaviour
 		}
 	}
 
-	void TargetBellSoundPlay()
+	void BellSoundPlay()
 	{
-		if(CurrentFloor == TargetFloor)
-		{
-			TargetSoundFX = SoundFX;
-			TargetSoundFX.clip = Bell;
-			TargetSoundFX.loop = false;
-			TargetSoundFX.volume = BellVolume;
-			TargetSoundFX.pitch = 1;
-			SoundFX.pitch = 1;
-			TargetSoundFX.Play ();
-			UpdateText();
-		}
-	}
-		
-	void BellSoundPlay(){
+		DebugLog("Play Bell Sound");
 		SoundFX.clip = Bell;
 		SoundFX.loop = false;
 		SoundFX.volume = BellVolume;
 		SoundFX.pitch = 1;
 		SoundFX.Play ();
+		UpdateText();
 	}
 
 	void UpdateText()

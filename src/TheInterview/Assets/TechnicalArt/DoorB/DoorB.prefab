@@ -189,9 +189,10 @@ GameObject:
   - component: {fileID: 64421229947635136}
   - component: {fileID: 114625168362617642}
   - component: {fileID: 4583211084841400821}
+  - component: {fileID: 6005514950277742957}
   m_Layer: 0
   m_Name: DoorB
-  m_TagString: Untagged
+  m_TagString: RaycastInteract
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -285,7 +286,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0460005, y: 2.123, z: 2.6447716}
+  m_Size: {x: 1.0460005, y: 2.123, z: 0.32}
   m_Center: {x: 0.00000011920929, y: 1.0615, z: 0.017065048}
 --- !u!64 &64421229947635136
 MeshCollider:
@@ -319,6 +320,8 @@ MonoBehaviour:
   isAutomatic: 0
   AutoClose: 0
   DoubleSidesOpen: 1
+  OneWay: 0
+  otherSide: {fileID: 0}
   PlayerHeadTag: Player
   OpenForwardAnimName: Door_anim
   OpenBackwardAnimName: DoorBack_anim
@@ -421,3 +424,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6005514950277742957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809509974182650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4407fb7fdd064de3b93071bf1e9e054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger:
+    isRecurring: 0
+    timesTriggeredEver: {fileID: 0}
+    defaultAction:
+      m_PersistentCalls:
+        m_Calls: []
+    indexedUnityActions: []

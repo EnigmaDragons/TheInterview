@@ -1,5 +1,47 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!244 &-7832807868798390602
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: c9bfd984a6debab498e73fc13b73d02f
+  m_EffectName: SFX Reverb
+  m_MixLevel: 8c99ac40e940e7846aa0fce11b744d9c
+  m_Parameters:
+  - m_ParameterName: Dry Level
+    m_GUID: 4eb629bddaade0f4c8f04d04dba6bc52
+  - m_ParameterName: Room
+    m_GUID: 2422cad56f78d8f44a79d0c325529490
+  - m_ParameterName: Room HF
+    m_GUID: 1d393d35d81a21545888c85303936dde
+  - m_ParameterName: Decay Time
+    m_GUID: 84c098ec87b754042be6ec73651a5721
+  - m_ParameterName: Decay HF Ratio
+    m_GUID: 3cefe83b3260478419aa3cf23fe12ee0
+  - m_ParameterName: Reflections
+    m_GUID: 3c6ad52dd50fc8a4296d47490e8974f4
+  - m_ParameterName: Reflect Delay
+    m_GUID: 506dab0137804fa41a7b3a1d1b8a7412
+  - m_ParameterName: Reverb
+    m_GUID: d7851de2b48c37e489686d6ceb12146c
+  - m_ParameterName: Reverb Delay
+    m_GUID: be1e2088465dc1545840003c2d729a4c
+  - m_ParameterName: Diffusion
+    m_GUID: 8531575732dfb2347b11d079c3501c4f
+  - m_ParameterName: Density
+    m_GUID: 5b95705a229cd9849ab6d45a4d800727
+  - m_ParameterName: HF Reference
+    m_GUID: 986b04e7751e68c46941bb06d7932298
+  - m_ParameterName: Room LF
+    m_GUID: 6e1b1399f26edb34bbb2e09f5c527b04
+  - m_ParameterName: LF Reference
+    m_GUID: b589f08a5174e244296154f4f80bd67b
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &-6533781635570047120
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -15,6 +57,7 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -6289163713334338482}
+  - {fileID: -7832807868798390602}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -168,6 +211,7 @@ AudioMixerSnapshotController:
   m_FloatValues:
     d179ba10a01d79a47b21bfe082442903: 45
     b120bce0529ca7840981be306c7a8ffc: 47
+    d7851de2b48c37e489686d6ceb12146c: -2469
     73b791a30f5795144ab24b939f632487: 5704
     824e45850245fd94a9158a4cd4182ba6: 342
     15377c57c9372b949ad807e93612a07e: -9.833286

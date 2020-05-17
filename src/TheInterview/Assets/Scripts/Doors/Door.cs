@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Door : MonoBehaviour 
 {
@@ -9,10 +8,14 @@ public class Door : MonoBehaviour
 	public bool isAutomatic = false;
 	public bool AutoClose = false;
 	public bool DoubleSidesOpen = false;
+	public bool OneWay = false;
+	public PlayerTrackerZone otherSide;
 	public string PlayerHeadTag = "Player";
 	public string OpenForwardAnimName = "Door_anim";
 	public string OpenBackwardAnimName = "DoorBack_anim";
 	[SerializeField] private AudioClip lockedSound;
+	[SerializeField] private AudioClip openSound;
+	[SerializeField] private AudioClip closeSound;
 	[SerializeField] private AudioSource source;
 	private string _animName;
 	private bool inTrigger = false;
@@ -20,8 +23,12 @@ public class Door : MonoBehaviour
 	private Vector3 relativePos;
 	private Animation anim;
 
-	public void SetCanBeOpened(bool state) => canBeOpened = state;
-	
+	public void SetCanBeOpened(bool state)
+	{
+		canBeOpened = state;
+		Debug.Log($"Door {name} is {(state ? "Unlocked" : "Locked")}");
+	}
+
 	void Start() 
 	{
 		anim = GetComponent<Animation>();
@@ -33,10 +40,17 @@ public class Door : MonoBehaviour
 	
 	void Update()
 	{
-		if (!inTrigger) 
+		if (!inTrigger && (!OneWay || !otherSide.IsPlayerIn)) 
 			return;
+
+		if (OneWay && otherSide.IsPlayerIn)
+		{
+			SetCanBeOpened(false);
+			if (isOpen)
+				CloseDoor();
+		}
 		
-		if (Input.GetKeyDown(KeyCode.E) && !isAutomatic)
+		if (InteractionInputs.IsPlayerSignallingInteraction() && !isAutomatic)
 		{
 			if (!canBeOpened)
 			{
@@ -58,20 +72,43 @@ public class Door : MonoBehaviour
 	
 	public void OpenDoor()
 	{
-		if (!canBeOpened || isOpen)
+		if (isOpen)
 			return;
+		
+		if (!canBeOpened)
+		{
+			Debug.Log("Door - Locked Sound Effect");
+			PlaySound(lockedSound);
+			return;
+		}
 
-        isOpen = true;
-        Debug.Log("Opening Door");
-		anim [_animName].speed = 1 * OpenSpeed;
-		anim [_animName].normalizedTime = 0;
+		var isOnWrongSide = OneWay && otherSide.IsPlayerIn;
+		if (isOnWrongSide)
+			return;
+		
+		isOpen = true;
+		Debug.Log("Door - Opening");
+		PlaySound(openSound);
+		anim[_animName].speed = 1 * OpenSpeed;
+		anim[_animName].normalizedTime = 0;
 		anim.Play(_animName);
+	}
+
+	private void PlaySound(AudioClip c)
+	{
+		if (c == null)
+			return;
+		
+		source.Stop();
+		source.clip = c;
+		source.Play();
 	}
 	
 	public void CloseDoor()
 	{
         isOpen = false;
         Debug.Log("Closing Door");
+        PlaySound(closeSound);
 		anim [_animName].speed = -1 * CloseSpeed;
 		if (anim [_animName].normalizedTime > 0) {
 			anim [_animName].normalizedTime = anim [_animName].normalizedTime;

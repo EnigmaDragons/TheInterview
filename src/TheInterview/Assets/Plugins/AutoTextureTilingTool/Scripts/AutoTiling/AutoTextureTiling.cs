@@ -594,7 +594,7 @@ namespace AutoTiling {
             scaleZ = transform.lossyScale.z;
 #if UNITY_EDITOR
             if (Application.isPlaying && gameObject.isStatic) {
-                DestroyImmediate(this);
+                Destroy(this);
                 return;
             }
             else {

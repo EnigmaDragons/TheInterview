@@ -6,10 +6,14 @@ public class OnVolumeChangedSound : OnMessage<MixerVolumeChanged>
     [SerializeField] private AudioClip sound;
     [SerializeField] private AudioSource player;
     [SerializeField] private AudioMixer mixer;
+    [SerializeField] private AudioClip[] narratorSounds;
 
+    private IndexSelector<AudioClip> _narratorSounds;
     private bool _triggered;
     private MixerVolumeChanged _lastChange;
 
+    private void Awake() => _narratorSounds = new IndexSelector<AudioClip>(narratorSounds);
+    
     protected override void Execute(MixerVolumeChanged msg)
     {
         _triggered = true;
@@ -25,6 +29,7 @@ public class OnVolumeChangedSound : OnMessage<MixerVolumeChanged>
         if (mixerGroups.Length <= 0) return;
         
         player.outputAudioMixerGroup =  mixerGroups[0];
-        player.PlayOneShot(sound);
+        var clip = _lastChange.ChannelName.Equals("NarratorVolume") ? _narratorSounds.MoveNextWithoutLooping() : sound;
+        player.PlayOneShot(clip);
     }
 }

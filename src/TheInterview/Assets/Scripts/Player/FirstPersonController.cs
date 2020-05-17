@@ -43,6 +43,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_IsRunning = false;
         private AudioSource m_AudioSource = new AudioSource();
 
+        public void SetState(bool shouldBeEnabled)
+        {
+            enabled = shouldBeEnabled;
+            m_MouseLook.SetCursorLock(shouldBeEnabled);
+        }
+        
         // Use this for initialization
         private void Start()
         {
