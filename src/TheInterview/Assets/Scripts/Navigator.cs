@@ -13,7 +13,16 @@ public class Navigator : ScriptableObject
     public void GoToScene3() => LoadScene("Scene3-TheInterview");
     public void GoToApartment() => LoadScene("Scene1-Apartment");
     public void DriveToBuilding() => LoadScene("Cutscene-DrivingToInterview");
-    public void StartGame() => GoToApartment();
+    public void StartGame() => GoToApartment();    
+    
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+    }
 
     private void LoadScene(string sceneName)
     {

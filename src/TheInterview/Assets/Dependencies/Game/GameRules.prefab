@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7971746049877886148}
   - component: {fileID: 6634296443514653097}
   - component: {fileID: 2133639879462417852}
+  - component: {fileID: 4803247560674502098}
   m_Layer: 0
   m_Name: GameRules
   m_TagString: Untagged
@@ -185,3 +186,29 @@ MonoBehaviour:
     Color: {r: 0, g: 0, b: 0, a: 1}
     SceneChangeMode: 0
     SceneToLoad: 
+--- !u!114 &4803247560674502098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126567620062983383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ba50d3488448f5a3fbc1e766961cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 66df45689845bc545ba549207cb417f7, type: 2}
+        m_MethodName: FadeIn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
