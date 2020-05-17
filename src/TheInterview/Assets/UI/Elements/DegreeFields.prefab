@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3695873093863590569}
   - component: {fileID: 700494183150703180}
   - component: {fileID: 7690335843567428840}
+  - component: {fileID: 474028321180562337}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -117,6 +118,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &474028321180562337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141798810350319647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  volume: 0.5
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
 --- !u!1 &1223620391283812994
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +375,7 @@ GameObject:
   - component: {fileID: 3376805878197130127}
   - component: {fileID: 3376805878197130124}
   - component: {fileID: 3376805878197130125}
+  - component: {fileID: 5533080376884285845}
   m_Layer: 5
   m_Name: RightButton2
   m_TagString: Untagged
@@ -464,6 +481,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5533080376884285845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376805878197130123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  volume: 0.5
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
 --- !u!1 &3376805878267993492
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,6 +508,7 @@ GameObject:
   - component: {fileID: 3376805878267993496}
   - component: {fileID: 3376805878267993497}
   - component: {fileID: 3376805878267993494}
+  - component: {fileID: 6040969523640735782}
   m_Layer: 5
   m_Name: LeftButton2
   m_TagString: Untagged
@@ -581,6 +614,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6040969523640735782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3376805878267993492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  volume: 0.5
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
 --- !u!1 &3376805879837310475
 GameObject:
   m_ObjectHideFlags: 0
@@ -991,6 +1039,7 @@ MonoBehaviour:
   - Hypertransport Solutions
   - Neurokinetic Interfacing
   - Interplanetary Histories
+  - Memes
 --- !u!1 &8322734345928068158
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1208,7 @@ GameObject:
   - component: {fileID: 660479018064667086}
   - component: {fileID: 7270476216469007607}
   - component: {fileID: 9184744546527513361}
+  - component: {fileID: 772291566249578685}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -1264,3 +1314,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &772291566249578685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8649978567520017884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  volume: 0.5
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}

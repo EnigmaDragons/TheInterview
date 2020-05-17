@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 868380299134816144}
   - component: {fileID: 3963128120749709173}
   - component: {fileID: 6196658473611256273}
+  - component: {fileID: 8551674157460892514}
   m_Layer: 5
   m_Name: LeftButton
   m_TagString: Untagged
@@ -191,6 +192,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8551674157460892514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503519375941303590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
 --- !u!1 &5137936566195116261
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +218,7 @@ GameObject:
   - component: {fileID: 3921796976477136119}
   - component: {fileID: 6602998477566159310}
   - component: {fileID: 4625688540149419560}
+  - component: {fileID: 8411033362491976541}
   m_Layer: 5
   m_Name: RightButton
   m_TagString: Untagged
@@ -308,6 +324,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8411033362491976541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137936566195116261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66e843a210274d678fffa9e637d43585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: 7f071aaf34665ec4c9be15d0a3d8e0d4, type: 3}
+  player: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
 --- !u!1 &5532445033173960967
 GameObject:
   m_ObjectHideFlags: 0
@@ -585,6 +615,8 @@ MonoBehaviour:
   left: {fileID: 6196658473611256273}
   right: {fileID: 4625688540149419560}
   choiceLabel: {fileID: 2247872239670016153}
+  useRandomStartingIndex: 0
+  defaultChoiceIndex: 0
   choices:
   - Neutrois
   - Bigender
