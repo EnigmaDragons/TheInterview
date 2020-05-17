@@ -136,6 +136,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2121456645147570839}
   - component: {fileID: 4982309425781084650}
+  - component: {fileID: 5435289742789880225}
+  - component: {fileID: 2597180420465350696}
   m_Layer: 0
   m_Name: Triggers
   m_TagString: Untagged
@@ -212,6 +214,32 @@ MonoBehaviour:
   gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
   rejected: {fileID: 11400000, guid: 5177602ef149b9441b0760544c6a446d, type: 2}
   hired: {fileID: 11400000, guid: 645cd28e70045544bb7441e657c385a9, type: 2}
+--- !u!114 &5435289742789880225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413648605353068343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7307aa93f9e5e44bed96c86627fdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 2237101830029003304}
+--- !u!114 &2597180420465350696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413648605353068343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7307aa93f9e5e44bed96c86627fdca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3329029622125359719}
 --- !u!1 &827222253261339034
 GameObject:
   m_ObjectHideFlags: 0
