@@ -11,4 +11,6 @@ public class EventPublisher : ScriptableObject
     public void PresentNextQuestion() => Message.Publish(new PresentNextQuestion());
     public void PresentAnswers() => Message.Publish(new PresentAnswers());
     public void InterviewScheduled() => Message.Publish(new InterviewScheduled());
+    public void FadeIn() => Message.Publish(new StartFadeIn());
+    public void FadeOut() => Message.Publish(new StartFadeOut());
 }
