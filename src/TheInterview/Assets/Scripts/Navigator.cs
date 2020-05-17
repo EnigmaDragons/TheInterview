@@ -12,6 +12,7 @@ public class Navigator : ScriptableObject
     public void GoToScene2() => LoadScene("Scene2-UrbanamicsBuilding");
     public void GoToScene3() => LoadScene("Scene3-TheInterview");
     public void GoToApartment() => LoadScene("Scene1-Apartment");
+    public void DriveToBuilding() => LoadScene("Cutscene-DrivingToInterview");
     public void StartGame() => GoToApartment();
 
     private void LoadScene(string sceneName)
