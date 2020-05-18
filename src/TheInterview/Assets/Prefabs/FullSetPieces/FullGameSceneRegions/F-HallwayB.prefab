@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 6510872880429382170}
   - component: {fileID: 4898347516043859900}
   m_Layer: 0
-  m_Name: Poster
+  m_Name: EmployeeOnly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -372,8 +372,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4861032709862120719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 69, y: 3, z: 70}
-  m_LocalScale: {x: 1, y: 6, z: 2}
+  m_LocalPosition: {x: 55, y: 3, z: 45}
+  m_LocalScale: {x: 10, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 6083874794175412632}
   m_RootOrder: 0
@@ -464,27 +464,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger:
     isRecurring: 0
-    timesTriggeredEver: {fileID: 11400000, guid: bd330e0caa364a444b214753273df8b4,
-      type: 2}
+    timesTriggeredEver: {fileID: 0}
     defaultAction:
       m_PersistentCalls:
-        m_Calls: []
-    indexedUnityActions:
-    - Action:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 11400000, guid: 7c20c9ad8b10a114292c4fe135a4763c, type: 2}
-            m_MethodName: Play
-            m_Mode: 1
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-      Index: 1
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 9996235e6caba8d41a3d0dc538c72612, type: 2}
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+          m_MethodName: FailedHiring
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    indexedUnityActions: []
 --- !u!1 &6427204819037009309
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,6 +5992,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 880604045646335915}
     m_Modifications:
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: d8be1405b2577ad4d8c0b3c5e5df4415,
+        type: 2}
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2336952131168210486, guid: 356418b5bc5bead4793d1a81714d8cc1,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 2869061609953194230, guid: 356418b5bc5bead4793d1a81714d8cc1,
         type: 3}
       propertyPath: m_Name
@@ -8804,6 +8841,27 @@ PrefabInstance:
         type: 3}
       propertyPath: canBeOpened
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626073200895509864, guid: 109a47ad84164bc458a0f0aaf5eafdbe,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626073200895509864, guid: 109a47ad84164bc458a0f0aaf5eafdbe,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: a7bc591d56cb7e540b80bb44479d58fb,
+        type: 2}
+    - target: {fileID: 5626073200895509864, guid: 109a47ad84164bc458a0f0aaf5eafdbe,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 5626073200895509864, guid: 109a47ad84164bc458a0f0aaf5eafdbe,
+        type: 3}
+      propertyPath: trigger.defaultAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 109a47ad84164bc458a0f0aaf5eafdbe, type: 3}
