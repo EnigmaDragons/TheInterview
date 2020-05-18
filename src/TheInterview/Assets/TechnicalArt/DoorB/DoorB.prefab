@@ -326,6 +326,8 @@ MonoBehaviour:
   OpenForwardAnimName: Door_anim
   OpenBackwardAnimName: DoorBack_anim
   lockedSound: {fileID: 8300000, guid: da8280035d11c0a42b31c74c6fdc0849, type: 3}
+  openSound: {fileID: 0}
+  closeSound: {fileID: 0}
   source: {fileID: 4583211084841400821}
 --- !u!82 &4583211084841400821
 AudioSource:
@@ -438,8 +440,69 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trigger:
     isRecurring: 0
-    timesTriggeredEver: {fileID: 0}
+    timesTriggeredEver: {fileID: 11400000, guid: 86041594f0db2c348988b5ee0318be01,
+      type: 2}
     defaultAction:
       m_PersistentCalls:
         m_Calls: []
-    indexedUnityActions: []
+    indexedUnityActions:
+    - Action:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 7db9812bbb7b06c42aa2b770160f5c91, type: 2}
+            m_MethodName: Play
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Index: 1
+    - Action:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 8f190bd60fdf1654e98044d34a144a58, type: 2}
+            m_MethodName: Play
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Index: 2
+    - Action:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 75d5ee4d9b4009c47b900a70a46b7e48, type: 2}
+            m_MethodName: Play
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Index: 3
+    - Action:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: 32482b5553841214fa9c8ee2aa389a90, type: 2}
+            m_MethodName: Play
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Index: 4
