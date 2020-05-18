@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 33089213893680458}
   - component: {fileID: 23995576232223476}
   - component: {fileID: 64277461156977274}
+  - component: {fileID: 975755403839789644}
   m_Layer: 0
   m_Name: WaterCooler
-  m_TagString: Untagged
+  m_TagString: RaycastInteract
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -94,3 +95,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: f594e3acfb7926d4ba03ba94c3b03a2d, type: 3}
+--- !u!114 &975755403839789644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716813560716410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4407fb7fdd064de3b93071bf1e9e054e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trigger:
+    isRecurring: 0
+    timesTriggeredEver: {fileID: 11400000, guid: 590ac8659be922e4bbb1f0fe06df3c1c,
+      type: 2}
+    defaultAction:
+      m_PersistentCalls:
+        m_Calls: []
+    indexedUnityActions:
+    - Action:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 11400000, guid: e58e876d1c7cb544397cf2312bea756f, type: 2}
+            m_MethodName: Play
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Index: 1
