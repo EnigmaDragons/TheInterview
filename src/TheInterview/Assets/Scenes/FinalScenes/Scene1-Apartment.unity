@@ -287,13 +287,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed3378674d988e498d97bf29471ed16, type: 3}
+--- !u!21 &47914821
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Height Fog Global
+  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3001
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _HeightFogGlobal: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _TITLE: 1
+    - _TransparentQueue: 3000
+    m_Colors: []
 --- !u!43 &80564176
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh259988
+  m_Name: pb_Mesh101696
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4283,7 +4309,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 0.9339623, g: 0.19824673, b: 0.60920024, a: 1}
-  m_Intensity: 7.32
+  m_Intensity: 2
   m_Range: 13.89
   m_SpotAngle: 34
   m_InnerSpotAngle: 21.80208
@@ -4339,13 +4365,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150303399}
-  m_LocalRotation: {x: 0.22540866, y: 0.34909663, z: -0.08691015, w: 0.905411}
-  m_LocalPosition: {x: -0.18, y: 7.59, z: -6.21}
+  m_LocalRotation: {x: 0.024501454, y: 0.39534777, z: -0.15841787, w: 0.9044356}
+  m_LocalPosition: {x: 0.13999939, y: 4.83, z: -6.209999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5933500135631289447}
   m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 27.96, y: 42.17, z: 0}
+  m_LocalEulerAnglesHint: {x: 9.7630005, y: 45.870003, z: -15.7300005}
 --- !u!114 &150303402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,7 +4394,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260186
+  m_Name: pb_Mesh101896
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4625,7 +4651,7 @@ MonoBehaviour:
   target: {fileID: 773579295}
   delay:
     UseConstant: 1
-    ConstantValue: 15
+    ConstantValue: 8
     FloatVariable: {fileID: 0}
 --- !u!65 &212204334
 BoxCollider:
@@ -4655,7 +4681,7 @@ MonoBehaviour:
   target: {fileID: 1137374226}
   delay:
     UseConstant: 1
-    ConstantValue: 15
+    ConstantValue: 8
     FloatVariable: {fileID: 0}
 --- !u!4 &235722425 stripped
 Transform:
@@ -4932,7 +4958,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260086
+  m_Name: pb_Mesh101796
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5089,6 +5115,54 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!21 &326337805
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalIntensity: 0
+    - _DirectionalMode: 0
+    - _DirectionalModeBlend: 0
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogDistanceEnd: 300
+    - _FogDistanceStart: 0
+    - _FogHeightEnd: 500
+    - _FogHeightStart: 20
+    - _FogIntensity: 0.109
+    - _HeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 60
+    - _NoiseIntensity: 1
+    - _NoiseMode: 0
+    - _NoiseModeBlend: 0
+    - _NoiseScale: 1
+    - _SKYBOXX: 1
+    - _SkyboxFogFill: 0
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
+    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &346915600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5354,7 +5428,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.43344
+      value: 25.91
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5362,7 +5436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.74
+      value: -9.72
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5399,6 +5473,26 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.16593248
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9861372
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -19.103
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 3}
       propertyPath: m_RenderingPath
@@ -6175,7 +6269,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260160
+  m_Name: pb_Mesh101870
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6338,7 +6432,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260094
+  m_Name: pb_Mesh101804
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6913,6 +7007,54 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     indexedUnityActions: []
+--- !u!21 &804069106
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Local
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalIntensity: 0
+    - _DirectionalMode: 0
+    - _DirectionalModeBlend: 0
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogDistanceEnd: 300
+    - _FogDistanceStart: 0
+    - _FogHeightEnd: 500
+    - _FogHeightStart: 20
+    - _FogIntensity: 0.109
+    - _HeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 60
+    - _NoiseIntensity: 1
+    - _NoiseMode: 0
+    - _NoiseModeBlend: 0
+    - _NoiseScale: 1
+    - _SKYBOXX: 1
+    - _SkyboxFogFill: 0
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
+    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &805809468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6923,7 +7065,7 @@ PrefabInstance:
     - target: {fileID: 8338431063237863008, guid: 09d039a0674a4054089b62f951b5d923,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.43344
+      value: 25.91
       objectReference: {fileID: 0}
     - target: {fileID: 8338431063237863008, guid: 09d039a0674a4054089b62f951b5d923,
         type: 3}
@@ -6933,7 +7075,7 @@ PrefabInstance:
     - target: {fileID: 8338431063237863008, guid: 09d039a0674a4054089b62f951b5d923,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.74
+      value: -9.72
       objectReference: {fileID: 0}
     - target: {fileID: 8338431063237863008, guid: 09d039a0674a4054089b62f951b5d923,
         type: 3}
@@ -7076,54 +7218,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 532764136337708899}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &866176373
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Blend
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalIntensity: 0
-    - _DirectionalMode: 0
-    - _DirectionalModeBlend: 0
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogDistanceEnd: 300
-    - _FogDistanceStart: 0
-    - _FogHeightEnd: 500
-    - _FogHeightStart: 20
-    - _FogIntensity: 0.109
-    - _HeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 60
-    - _NoiseIntensity: 1
-    - _NoiseMode: 0
-    - _NoiseModeBlend: 0
-    - _NoiseScale: 1
-    - _SKYBOXX: 1
-    - _SkyboxFogFill: 0
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
-    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1001 &880872181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7251,7 +7345,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260210
+  m_Name: pb_Mesh101920
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7414,7 +7508,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260090
+  m_Name: pb_Mesh101800
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7682,54 +7776,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4578cd58d9b86584a8a467a383358758, type: 3}
---- !u!21 &1022490555
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Override
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalIntensity: 0
-    - _DirectionalMode: 0
-    - _DirectionalModeBlend: 0
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogDistanceEnd: 300
-    - _FogDistanceStart: 0
-    - _FogHeightEnd: 500
-    - _FogHeightStart: 20
-    - _FogIntensity: 0.109
-    - _HeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 60
-    - _NoiseIntensity: 1
-    - _NoiseMode: 0
-    - _NoiseModeBlend: 0
-    - _NoiseScale: 1
-    - _SKYBOXX: 1
-    - _SkyboxFogFill: 0
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
-    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1035494614
 GameObject:
   m_ObjectHideFlags: 0
@@ -7875,7 +7921,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260054
+  m_Name: pb_Mesh101764
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8328,7 +8374,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260072
+  m_Name: pb_Mesh101782
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8497,32 +8543,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5505191777372858069}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1340083045
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Height Fog Global
-  m_Shader: {fileID: 4800000, guid: 3a7ef1b66bafb7a448a880ef76d2e6e6, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _HeightFogGlobal: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _TITLE: 1
-    - _TransparentQueue: 3000
-    m_Colors: []
 --- !u!1001 &1352384867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8592,13 +8612,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ed3378674d988e498d97bf29471ed16, type: 3}
+--- !u!21 &1375406288
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Override
+  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Floats:
+    - _DIRECTIONALL: 1
+    - _DirectionalIntensity: 0
+    - _DirectionalMode: 0
+    - _DirectionalModeBlend: 0
+    - _FOGG: 1
+    - _FogAxisMode: 1
+    - _FogDistanceEnd: 300
+    - _FogDistanceStart: 0
+    - _FogHeightEnd: 500
+    - _FogHeightStart: 20
+    - _FogIntensity: 0.109
+    - _HeightFogPreset: 1
+    - _IsHeightFogShader: 1
+    - _IsStandardPipeline: 0
+    - _NOISEE: 1
+    - _NoiseDistanceEnd: 60
+    - _NoiseIntensity: 1
+    - _NoiseMode: 0
+    - _NoiseModeBlend: 0
+    - _NoiseScale: 1
+    - _SKYBOXX: 1
+    - _SkyboxFogFill: 0
+    - _SkyboxFogHeight: 1
+    - _TITLE: 1
+    m_Colors:
+    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
+    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
+    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!43 &1379105678
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260206
+  m_Name: pb_Mesh101916
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8791,7 +8859,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260182
+  m_Name: pb_Mesh101892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9742,7 +9810,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh260062
+  m_Name: pb_Mesh101772
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -10075,54 +10143,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4590135066681457887}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1917891504
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Local
-  m_Shader: {fileID: 4800000, guid: a3a3bc8785681554d9558e2ea68f100e, type: 3}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs: []
-    m_Floats:
-    - _DIRECTIONALL: 1
-    - _DirectionalIntensity: 0
-    - _DirectionalMode: 0
-    - _DirectionalModeBlend: 0
-    - _FOGG: 1
-    - _FogAxisMode: 1
-    - _FogDistanceEnd: 300
-    - _FogDistanceStart: 0
-    - _FogHeightEnd: 500
-    - _FogHeightStart: 20
-    - _FogIntensity: 0.109
-    - _HeightFogPreset: 1
-    - _IsHeightFogShader: 1
-    - _IsStandardPipeline: 0
-    - _NOISEE: 1
-    - _NoiseDistanceEnd: 60
-    - _NoiseIntensity: 1
-    - _NoiseMode: 0
-    - _NoiseModeBlend: 0
-    - _NoiseScale: 1
-    - _SKYBOXX: 1
-    - _SkyboxFogFill: 0
-    - _SkyboxFogHeight: 1
-    - _TITLE: 1
-    m_Colors:
-    - _DirectionalColor: {r: 1, g: 0.75, b: 0.5, a: 1}
-    - _FogColor: {r: 0.5019608, g: 0.6552083, b: 1, a: 1}
-    - _NoiseSpeed: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1925586176
 GameObject:
   m_ObjectHideFlags: 0
@@ -27412,7 +27432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4604511491997742393}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.198, y: -0.958, z: -0.218}
+  m_LocalPosition: {x: 0.198, y: 0, z: -0.218}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1474712254}
@@ -27541,7 +27561,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2224446291745484841}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.19799995, y: -0.93, z: -1.13}
+  m_LocalPosition: {x: 0.19799995, y: 0, z: -1.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 235722425}
@@ -28173,8 +28193,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.06674972, g: 0.7969082, b: 0.9433962, a: 1}
-  m_Intensity: 6.4
-  m_Range: 0.94
+  m_Intensity: 2
+  m_Range: 2
   m_SpotAngle: 62
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -28251,8 +28271,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.06674972, g: 0.7969082, b: 0.9433962, a: 1}
-  m_Intensity: 6.49
-  m_Range: 0.94
+  m_Intensity: 2
+  m_Range: 2
   m_SpotAngle: 65
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -31123,6 +31143,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388264658894138653, guid: 172222c7a0ce1d240b8df7ef09126f8f,
+        type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2388264658894138653, guid: 172222c7a0ce1d240b8df7ef09126f8f,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5417539240348672116, guid: 172222c7a0ce1d240b8df7ef09126f8f,
         type: 3}
