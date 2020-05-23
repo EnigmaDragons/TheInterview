@@ -9,12 +9,13 @@ public class Speech : ScriptableObject
     [SerializeField] private NarratedBy voiceActor;
     [SerializeField] private AudioClip clip;
     [SerializeField] private float volume = 0.5f;
-    [SerializeField] private string subtitle;
+    [SerializeField, TextArea] private string subtitle;
     [SerializeField] private UnityEvent onFinished;
     [SerializeField] private float secondsDelay;
     [SerializeField] private bool shouldInterupt = true;
 
     public NarratedBy NarratedBy => voiceActor;
+    public string Subtitle => subtitle;
     
     public IEnumerator AsyncPlay()
     {
