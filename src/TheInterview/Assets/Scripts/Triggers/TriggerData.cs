@@ -1,6 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
+[CreateAssetMenu]
 public class TriggerData : ScriptableObject
 {
     [SerializeField] private CurrentGameState gameState;

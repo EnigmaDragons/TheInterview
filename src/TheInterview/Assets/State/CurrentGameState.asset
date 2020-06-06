@@ -13,14 +13,60 @@ MonoBehaviour:
   m_Name: CurrentGameState
   m_EditorClassIdentifier: 
   gameState:
-    ShouldBeHired: 0
-  counters:
-  - {fileID: 11400000, guid: 99eafa2ef189efc44b3211654d83f79c, type: 2}
-  - {fileID: 11400000, guid: 03f48875784dd7849b151144ef75975d, type: 2}
-  - {fileID: 11400000, guid: bd330e0caa364a444b214753273df8b4, type: 2}
-  - {fileID: 11400000, guid: b304c05840797464593b2787b403f15a, type: 2}
-  - {fileID: 11400000, guid: 4cbbdb789649cb446b075934e37df049, type: 2}
-  - {fileID: 11400000, guid: 4d67dcf231afa6c4180f21c649d6206a, type: 2}
-  - {fileID: 11400000, guid: 590ac8659be922e4bbb1f0fe06df3c1c, type: 2}
-  - {fileID: 11400000, guid: 86041594f0db2c348988b5ee0318be01, type: 2}
-  - {fileID: 11400000, guid: 69db244accdecbf438f1706af7f53619, type: 2}
+    ShouldBeHired: 1
+    PermanentCounters:
+      reorderableList:
+        canAdd: 1
+        canRemove: 1
+        draggable: 1
+        expandable: 1
+        multipleSelection: 1
+        isExpanded: 1
+        label:
+          m_Text: Keys
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        headerHeight: 18
+        footerHeight: 13
+        slideEasing: 0.15
+        verticalSpacing: 2
+        showDefaultBackground: 1
+        elementDisplayType: 0
+        elementNameProperty: 
+        elementNameOverride: 
+        elementIcon: {fileID: 0}
+      reqReferences: {fileID: 0}
+      isExpanded: 1
+      _keyValues:
+      - PermaTileTrigger
+      - TransientTileTrigger
+      _keys:
+      - PermaTileTrigger
+      - TransientTileTrigger
+      _values: 0300000004000000
+    TransientCounters:
+      reorderableList:
+        canAdd: 1
+        canRemove: 1
+        draggable: 1
+        expandable: 1
+        multipleSelection: 1
+        isExpanded: 1
+        label:
+          m_Text: Keys
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        headerHeight: 18
+        footerHeight: 13
+        slideEasing: 0.15
+        verticalSpacing: 2
+        showDefaultBackground: 1
+        elementDisplayType: 0
+        elementNameProperty: 
+        elementNameOverride: 
+        elementIcon: {fileID: 0}
+      reqReferences: {fileID: 0}
+      isExpanded: 1
+      _keyValues: []
+      _keys: []
+      _values: 

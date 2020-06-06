@@ -5,8 +5,8 @@ using UnityEngine.Events;
 public class GameResetHandler : OnMessage<ResetGameAfterDelay>
 {
     [SerializeField] private FloatReference delay;
-    [SerializeField] private Navigator navigator;
     [SerializeField] private UnityEvent initialAction;
+    [SerializeField] private UnityEvent resetAction;
     [SerializeField] private CurrentGameState game;
     
     protected override void Execute(ResetGameAfterDelay msg) => StartCoroutine(Go());
@@ -16,6 +16,6 @@ public class GameResetHandler : OnMessage<ResetGameAfterDelay>
         initialAction.Invoke();
         yield return new WaitForSeconds(delay);
         game.SoftReset();
-        navigator.GoToScene2();
+        resetAction.Invoke();
     }
 }
