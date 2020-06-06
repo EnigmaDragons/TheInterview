@@ -11,6 +11,7 @@ public sealed class GameState
     public bool ShouldBeHired = true;
     public PermanentCountersDictionary PermanentCounters = new PermanentCountersDictionary();
     public TransientCountersDictionary TransientCounters = new TransientCountersDictionary();
+    public HashSet<string> PermanentTriggers = new HashSet<string>();
     public HashSet<string> TransientTriggers = new HashSet<string>();
     
     public GameState SoftReset() => 

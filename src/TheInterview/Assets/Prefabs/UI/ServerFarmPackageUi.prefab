@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 8706830062229183804}
   - component: {fileID: 4874327542021823030}
   - component: {fileID: 2551721287699960977}
+  - component: {fileID: 5280767014896511965}
   m_Layer: 0
   m_Name: ServerFarmPackageUi
   m_TagString: Untagged
@@ -255,6 +256,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &5280767014896511965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793954012011614102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1917055af5bf4c458292753126921b74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  appViewName: {fileID: 11400000, guid: e486e91b05792b046a97329577fa2c17, type: 2}
 --- !u!1 &4385966044393993702
 GameObject:
   m_ObjectHideFlags: 0

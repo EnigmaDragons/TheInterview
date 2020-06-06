@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(menuName = "GameTemplate/OnlyOnce/CurrentGameState")]
 public sealed class CurrentGameState : ScriptableObject
@@ -30,6 +28,12 @@ public sealed class CurrentGameState : ScriptableObject
     public void Subscribe(Action<GameStateChanged> onChange, object owner) => Message.Subscribe(onChange, owner);
     public void Unsubscribe(object owner) => Message.Unsubscribe(owner);
 
+    public void SetAppViewAvailable(StringVariable viewName) => gameState.PermanentTriggers.Add($"{viewName}-Activated");
+    public void SetAppViewCompleted(StringVariable viewName) => gameState.PermanentTriggers.Add($"{viewName}-Completed");
+    public bool AppViewAvailable(StringVariable viewName)
+        => gameState.PermanentTriggers.Contains($"{viewName}-Activated") &&
+           !gameState.PermanentTriggers.Contains($"{viewName}-Completed");
+    
     public bool HasTriggeredThisRun(string counterName) => gameState.TransientTriggers.Contains(counterName);
     
     public void IncrementCounter(TriggerStateLifecycle lifecycle, string counterName)

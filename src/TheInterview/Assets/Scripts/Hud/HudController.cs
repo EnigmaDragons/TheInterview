@@ -2,7 +2,11 @@
 
 public class HudController : OnMessage<GameStateChanged>
 {
-    [SerializeField] private GameObject target;
+    [SerializeField] private HudAppView[] views;
 
-    protected override void Execute(GameStateChanged msg) => target.SetActive(msg.State.HudIsFocused);
+    protected override void Execute(GameStateChanged msg)
+    {
+        if (msg.State.HudIsFocused) 
+            views.ForEach(v => v.EnableIfActivated());
+    }
 }
