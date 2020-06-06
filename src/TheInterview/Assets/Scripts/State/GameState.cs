@@ -18,7 +18,8 @@ public sealed class GameState
         new GameState 
         {
             ShouldBeHired = true, 
-            PermanentCounters = PermanentCounters
+            PermanentCounters = PermanentCounters, 
+            PermanentTriggers = PermanentTriggers
         };
 
     [Serializable] public sealed class PermanentCountersDictionary : SerializableDictionaryBase<string, int> { }
