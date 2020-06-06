@@ -4,14 +4,14 @@ public class Reticle : OnMessage<GameStateChanged, InteractionsPossible>
 {
     [SerializeField] private GameObject reticle;
 
-    private GameState _state;
+    private bool _hudIsFocused;
     private bool _interactionsPossible;
 
     private void Awake() => UpdateReticle();
     
     protected override void Execute(GameStateChanged msg)
     {
-        _state = msg.State;
+        _hudIsFocused = msg.State.HudIsFocused;
         UpdateReticle();
     }
 
@@ -21,5 +21,5 @@ public class Reticle : OnMessage<GameStateChanged, InteractionsPossible>
         UpdateReticle();
     }
 
-    private void UpdateReticle() => reticle.SetActive(!_state.HudIsFocused && !_interactionsPossible);
+    private void UpdateReticle() => reticle.SetActive( !_hudIsFocused && !_interactionsPossible);
 }

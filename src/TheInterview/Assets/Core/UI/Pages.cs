@@ -22,13 +22,13 @@ public sealed class Pages : MonoBehaviour
     public void PerformAction()
     {
         _pages.Current.gameObject.SetActive(false);
-        _pages.MoveNext().gameObject.SetActive(true);
+        _pages.MoveNextWithoutLooping().gameObject.SetActive(true);
     }
     
     public void MoveNext()
     {
         _pages.Current.gameObject.SetActive(false);
-        _pages.MoveNext().gameObject.SetActive(true);
+        _pages.MoveNextWithoutLooping().gameObject.SetActive(true);
         player.Play(pageSound);
     }
 
