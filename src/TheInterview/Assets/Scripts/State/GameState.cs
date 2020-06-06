@@ -5,6 +5,7 @@ using RotaryHeart.Lib.SerializableDictionary;
 [Serializable]
 public sealed class GameState
 {
+    public bool HudIsFocused = false;
     public bool ShouldBeHired = true;
     public PermanentCountersDictionary PermanentCounters = new PermanentCountersDictionary();
     public TransientCountersDictionary TransientCounters = new TransientCountersDictionary();
