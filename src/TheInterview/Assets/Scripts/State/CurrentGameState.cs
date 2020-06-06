@@ -15,9 +15,17 @@ public sealed class CurrentGameState : ScriptableObject
     public void Init(GameState initialState) => UpdateState(gs => initialState);
     public void SoftReset() => UpdateState(gs => gs.SoftReset());
 
-    public void ToggleHud() => UpdateState(gs => gs.HudIsFocused = !gs.HudIsFocused);
-    public void FocusHud() => UpdateState(gs => gs.HudIsFocused = true);
-    public void DismissHud() => UpdateState(gs => gs.HudIsFocused = false);
+    public void LockHud() => UpdateState(gs => gs.HudIsLocked = true);
+    public void UnlockHud() => UpdateState(gs => gs.HudIsLocked = false);
+
+    public void ToggleHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = !gs.HudIsFocused));
+    public void FocusHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = true));
+    public void DismissHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = false));
+    private void IfHudUnlocked(Action a)
+    {
+        if (!gameState.HudIsLocked)
+            a();
+    }
     
     public void Subscribe(Action<GameStateChanged> onChange, object owner) => Message.Subscribe(onChange, owner);
     public void Unsubscribe(object owner) => Message.Unsubscribe(owner);

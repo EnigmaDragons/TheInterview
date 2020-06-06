@@ -1,9 +1,8 @@
-﻿
+﻿using UnityEngine;
+
 public class HudController : OnMessage<GameStateChanged>
 {
-    
-    
-    protected override void Execute(GameStateChanged msg)
-    {
-    }
+    [SerializeField] private GameObject target;
+
+    protected override void Execute(GameStateChanged msg) => target.SetActive(msg.State.HudIsFocused);
 }
