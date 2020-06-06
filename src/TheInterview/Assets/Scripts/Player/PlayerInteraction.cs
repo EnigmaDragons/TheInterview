@@ -39,6 +39,14 @@ public class PlayerInteraction : MonoBehaviour
                     _interactObjectName = hitObj.name;
                     _interact = () => interactTrigger.Execute();
                 }
+
+                var interactAction = hitObj.GetComponent<InteractAction>();
+                if (interactAction != null && interactAction.enabled)
+                {
+                    canInteract = true;
+                    _interactObjectName = hitObj.name;
+                    _interact = () => interactAction.Execute();
+                }
             }
         }
         if (!string.IsNullOrWhiteSpace(_interactObjectName))
