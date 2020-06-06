@@ -12,20 +12,22 @@ public class Speech : ScriptableObject
     [SerializeField, TextArea] private string subtitle;
     [SerializeField] private UnityEvent onFinished;
     [SerializeField] private float secondsDelay;
-    [SerializeField] private bool shouldInterupt = true;
+    [SerializeField] private SpeechPriority priority;
 
     public NarratedBy NarratedBy => voiceActor;
     public string Subtitle => subtitle;
+
+    public bool CanPlay => narrator.CanPlay(priority);
     
     public IEnumerator AsyncPlay()
     {
-        if (shouldInterupt || !narrator.IsPlaying)
-        {
-            narrator.Play(clip, volume);
-            yield return new WaitForSeconds(clip.length);
-            yield return new WaitForSeconds(secondsDelay);
-            onFinished.Invoke();
-        }
+        if (!CanPlay)
+            yield break;
+        
+        narrator.Play(clip, priority, volume);
+        yield return new WaitForSeconds(clip.length);
+        yield return new WaitForSeconds(secondsDelay);
+        onFinished.Invoke();
     }
 
     public void Play() => Message.Publish(new PlaySpeech { Speech = this });

@@ -1,26 +1,15 @@
 using System;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 [CreateAssetMenu(menuName = "GameTemplate/OnlyOnce/CurrentGameState")]
 public sealed class CurrentGameState : ScriptableObject
 {
     [SerializeField] private GameState gameState;
-    [SerializeField] private IntVariable[] counters;
 
-    public void Init()
-    {
-        SoftReset();
-        for (var i = 0; i < counters.Length; i++)
-            counters[i].Value = 0;
-    }
-
-    public void Init(GameState initialState) => gameState = initialState;
-
-    public void SoftReset()
-    {
-        gameState = new GameState();
-        gameState.ShouldBeHired = true;
-    }
+    public void Init() => Init(new GameState());
+    public void Init(GameState initialState) => UpdateState(gs => initialState);
+    public void SoftReset() => UpdateState(gs => gs.SoftReset());
 
     public void Subscribe(Action<GameStateChanged> onChange, object owner) => Message.Subscribe(onChange, owner);
     public void Unsubscribe(object owner) => Message.Unsubscribe(owner);
