@@ -5,7 +5,6 @@ public class PlayerInteraction : MonoBehaviour
 {
     [SerializeField] private Camera eyes;
     [SerializeField] private float interactRange = 3f;
-    [SerializeField] private float interactLongRange = 20f;
     [SerializeField] private bool checkBeforePlayerTriesToInteract = true;
 
     private Transform _eyesTransform;
@@ -23,7 +22,7 @@ public class PlayerInteraction : MonoBehaviour
         var canInteract = false; 
         _interact = () => { };
         _interactObjectName = "";
-        var numHits = Physics.RaycastNonAlloc(_eyesTransform.position, _eyesTransform.forward, _raycastHits, maxDistance: interactLongRange);
+        var numHits = Physics.RaycastNonAlloc(_eyesTransform.position, _eyesTransform.forward, _raycastHits, maxDistance: interactRange);
         for (var i = 0; i < numHits; i++)
         {
             var hit = _raycastHits[i];
@@ -33,19 +32,9 @@ public class PlayerInteraction : MonoBehaviour
             
             if (hit.distance <= interactRange)
             {
-                var interactTrigger = hitObj.GetComponent<InteractTrigger>();
+                var interactTrigger = hitObj.GetComponent<Trigger>();
                 if (interactTrigger != null)
                 { 
-                    canInteract = interactTrigger.CanTrigger();
-                    _interactObjectName = hitObj.name;
-                    _interact = () => interactTrigger.Execute();
-                }
-            }
-            if (hit.distance <= interactLongRange)
-            {
-                var interactTrigger = hitObj.GetComponent<LongRangeInteractTrigger>();
-                if (interactTrigger != null)
-                {  
                     canInteract = interactTrigger.CanTrigger();
                     _interactObjectName = hitObj.name;
                     _interact = () => interactTrigger.Execute();

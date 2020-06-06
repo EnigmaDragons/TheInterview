@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using RotaryHeart.Lib.SerializableDictionary;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -13,6 +15,22 @@ public sealed class CurrentGameState : ScriptableObject
 
     public void Subscribe(Action<GameStateChanged> onChange, object owner) => Message.Subscribe(onChange, owner);
     public void Unsubscribe(object owner) => Message.Unsubscribe(owner);
+
+    public bool HasTriggeredThisRun(string counterName) => gameState.TransientTriggers.Contains(counterName);
+    
+    public void IncrementCounter(TriggerStateLifecycle lifecycle, string counterName)
+    {
+        Counters(lifecycle)[counterName] = Counter(lifecycle, counterName) + 1;
+        gameState.TransientTriggers.Add(counterName);
+    }
+
+    public int Counter(TriggerStateLifecycle lifecycle, string counterName) 
+        => Counters(lifecycle).TryGetValue(counterName, out var val) ? val : 0;
+
+    private IDictionary<string, int> Counters(TriggerStateLifecycle lifecycle) 
+        => lifecycle == TriggerStateLifecycle.Permanent
+            ? gameState.PermanentCounters
+            : (IDictionary<string, int>)gameState.TransientCounters;
     
     public void UpdateState(Action<GameState> apply)
     {

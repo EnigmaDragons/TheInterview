@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using RotaryHeart.Lib.SerializableDictionary;
 
 [Serializable]
@@ -7,6 +8,7 @@ public sealed class GameState
     public bool ShouldBeHired = true;
     public PermanentCountersDictionary PermanentCounters = new PermanentCountersDictionary();
     public TransientCountersDictionary TransientCounters = new TransientCountersDictionary();
+    public HashSet<string> TransientTriggers = new HashSet<string>();
     
     public GameState SoftReset() => 
         new GameState 

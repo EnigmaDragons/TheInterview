@@ -7,6 +7,7 @@ public sealed class Maybe<T> where T : class
     [SerializeField] private T value;
     [SerializeField] private bool isPresent;
 
+    public bool IsMissing => !isPresent;
     public bool IsPresent => isPresent;
     public T Value => value;
 

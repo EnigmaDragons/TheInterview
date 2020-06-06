@@ -4,7 +4,7 @@ using UnityEngine;
 public sealed class ZoneLoiteringTrigger : OnMessage<PlayerIsInZone, PlaySpeech>
 {
     [SerializeField] private string zoneName;
-    [SerializeField] private OnTrigger onTrigger;
+    [SerializeField] private TriggerData triggerData;
     [SerializeField] private FloatReference loiterTime;
 
     private bool _isInZone;
@@ -29,7 +29,7 @@ public sealed class ZoneLoiteringTrigger : OnMessage<PlayerIsInZone, PlaySpeech>
     private void ActivateLoiterTrigger()
     {
         _currentLoiterTime = 0;
-        onTrigger.Trigger();
+        triggerData.Trigger();
     }
 
     protected override void Execute(PlayerIsInZone msg)
