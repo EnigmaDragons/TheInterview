@@ -9,6 +9,8 @@ public sealed class CurrentGameState : ScriptableObject
 {
     [SerializeField] private GameState gameState;
 
+    public AppState AppState => gameState.AppState;
+
     public void Init() => Init(new GameState());
     public void Init(GameState initialState) => UpdateState(gs => initialState);
     public void SoftReset() => UpdateState(gs => gs.SoftReset());
