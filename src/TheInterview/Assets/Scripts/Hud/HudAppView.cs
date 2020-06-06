@@ -4,7 +4,10 @@ public class HudAppView : MonoBehaviour
 {
     [SerializeField] private CurrentGameState game;
     [SerializeField] private StringVariable appViewName;
+    [SerializeField] private bool isRequired = true;
 
-    public void EnableIfActivated() => gameObject.SetActive(ShouldBeEnabled());
-    public bool ShouldBeEnabled() => game.AppViewAvailable(appViewName);
+    public bool IsRequired => isRequired;
+    public StringVariable ViewName => appViewName;
+    
+    public bool ShouldBeEnabled() => !gameObject.activeSelf && game.AppViewAvailable(appViewName);
 }
