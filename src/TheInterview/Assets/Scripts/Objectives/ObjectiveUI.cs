@@ -21,6 +21,14 @@ public class ObjectiveUI : MonoBehaviour
         Message.Subscribe<ObjectiveSucceeded>(_ => ObjectiveSucceeded(), this);
         Message.Subscribe<SubObjectiveFailed>(_ => SubObjectiveFailed(), this);
         Message.Subscribe<SubObjectiveSucceeded>(_ => SubObjectiveSucceeded(), this);
+
+        if (gameState.Objective.IsMissing || gameState.Objective.Value.Status != ObjectiveStatus.Uncompleted)
+            _objectiveUI.SetActive(false);
+        else
+        {
+            _objectiveUI.SetActive(true);
+            OnObjectiveChanged();
+        }
     }
 
     private void OnDisable() => Message.Unsubscribe(this);
@@ -89,6 +97,7 @@ public class ObjectiveUI : MonoBehaviour
     {
         _shouldFade = true;
         yield return new WaitForSeconds(fadeSeconds);
-        _objectiveUI.SetActive(true);
+        if (_shouldFade)
+            _objectiveUI.SetActive(false);
     }
 }
