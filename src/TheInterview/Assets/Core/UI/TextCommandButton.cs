@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,12 @@ public sealed class TextCommandButton : MonoBehaviour
     {
         Init(cmd);
         return this;
+    }
+
+    public void Init(string commandText, Action cmd)
+    {
+        label.text = commandText;
+        _button.onClick.AddListener(() => cmd.Invoke());
     }
     
     public void Init(NamedCommand cmd)
