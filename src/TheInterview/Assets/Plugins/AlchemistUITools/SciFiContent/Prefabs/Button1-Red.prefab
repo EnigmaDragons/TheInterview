@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 3611348094699869147}
   - component: {fileID: 3503515767800473847}
   - component: {fileID: 3499502721365267105}
+  - component: {fileID: 3226858826862052112}
   m_Layer: 5
   m_Name: Button1-Red
   m_TagString: Untagged
@@ -210,6 +211,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3226858826862052112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3534425559216126097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fac9d16e190b741a7ae48997f01d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueBtn: {fileID: 21300000, guid: c49c87185f7aff547993ecf6bb51db73, type: 3}
+  redBtn: {fileID: 21300000, guid: 46a9f3ab29281df46837801b0c44526f, type: 3}
+  blueLight: {fileID: 21300000, guid: a3983dca9cd9b614ca3892205de64379, type: 3}
+  redLight: {fileID: 21300000, guid: ee633d91fcfae234bb38a54819287b5b, type: 3}
+  btn: {fileID: 3503515767800473847}
+  light: {fileID: 3503213222055962847}
+  Button: {fileID: 3499502721365267105}
 --- !u!1 &3534535448822305857
 GameObject:
   m_ObjectHideFlags: 0

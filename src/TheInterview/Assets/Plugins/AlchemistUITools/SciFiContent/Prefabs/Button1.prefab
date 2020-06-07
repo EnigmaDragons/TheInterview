@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 222582240937788760}
   - component: {fileID: 114329059182050932}
   - component: {fileID: 114960005744788514}
+  - component: {fileID: 7334066995870213644}
   m_Layer: 5
   m_Name: Button1
   m_TagString: Untagged
@@ -63,6 +64,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -119,6 +121,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7334066995870213644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158863018896914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fac9d16e190b741a7ae48997f01d2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueBtn: {fileID: 21300000, guid: c49c87185f7aff547993ecf6bb51db73, type: 3}
+  redBtn: {fileID: 21300000, guid: 46a9f3ab29281df46837801b0c44526f, type: 3}
+  blueLight: {fileID: 21300000, guid: a3983dca9cd9b614ca3892205de64379, type: 3}
+  redLight: {fileID: 21300000, guid: ee633d91fcfae234bb38a54819287b5b, type: 3}
+  btn: {fileID: 114329059182050932}
+  light: {fileID: 114060546376875612}
+  Button: {fileID: 114960005744788514}
 --- !u!1 &1214258261061634
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +201,7 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 7c377cf6a3508a247ba8a4e63e494d69, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 0.753}
   m_RaycastTarget: 0
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -322,6 +344,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
