@@ -8,11 +8,12 @@ public sealed class CurrentGameState : ScriptableObject
     [SerializeField] private GameState gameState;
 
     public AppState AppState => gameState.AppState;
+    public Ending CurrentEnding => gameState.CurrentRunEnding;
 
     public void Init() => Init(new GameState());
     public void Init(GameState initialState) => UpdateState(gs => initialState);
     public void SoftReset() => UpdateState(gs => gs.SoftReset());
-
+    
     public void LockHud() => UpdateState(gs => gs.HudIsLocked = true);
     public void UnlockHud() => UpdateState(gs => gs.HudIsLocked = false);
 

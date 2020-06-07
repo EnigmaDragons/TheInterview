@@ -7,6 +7,7 @@ public sealed class GameState
 {
     public bool HudIsFocused = false;
     public bool HudIsLocked = true;
+    public Ending CurrentRunEnding;
     public AppState AppState = new AppState();
     public bool ShouldBeHired = true;
     public PermanentCountersDictionary PermanentCounters = new PermanentCountersDictionary();

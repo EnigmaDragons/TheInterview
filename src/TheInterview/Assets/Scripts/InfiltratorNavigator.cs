@@ -8,6 +8,7 @@ public class InfiltratorNavigator : ScriptableObject
     public void GoToStartingApartment() => LoadScene("InfiltratorApartment");
     public void GoToServerFarmExterior() => LoadScene("InfiltratorServerFarmExterior");
     public void GoToServerFarmInterior() => LoadScene("InfiltratorServerFarmInterior");
+    public void GoToEnding() => LoadScene("InfiltratorEnding");
     public void StartGame() => GoToStartingApartment();    
     
     public void ExitGame()
