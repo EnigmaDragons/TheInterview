@@ -13,6 +13,7 @@ public sealed class GameState
     public TransientCountersDictionary TransientCounters = new TransientCountersDictionary();
     public HashSet<string> PermanentTriggers = new HashSet<string>();
     public HashSet<string> TransientTriggers = new HashSet<string>();
+    public HashSet<string> InventoryItems = new HashSet<string>();
     
     public GameState SoftReset() => 
         new GameState 
