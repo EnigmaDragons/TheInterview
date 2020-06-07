@@ -1308,6 +1308,8 @@ GameObject:
   m_Component:
   - component: {fileID: 159742389}
   - component: {fileID: 159742390}
+  - component: {fileID: 159742391}
+  - component: {fileID: 159742392}
   m_Layer: 0
   m_Name: SecurityRoomEntrance
   m_TagString: Untagged
@@ -1360,6 +1362,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &159742391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159742388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b7d9d500474285b1d18356c9f0163c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  door: {fileID: 852994490}
+  deviceId: {fileID: 11400000, guid: 69a9e3acb96ce114986a7fb2e527ae73, type: 2}
+--- !u!114 &159742392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159742388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d41a340ea044b78d1c0f263648c8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 909823052}
+  trigger:
+    UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: 69a9e3acb96ce114986a7fb2e527ae73, type: 2}
+  shouldBeEnabledIfTriggered: 0
 --- !u!1001 &165250080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5908,6 +5943,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 848909962}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &852994490 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 941260812019235963, guid: a07fe8297193f7844a130dfbfae28e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 902145554642135710}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1199b3e4a287ec7449bd43c03a8f4878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &859648170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6315,6 +6362,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5629552443892339303, guid: 04e7c9e544e1231459d1347cf7e80f1d,
     type: 3}
   m_PrefabInstance: {fileID: 902662256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &909823052 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1932078119013998, guid: 9011836f92b38d74e9b9cce367e5a402,
+    type: 3}
+  m_PrefabInstance: {fileID: 1194870357}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &911875771
 PrefabInstance:
@@ -8235,7 +8288,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1194870357}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 909823052}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 831b5803cdd448a8ab71045d1ba067b4, type: 3}
@@ -13089,6 +13142,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2066882517}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2080577184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2080577186}
+  - component: {fileID: 2080577185}
+  m_Layer: 0
+  m_Name: Scripting
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2080577185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080577184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 244fb61b57ecaa8409c2711044349bc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+        m_MethodName: UnlockHud
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &2080577186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080577184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2100682769
 PrefabInstance:
   m_ObjectHideFlags: 0
