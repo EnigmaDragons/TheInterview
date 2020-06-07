@@ -15,13 +15,15 @@ public sealed class GameState
     public HashSet<string> PermanentTriggers = new HashSet<string>();
     public HashSet<string> TransientTriggers = new HashSet<string>();
     public HashSet<string> InventoryItems = new HashSet<string>();
+    public Maybe<ObjectiveState> Objective;
     
     public GameState SoftReset() => 
         new GameState 
         {
             ShouldBeHired = true, 
             PermanentCounters = PermanentCounters, 
-            PermanentTriggers = PermanentTriggers
+            PermanentTriggers = PermanentTriggers,
+            Objective = Maybe<ObjectiveState>.Missing()
         };
 
     [Serializable] public sealed class PermanentCountersDictionary : SerializableDictionaryBase<string, int> { }
