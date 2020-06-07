@@ -6,7 +6,10 @@ public class CurrentAppState : ScriptableObject
 {
     [SerializeField] private CurrentGameState gameState;
 
+    public AppState State => gameState.AppState;
+    
     public void InstallApp() => UpdateState(app => app.AppInstalled = true);
+    public void AddCredits(int amount) => UpdateState(app => app.Creds += amount);
     
     public void UpdateState(Action<AppState> apply)
     {
