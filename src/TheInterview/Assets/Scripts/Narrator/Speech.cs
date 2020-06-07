@@ -10,6 +10,7 @@ public class Speech : ScriptableObject
     [SerializeField] private AudioClip clip;
     [SerializeField] private float volume = 0.5f;
     [SerializeField, TextArea] private string subtitle;
+    [SerializeField] private UnityEvent onStarted;
     [SerializeField] private UnityEvent onFinished;
     [SerializeField] private float secondsDelay;
     [SerializeField] private SpeechPriority priority;
@@ -24,6 +25,7 @@ public class Speech : ScriptableObject
         if (!CanPlay)
             yield break;
         
+        onStarted.Invoke();
         narrator.Play(clip, priority, volume);
         yield return new WaitForSeconds(clip.length);
         yield return new WaitForSeconds(secondsDelay);
