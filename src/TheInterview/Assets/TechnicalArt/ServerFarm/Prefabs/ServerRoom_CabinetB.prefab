@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 3329640}
   - component: {fileID: 2312270}
   - component: {fileID: 9562616}
-  - component: {fileID: 4817433528985547947}
+  - component: {fileID: 550389210763053955}
   m_Layer: 0
   m_Name: ServerRoomSet_BB_LOD0
   m_TagString: Untagged
@@ -374,8 +374,8 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &4817433528985547947
-BoxCollider:
+--- !u!64 &550389210763053955
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -384,9 +384,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.990605, y: 1.4772474, z: 2.2079754}
-  m_Center: {x: 0, y: -0.00000002980233, z: 1.1039877}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e9e078b3eb99e464cbdf5bf37f8e7ba3, type: 3}
 --- !u!1 &1500589388119013953
 GameObject:
   m_ObjectHideFlags: 0
