@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "GameTemplate/OnlyOnce/CurrentGameState")]
@@ -91,13 +92,13 @@ public sealed class CurrentGameState : ScriptableObject
 
     public void FailSubObjective(SubObjective subObjective)
     {
-        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Failed);
+        UpdateState(state => state.Objective.Value.SubObjectives.First(x => x.SubObjective == subObjective).Status = ObjectiveStatus.Failed);
         Message.Publish(new SubObjectiveFailed());
     }
 
     public void SucceedSubObjective(SubObjective subObjective)
     {
-        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Succeeded);
+        UpdateState(state => state.Objective.Value.SubObjectives.First(x => x.SubObjective == subObjective).Status = ObjectiveStatus.Succeeded);
         Message.Publish(new SubObjectiveSucceeded());
     }
 }

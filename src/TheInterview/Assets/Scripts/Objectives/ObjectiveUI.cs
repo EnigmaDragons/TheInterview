@@ -61,18 +61,18 @@ public class ObjectiveUI : MonoBehaviour
 
         var objectiveDescription = $"<b>{gameState.Objective.Value.Objective.Description}</b>";
         if (gameState.Objective.Value.Status == ObjectiveStatus.Failed)
-            objectiveDescription = $"<s><color\"red\">{description}</color></s>";
+            objectiveDescription = $"<s><color=\"red\">{objectiveDescription}</color></s>";
         if (gameState.Objective.Value.Status == ObjectiveStatus.Succeeded)
-            objectiveDescription = $"<s><color\"green\">{description}</color></s>";
-        description.text = string.Join("\n", new string [] { objectiveDescription }
+            objectiveDescription = $"<s><color=\"green\">{objectiveDescription}</color></s>";
+        description.text = string.Join("\n\n", new string [] { objectiveDescription }
             .Concat(gameState.Objective.Value.SubObjectives
                 .Where(x => !x.SubObjective.Hidden || x.Status != ObjectiveStatus.Uncompleted)
                 .Select(x =>
                 {
                     if (x.Status == ObjectiveStatus.Failed)
-                        return $" - <s><color\"red\">{x.SubObjective.Description}</color></s>";
+                        return $" - <s><color=\"red\">{x.SubObjective.Description}</color></s>";
                     else if (x.Status == ObjectiveStatus.Succeeded)
-                        return $" - <s><color\"green\">{x.SubObjective.Description}</color></s>";
+                        return $" - <s><color=\"green\">{x.SubObjective.Description}</color></s>";
                     else
                         return $" - {x.SubObjective.Description}";
 
