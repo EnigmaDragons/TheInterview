@@ -10,36 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-OptOut1
+  m_Name: Speech-OptOut4
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: 71ac6b42d0e8b6243a46bc277ed41584, type: 3}
+  clip: {fileID: 8300000, guid: 63fdc118d7994fa478d9dbaedd1e5fad, type: 3}
   volume: 1
-  subtitle: Maybe you misclicked, I will assist you and you can try again.
+  subtitle: 
   onStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
-        m_MethodName: RefuseAppInstall
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onFinished:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
-        m_MethodName: FinishRefuseAppInstall
-        m_Mode: 1
+        m_MethodName: PlayEnding
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1e558edb28c4a7447bdbdd2756f0af42,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Ending, EnigmaDragons.Game
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
