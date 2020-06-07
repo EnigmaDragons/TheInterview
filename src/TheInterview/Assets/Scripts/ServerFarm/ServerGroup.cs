@@ -3,6 +3,7 @@
 public class ServerGroup : MonoBehaviour
 {
     [SerializeField] private Server[] servers;
+    [SerializeField] private GameObject optionalAttachable;
 
     public int LabelServers(string column, int offset)
     {
@@ -10,9 +11,12 @@ public class ServerGroup : MonoBehaviour
         for (var i = 0; i < servers.Length; i++)
         {
             var ordinal = servers.Length - 1 - i;
-            servers[i].Init(column, ordinal + offset);
+            var s = servers[i];
+            s.Init(column, ordinal + offset);
             if (invert)
-                servers[i].InvertLabel();
+                s.InvertLabel();
+            if (optionalAttachable != null)
+                Instantiate(optionalAttachable, s.transform);
         }
 
         return servers.Length;
