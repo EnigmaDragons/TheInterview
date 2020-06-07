@@ -15,6 +15,7 @@ public class KeypadEntryProgram : MonoBehaviour
     [SerializeField] private AudioClip correctEntry;
 
     private StringVariable _deviceId;
+    private string _prompt;
     private string _secret;
     private string _code;
     
@@ -31,8 +32,8 @@ public class KeypadEntryProgram : MonoBehaviour
     public void Init(CodeHackSecret secret)
     {
         ClearEntry();
+        _prompt = secret.Prompt;
         _deviceId = secret.DeviceId;
-        promptLabel.text = secret.Prompt;
         _secret = secret.SecretCode;
     }
 
@@ -40,6 +41,7 @@ public class KeypadEntryProgram : MonoBehaviour
     {
         _code = "";
         codeLabel.text = "";
+        promptLabel.text = _prompt;
     }
 
     private bool EntryComplete => _code.Length == _secret.Length;
@@ -50,7 +52,7 @@ public class KeypadEntryProgram : MonoBehaviour
             return;
         
         _code = _code + number;
-        Debug.Log(_code);
+        Debug.Log($"Code - Secret is: {_secret}. Entered: {_code}");
         codeLabel.text = string.Join("", Enumerable.Range(0, _code.Length).Select(_ => "*"));
         if (EntryComplete)
             ResolveCode();
@@ -72,6 +74,7 @@ public class KeypadEntryProgram : MonoBehaviour
         else
         {
             sfx.Play(incorrectEntry);
+            promptLabel.text = "Access Denied";
             StartCoroutine(ExecuteAfterDelay(1f, ClearEntry));
         }
     }

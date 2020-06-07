@@ -25,7 +25,7 @@ public sealed class GameState
             PermanentTriggers = PermanentTriggers,
             Objective = Maybe<ObjectiveState>.Missing()
         };
-
+    
     [Serializable] public sealed class PermanentCountersDictionary : SerializableDictionaryBase<string, int> { }
     [Serializable] public sealed class TransientCountersDictionary : SerializableDictionaryBase<string, int> { }
 }

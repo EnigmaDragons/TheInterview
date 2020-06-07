@@ -8,6 +8,7 @@ public sealed class CurrentGameState : ScriptableObject
 {
     [SerializeField] private GameState gameState;
 
+    public GameState ReadOnly => gameState;
     public AppState AppState => gameState.AppState;
     public Ending CurrentEnding => gameState.CurrentRunEnding;
 
