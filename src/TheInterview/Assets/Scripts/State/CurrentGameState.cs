@@ -34,7 +34,7 @@ public sealed class CurrentGameState : ScriptableObject
     public bool AppViewAvailable(StringVariable viewName)
         => gameState.TransientTriggers.Contains($"{viewName}-Activated") &&
            !gameState.TransientTriggers.Contains($"{viewName}-Completed");
-    
+
     public bool HasTriggeredThisRun(string counterName) => gameState.TransientTriggers.Contains(counterName);
     
     public void IncrementCounter(TriggerStateLifecycle lifecycle, string counterName)
@@ -68,4 +68,36 @@ public sealed class CurrentGameState : ScriptableObject
 
     public bool ShouldBeHired => gameState.ShouldBeHired;
     public void FailedHiring() => gameState.ShouldBeHired = false;
+
+    public Maybe<ObjectiveState> Objective => gameState.Objective;
+
+    public void SetObjective(Objective objective)
+    {
+        UpdateState(x => x.Objective = new Maybe<ObjectiveState>(new ObjectiveState(objective)));
+        Message.Publish(new ObjectiveGained());
+    }
+
+    public void FailObjective()
+    {
+        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Failed);
+        Message.Publish(new ObjectiveFailed());
+    }
+
+    public void SucceedObjective()
+    {
+        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Succeeded);
+        Message.Publish(new ObjectiveSucceeded());
+    }
+
+    public void FailSubObjective(SubObjective subObjective)
+    {
+        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Failed);
+        Message.Publish(new SubObjectiveFailed());
+    }
+
+    public void SucceedSubObjective(SubObjective subObjective)
+    {
+        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Succeeded);
+        Message.Publish(new SubObjectiveSucceeded());
+    }
 }
