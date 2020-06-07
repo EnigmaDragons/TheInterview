@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 111193279251399920}
   - component: {fileID: 114022803309936466}
   - component: {fileID: 6955615970997298743}
-  - component: {fileID: 5626073200895509864}
+  - component: {fileID: 291006426971455972}
   m_Layer: 0
   m_Name: DoorC
   m_TagString: RaycastInteract
@@ -240,7 +240,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5626073200895509864
+--- !u!114 &291006426971455972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -249,27 +249,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1090567232905498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4407fb7fdd064de3b93071bf1e9e054e, type: 3}
+  m_Script: {fileID: 11500000, guid: 831b5803cdd448a8ab71045d1ba067b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trigger:
-    isRecurring: 1
-    timesTriggeredEver: {fileID: 0}
-    defaultAction:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 114022803309936466}
-          m_MethodName: OpenDoor
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-    indexedUnityActions: []
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114022803309936466}
+        m_MethodName: OpenDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1249460958131698
 GameObject:
   m_ObjectHideFlags: 0
