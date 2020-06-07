@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class CodeHackSecret : ScriptableObject
 {
-    public StringVariable DeviceName;
+    public string Prompt;
+    public StringVariable DeviceId;
     public string SecretCode;
 }

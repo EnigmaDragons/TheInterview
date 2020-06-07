@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class PlayerInteraction : MonoBehaviour
+public class PlayerInteraction : OnMessage<GameStateChanged>
 {
     [SerializeField] private Camera eyes;
     [SerializeField] private float interactRange = 3f;
@@ -10,7 +10,8 @@ public class PlayerInteraction : MonoBehaviour
     private Transform _eyesTransform;
     
     private readonly RaycastHit[] _raycastHits = new RaycastHit[50];
-    
+
+    private bool _interactionSuspended;
     private bool _canInteract;
     private string _interactObjectName = "";
     private bool _interactChanged;
@@ -60,6 +61,9 @@ public class PlayerInteraction : MonoBehaviour
     
     private void Update()
     {
+        if (_interactionSuspended)
+            return;
+        
         var shouldExecute = InteractionInputs.IsPlayerSignallingInteraction();
         
         if (shouldExecute)
@@ -88,4 +92,6 @@ public class PlayerInteraction : MonoBehaviour
         _canInteract = canInteract;
         Message.Publish(new InteractionsPossible { Any = canInteract });
     }
+
+    protected override void Execute(GameStateChanged msg) => _interactionSuspended = msg.State.HudIsFocused;
 }
