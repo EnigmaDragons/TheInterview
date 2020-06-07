@@ -1,12 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AppUI : OnMessage<AppStateChanged>
 {
     [SerializeField] private CurrentGameState gameState;
     [SerializeField] private GameObject appParent;
 
-    private void OnEnable()
+    private void Awake()
     {
         appParent.SetActive(gameState.AppState.AppInstalled);
     }
