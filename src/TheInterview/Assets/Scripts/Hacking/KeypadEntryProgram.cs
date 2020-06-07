@@ -13,6 +13,7 @@ public class KeypadEntryProgram : MonoBehaviour
     [SerializeField] private UiSfxPlayer sfx;
     [SerializeField] private AudioClip incorrectEntry;
     [SerializeField] private AudioClip correctEntry;
+    [SerializeField] private AudioClip buttonPressed;
 
     private StringVariable _deviceId;
     private string _prompt;
@@ -51,6 +52,7 @@ public class KeypadEntryProgram : MonoBehaviour
         if (EntryComplete)
             return;
         
+        sfx.Play(buttonPressed);
         _code = _code + number;
         Debug.Log($"Code - Secret is: {_secret}. Entered: {_code}");
         codeLabel.text = string.Join("", Enumerable.Range(0, _code.Length).Select(_ => "*"));
