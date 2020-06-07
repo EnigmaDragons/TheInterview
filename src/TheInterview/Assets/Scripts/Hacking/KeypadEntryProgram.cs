@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class KeypadEntryProgram : MonoBehaviour
@@ -7,7 +6,7 @@ public class KeypadEntryProgram : MonoBehaviour
     [SerializeField] private CurrentGameState gameState;
     [SerializeField] private TextMeshProUGUI promptLabel;
     [SerializeField] private TextMeshProUGUI codeLabel;
-    [SerializeField] private TextCommandButton[] buttons;
+    [SerializeField] private TextCommandButtonNonTMP[] buttons;
 
     private string _secret;
     private string _code;
@@ -15,17 +14,18 @@ public class KeypadEntryProgram : MonoBehaviour
     private void Awake()
     {
         codeLabel.text = "";
-        for(var i = 1; i < buttons.Length; i++)
+        for(var i = 0; i < buttons.Length; i++)
         {
-            var number = i % 10;
+            var number = (i + 1) % 10;
             buttons[i].Init(number.ToString(), () => EnterDigit(number));
         }
     }
 
-    private void OnEnable()
+    public void Init(CodeHackSecret secret)
     {
-        promptLabel.text = "";
-        codeLabel.text = "";
+        _code = "";
+        promptLabel.text = secret.DeviceName.Value;
+        _secret = secret.SecretCode;
     }
 
     private void EnterDigit(int number)

@@ -13,6 +13,7 @@ public class PlayerInteraction : MonoBehaviour
     
     private bool _canInteract;
     private string _interactObjectName = "";
+    private bool _interactChanged;
     private Action _interact = () => { };
 
     private void Awake() => _eyesTransform = eyes.transform;
@@ -36,6 +37,7 @@ public class PlayerInteraction : MonoBehaviour
                 if (interactTrigger != null)
                 { 
                     canInteract = interactTrigger.CanTrigger();
+                    _interactChanged = _interactObjectName.Equals(hitObj.name);
                     _interactObjectName = hitObj.name;
                     _interact = () => interactTrigger.Execute();
                 }
@@ -44,14 +46,16 @@ public class PlayerInteraction : MonoBehaviour
                 if (interactAction != null && interactAction.enabled)
                 {
                     canInteract = true;
+                    _interactChanged = _interactObjectName.Equals(hitObj.name);
                     _interactObjectName = hitObj.name;
                     _interact = () => interactAction.Execute();
                 }
             }
         }
-        if (!string.IsNullOrWhiteSpace(_interactObjectName))
+        if (!string.IsNullOrWhiteSpace(_interactObjectName) && _interactChanged)
             Debug.Log($"Player- Can interact with {_interactObjectName}");
         SetInteractState(canInteract);
+        _interactChanged = false;
     }
     
     private void Update()
