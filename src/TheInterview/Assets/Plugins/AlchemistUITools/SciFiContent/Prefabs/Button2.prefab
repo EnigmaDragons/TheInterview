@@ -223,6 +223,7 @@ GameObject:
   - component: {fileID: 114846220918654690}
   - component: {fileID: 114236183288004094}
   - component: {fileID: 2446863859681164522}
+  - component: {fileID: 6880537407382824680}
   m_Layer: 5
   m_Name: Button2
   m_TagString: Untagged
@@ -345,6 +346,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   label: {fileID: 114611171153534594}
+--- !u!114 &6880537407382824680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604287725050692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aec6198fa7ce58e448c2b6c70f740f30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueLight: {fileID: 21300000, guid: c5f2cb5539795f54fb218266b77913f7, type: 3}
+  redLight: {fileID: 21300000, guid: 897298b39f34f504793c384eddf7b880, type: 3}
+  blueLineLight: {fileID: 21300000, guid: 02ebc592b4d8f0045853e89016bd93d4, type: 3}
+  redLineLight: {fileID: 21300000, guid: 6c5ba735b3941614c9e53dd9432ee8bf, type: 3}
+  light: {fileID: 114677089937251926}
+  lineLight: {fileID: 114721514903096584}
+  text: {fileID: 114611171153534594}
+  Button: {fileID: 114236183288004094}
 --- !u!1 &1725657024935904
 GameObject:
   m_ObjectHideFlags: 0
