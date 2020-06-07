@@ -6,11 +6,12 @@ public class ServerGroup : MonoBehaviour
 
     public int LabelServers(string column, int offset)
     {
-        var invertLabel = transform.localScale.z < 0;
+        var invert = transform.localScale.z < 0;
         for (var i = 0; i < servers.Length; i++)
         {
-            servers[i].Init(column, i + offset);
-            if (invertLabel)
+            var ordinal = servers.Length - 1 - i;
+            servers[i].Init(column, ordinal + offset);
+            if (invert)
                 servers[i].InvertLabel();
         }
 
