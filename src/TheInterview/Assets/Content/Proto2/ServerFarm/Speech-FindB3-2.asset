@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-ArriveWithUnopenedPackage
+  m_Name: Speech-FindB3-2
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: decc451482f30b949ae93d098a502f0b, type: 3}
+  clip: {fileID: 8300000, guid: 63fdc118d7994fa478d9dbaedd1e5fad, type: 3}
   volume: 1
-  subtitle: Excellent job, you have no idea how rare it is for someone to not immediately
-    open the package. It's a Server Up Id of you.
+  subtitle: 
   onStarted:
     m_PersistentCalls:
       m_Calls:
@@ -25,7 +24,7 @@ MonoBehaviour:
         m_MethodName: SucceedSubObjective
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 5bacb1b2b94072a43b907fbc63fea517,
+          m_ObjectArgument: {fileID: 11400000, guid: 3c6f5addc1964604cbaf0e696f7ae8d3,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: SubObjective, EnigmaDragons.Game
           m_IntArgument: 0
@@ -35,17 +34,6 @@ MonoBehaviour:
         m_CallState: 2
   onFinished:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 64ac42ff8656a50479cd14d22915319f, type: 2}
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  secondsDelay: 1
+      m_Calls: []
+  secondsDelay: 0
   priority: 2

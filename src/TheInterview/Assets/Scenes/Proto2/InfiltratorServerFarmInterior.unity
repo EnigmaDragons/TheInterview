@@ -10716,6 +10716,43 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1454739404}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1465912764 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4146214838628338062, guid: 100e0d8055e45144cbaa9d26ee9892d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 4146214838741141606}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1465912765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465912764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45100f4352fc42f28d2e1791e32b400a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerData: {fileID: 0}
+--- !u!114 &1465912766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465912764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce9f979e5bd2ef49a23ead8ba1f5477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: {fileID: 0}
+  hackedKey:
+    UseConstant: 1
+    ConstantValue: 
+    Variable: {fileID: 0}
+  trigger: {fileID: 0}
 --- !u!1001 &1466251902
 PrefabInstance:
   m_ObjectHideFlags: 0
