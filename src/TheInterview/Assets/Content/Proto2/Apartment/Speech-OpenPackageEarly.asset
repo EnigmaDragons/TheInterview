@@ -19,7 +19,7 @@ MonoBehaviour:
   subtitle: You seemed like one of those people who compulsively opens packages when
     told not to. Your XP has been penalized and you have lowered the reward creds
     for this objective. I am sure it was worth it.
-  onFinished:
+  onStarted:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
@@ -34,5 +34,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
   secondsDelay: 0
   priority: 2
