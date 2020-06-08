@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0.392}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -118,6 +119,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appState: {fileID: 11400000, guid: 59d2f0149d17919419a93454f37a8dd6, type: 2}
   display: {fileID: 1554000019081219921}
+  sfx: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
+  moneySound:
+    clip: {fileID: 8300000, guid: 73f0e3ffbf575d54586800337d47f182, type: 3}
+    volume: 1
 --- !u!1 &4322938254499665455
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,6 +183,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -436,6 +442,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
