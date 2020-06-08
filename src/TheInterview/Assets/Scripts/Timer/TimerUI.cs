@@ -3,7 +3,7 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class TimerUI : MonoBehaviour
+public class TimerUI : OnMessage<StopTimer>
 {
     [SerializeField] private TextMeshProUGUI display;
 
@@ -36,5 +36,11 @@ public class TimerUI : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         action();
+    }
+
+    protected override void Execute(StopTimer msg)
+    {
+        _remaining = 0;
+        StartCoroutine(ExecuteAfterDelay(2f, () => gameObject.SetActive(false)));
     }
 }

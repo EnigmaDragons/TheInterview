@@ -11,4 +11,5 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void RefuseAppInstall() => Message.Publish(new AppInstallRefused());
     public void FinishRefuseAppInstall() => Message.Publish(new Finished<AppInstallRefused>());
     public void StartTimer(TimerData d) => Message.Publish(new StartTimer(d));
+    public void StopTimer() => Message.Publish(new StopTimer());
 }
