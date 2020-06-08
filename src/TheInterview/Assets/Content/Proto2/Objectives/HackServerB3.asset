@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1beb2c637c67884488dfa872af4bfd14, type: 3}
   m_Name: HackServerB3
   m_EditorClassIdentifier: 
-  Description: Find and hack server B3
-  SubObjectives: []
+  Description: Find and hack server B3, then get out
+  SubObjectives:
+  - {fileID: 11400000, guid: 3c6f5addc1964604cbaf0e696f7ae8d3, type: 2}
+  - {fileID: 11400000, guid: ee3bef77554b1f84f93154ea954ae88f, type: 2}
+  - {fileID: 11400000, guid: add53fba96ba71343bf320d3df42173a, type: 2}
   Creds: 2500
   XP: 250
