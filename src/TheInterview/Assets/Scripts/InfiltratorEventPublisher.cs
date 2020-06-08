@@ -10,4 +10,6 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void StartKeyCodeEntry(CodeHackSecret secret) => Message.Publish(new BeginKeypadEntry(secret));
     public void RefuseAppInstall() => Message.Publish(new AppInstallRefused());
     public void FinishRefuseAppInstall() => Message.Publish(new Finished<AppInstallRefused>());
+    public void StartTimer(TimerData d) => Message.Publish(new StartTimer(d));
+    public void StopTimer() => Message.Publish(new StopTimer());
 }
