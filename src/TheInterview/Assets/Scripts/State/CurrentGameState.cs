@@ -76,7 +76,7 @@ public sealed class CurrentGameState : ScriptableObject
 
     public void SetObjective(Objective objective)
     {
-        UpdateState(x => x.Objective = new Maybe<ObjectiveState>(new ObjectiveState(objective)));
+        UpdateState(x => x.Objective = new ObjectiveState(objective));
         Message.Publish(new ObjectiveGained());
     }
 
@@ -89,7 +89,7 @@ public sealed class CurrentGameState : ScriptableObject
     public void SucceedObjective()
     {
         UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Succeeded);
-        Message.Publish(new ObjectiveSucceeded());
+        Message.Publish(new ObjectiveSucceeded(gameState.Objective.Value));
     }
 
     public void FailSubObjective(SubObjective subObjective)
