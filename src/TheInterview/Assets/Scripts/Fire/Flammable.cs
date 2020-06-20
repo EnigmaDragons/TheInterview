@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class Flammable : MonoBehaviour
 {
-    [SerializeField] private UnityAction onBurn;
+    [SerializeField] private UnityEvent onBurn;
 
     public bool IsBurning;
 
@@ -12,7 +12,7 @@ public class Flammable : MonoBehaviour
         if (IsBurning)
             return;
         IsBurning = true; 
-        onBurn();
+        onBurn.Invoke();
     }
 
     private void OnTriggerEnter(Collider other)
