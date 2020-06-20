@@ -13,4 +13,5 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void StartTimer(TimerData d) => Message.Publish(new StartTimer(d));
     public void StopTimer() => Message.Publish(new StopTimer());
     public void AskSurveyQuestion(YesNoSurveyQuestion q) => Message.Publish(new BeginYesNoSurvey(q));
+    public void ActivateIdScan(IdAccessRequirement r) => Message.Publish(new BeginIdScan(r));
 }
