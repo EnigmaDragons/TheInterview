@@ -29,6 +29,7 @@ public class IdScanApp : MonoBehaviour
         if (scanSucceeded)
         {
             sfx.Play(scanSuccessSound);
+            locationLabel.text = "Access Granted";
             StartCoroutine(ExecuteAfterDelay(1f, 
                 () => gameState.UpdateState(gs =>
                 {
@@ -39,6 +40,7 @@ public class IdScanApp : MonoBehaviour
         else
         {
             sfx.Play(scanFailureSound);
+            locationLabel.text = "Missing Id";
         }
     }
     

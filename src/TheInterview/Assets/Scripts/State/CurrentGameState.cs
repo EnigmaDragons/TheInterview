@@ -8,12 +8,18 @@ public sealed class CurrentGameState : ScriptableObject
 {
     [SerializeField] private GameState gameState;
 
+    [SerializeField] private bool useDebugFields = true;
+    [SerializeField] private List<string> debugTransientTriggers;
+    [SerializeField] private List<string> debugPermanentTriggers;
+    [SerializeField] private List<string> debugItems;
+
     public GameState ReadOnly => gameState;
     public AppState AppState => gameState.AppState;
     public Ending CurrentEnding => gameState.CurrentRunEnding;
 
     public void Init() => Init(new GameState());
     public void Init(GameState initialState) => UpdateState(gs => initialState);
+    public void Refresh() => UpdateState(gs => { });
     public void SoftReset() => UpdateState(gs => gs.SoftReset());
     
     public void LockHud() => UpdateState(gs => gs.HudIsLocked = true);
@@ -72,6 +78,14 @@ public sealed class CurrentGameState : ScriptableObject
     public void UpdateState(Func<GameState, GameState> apply)
     {
         gameState = apply(gameState);
+
+        if (useDebugFields)
+        {
+            debugTransientTriggers = gameState.TransientTriggers.ToList();
+            debugPermanentTriggers = gameState.PermanentTriggers.ToList();
+            debugItems = gameState.InventoryItems.ToList();
+        }
+
         Message.Publish(new GameStateChanged(gameState));
     }
 
