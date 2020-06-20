@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using UnityEngine;
 
 public class Door : MonoBehaviour 
 {
@@ -69,10 +71,18 @@ public class Door : MonoBehaviour
             }
 		}
 	}
+
+	public void ToggleDoor()
+	{
+		if (isOpen)
+			CloseDoor();
+		else
+			OpenDoor();
+	}
 	
 	public void OpenDoor()
 	{
-		if (isOpen)
+		if (isOpen || anim.isPlaying)
 			return;
 		
 		if (!canBeOpened)
@@ -106,18 +116,27 @@ public class Door : MonoBehaviour
 	
 	public void CloseDoor()
 	{
+		if (!isOpen || anim.isPlaying)
+			return;
+		
         isOpen = false;
         Debug.Log("Closing Door");
-        PlaySound(closeSound);
+        StartCoroutine(ExecuteAfterDelay(0.6f, () => PlaySound(closeSound)));
 		anim [_animName].speed = -1 * CloseSpeed;
 		if (anim [_animName].normalizedTime > 0) {
 			anim [_animName].normalizedTime = anim [_animName].normalizedTime;
 		} else {
 			anim [_animName].normalizedTime = 1;
 		}
-		anim.Play (_animName);
+		anim.Play(_animName);
 	}
 
+	private IEnumerator ExecuteAfterDelay(float delay, Action action)
+	{
+		yield return new WaitForSeconds(delay);
+		action();
+	}
+	
 	void OnTriggerEnter(Collider other){
 		Debug.Log("Door Trigger Enter");
 		if(other.GetComponent<Collider>().tag == PlayerHeadTag){
