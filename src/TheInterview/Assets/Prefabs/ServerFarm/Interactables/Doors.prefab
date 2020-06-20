@@ -106,6 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3876376897781990167}
+  - component: {fileID: 4594459077382726761}
   m_Layer: 0
   m_Name: AdministrationRoomEntrance
   m_TagString: Untagged
@@ -130,6 +131,21 @@ Transform:
   m_Father: {fileID: 3876376898525919136}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4594459077382726761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876376897781990160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b7d9d500474285b1d18356c9f0163c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  game: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  door: {fileID: 4097061768769700690}
+  deviceId: {fileID: 11400000, guid: b32c5da5c640d8d48a2bd304ac684537, type: 2}
 --- !u!1 &3876376897848469082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1064,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 3876376897168146217}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4097061768769700690 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 941260812019235963, guid: a07fe8297193f7844a130dfbfae28e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3876376897168146217}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1199b3e4a287ec7449bd43c03a8f4878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3876376898077518288
 PrefabInstance:
   m_ObjectHideFlags: 0
