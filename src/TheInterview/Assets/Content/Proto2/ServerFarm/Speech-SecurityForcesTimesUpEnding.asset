@@ -10,30 +10,40 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-FindB3-1
+  m_Name: Speech-SecurityForcesTimesUpEnding
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: f848f5323c2edc745880d090082621f8, type: 3}
+  clip: {fileID: 8300000, guid: 63fdc118d7994fa478d9dbaedd1e5fad, type: 3}
   volume: 1
   subtitle: 
   onStarted:
     m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
-        m_MethodName: SucceedSubObjective
-        m_Mode: 2
+        m_MethodName: SoftReset
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 3c6f5addc1964604cbaf0e696f7ae8d3,
-            type: 2}
-          m_ObjectArgumentAssemblyTypeName: SubObjective, EnigmaDragons.Game
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onFinished:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 11400000, guid: ae5ebd4cc2fb81d43b1949f62386026d, type: 2}
+        m_MethodName: GoToStartingApartment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   secondsDelay: 0
   priority: 2

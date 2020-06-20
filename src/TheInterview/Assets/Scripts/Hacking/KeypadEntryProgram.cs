@@ -77,6 +77,7 @@ public class KeypadEntryProgram : MonoBehaviour
         {
             sfx.Play(incorrectEntry);
             promptLabel.text = "Access Denied";
+            Message.Publish(new HackFailed { DeviceId = _deviceId.Value });
             StartCoroutine(ExecuteAfterDelay(1f, ClearEntry));
         }
     }

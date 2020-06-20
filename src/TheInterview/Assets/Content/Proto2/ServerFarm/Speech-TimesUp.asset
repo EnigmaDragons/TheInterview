@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-FindB3-1
+  m_Name: Speech-TimesUp
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: f848f5323c2edc745880d090082621f8, type: 3}
+  clip: {fileID: 8300000, guid: 4514e7ef064108844879454a187be44b, type: 3}
   volume: 1
-  subtitle: 
+  subtitle: Times Up
   onStarted:
     m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
-        m_MethodName: SucceedSubObjective
+      - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
+        m_MethodName: PlayEnding
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 3c6f5addc1964604cbaf0e696f7ae8d3,
+          m_ObjectArgument: {fileID: 11400000, guid: a9dd94f0399190f4aacde7ad464782b8,
             type: 2}
-          m_ObjectArgumentAssemblyTypeName: SubObjective, EnigmaDragons.Game
+          m_ObjectArgumentAssemblyTypeName: Ending, EnigmaDragons.Game
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onFinished:
-    m_PersistentCalls:
-      m_Calls: []
   secondsDelay: 0
   priority: 2
