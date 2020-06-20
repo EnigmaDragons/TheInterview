@@ -18,10 +18,16 @@ public sealed class CurrentGameState : ScriptableObject
     
     public void LockHud() => UpdateState(gs => gs.HudIsLocked = true);
     public void UnlockHud() => UpdateState(gs => gs.HudIsLocked = false);
-
+    
     public void ToggleHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = !gs.HudIsFocused));
     public void FocusHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = true));
     public void DismissHud() => IfHudUnlocked(() => UpdateState(gs => gs.HudIsFocused = false));
+    public void UnlockAndDismissHud() => UpdateState(gs =>
+    {
+        gs.HudIsLocked = false;
+        gs.HudIsFocused = false;
+    });
+    
     private void IfHudUnlocked(Action a)
     {
         if (!gameState.HudIsLocked)
