@@ -13,38 +13,18 @@ MonoBehaviour:
   m_Name: CurrentGameState
   m_EditorClassIdentifier: 
   gameState:
+    HudIsFocused: 0
+    HudIsLocked: 0
+    CurrentRunEnding: {fileID: 0}
+    AppState:
+      AppInstalled: 0
+      CurrentLevel: 1
+      Creds: -328170
+      CurrentLevelXp: 0
+      NextLevelXp: 250
+      ActiveQuests: []
     ShouldBeHired: 1
     PermanentCounters:
-      reorderableList:
-        canAdd: 1
-        canRemove: 1
-        draggable: 1
-        expandable: 1
-        multipleSelection: 1
-        isExpanded: 1
-        label:
-          m_Text: Keys
-          m_Image: {fileID: 0}
-          m_Tooltip: 
-        headerHeight: 18
-        footerHeight: 13
-        slideEasing: 0.15
-        verticalSpacing: 2
-        showDefaultBackground: 1
-        elementDisplayType: 0
-        elementNameProperty: 
-        elementNameOverride: 
-        elementIcon: {fileID: 0}
-      reqReferences: {fileID: 0}
-      isExpanded: 1
-      _keyValues:
-      - PermaTileTrigger
-      - TransientTileTrigger
-      _keys:
-      - PermaTileTrigger
-      - TransientTileTrigger
-      _values: 0300000004000000
-    TransientCounters:
       reorderableList:
         canAdd: 1
         canRemove: 1
@@ -70,3 +50,37 @@ MonoBehaviour:
       _keyValues: []
       _keys: []
       _values: 
+    TransientCounters:
+      reorderableList:
+        canAdd: 1
+        canRemove: 1
+        draggable: 1
+        expandable: 1
+        multipleSelection: 1
+        isExpanded: 1
+        label:
+          m_Text: Keys
+          m_Image: {fileID: 0}
+          m_Tooltip: 
+        headerHeight: 18
+        footerHeight: 13
+        slideEasing: 0.15
+        verticalSpacing: 2
+        showDefaultBackground: 1
+        elementDisplayType: 0
+        elementNameProperty: 
+        elementNameOverride: 
+        elementIcon: {fileID: 0}
+      reqReferences: {fileID: 0}
+      isExpanded: 1
+      _keyValues:
+      - Trigger-AppStartup
+      _keys:
+      - Trigger-AppStartup
+      _values: 01000000
+  useDebugFields: 1
+  debugTransientTriggers:
+  - AdminRoom12
+  debugPermanentTriggers: []
+  debugItems:
+  - AdminRoomId

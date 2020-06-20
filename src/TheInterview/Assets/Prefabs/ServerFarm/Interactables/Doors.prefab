@@ -106,7 +106,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3876376897781990167}
+  - component: {fileID: 2194011909327634320}
   - component: {fileID: 4594459077382726761}
+  - component: {fileID: 3428840902361714106}
   m_Layer: 0
   m_Name: AdministrationRoomEntrance
   m_TagString: Untagged
@@ -131,6 +133,24 @@ Transform:
   m_Father: {fileID: 3876376898525919136}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2194011909327634320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876376897781990160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8d41a340ea044b78d1c0f263648c8fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3876884007191439737}
+  trigger:
+    UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: b32c5da5c640d8d48a2bd304ac684537, type: 2}
+  shouldBeEnabledIfTriggered: 0
 --- !u!114 &4594459077382726761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,6 +166,34 @@ MonoBehaviour:
   game: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
   door: {fileID: 4097061768769700690}
   deviceId: {fileID: 11400000, guid: b32c5da5c640d8d48a2bd304ac684537, type: 2}
+--- !u!114 &3428840902361714106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876376897781990160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a36b993b2bd4f0ebbec922593040c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 3105172842525830804}
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
+        m_MethodName: ActivateIdScan
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: 5c3a2aebc2099ee40b1c82b5a3b2c98e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: IdAccessRequirement, EnigmaDragons.Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3876376897848469082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,12 +1106,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a07fe8297193f7844a130dfbfae28e8c, type: 3}
---- !u!4 &4460817374385499148 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 586498763088958245, guid: a07fe8297193f7844a130dfbfae28e8c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3876376897168146217}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4097061768769700690 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 941260812019235963, guid: a07fe8297193f7844a130dfbfae28e8c,
@@ -1076,6 +1118,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1199b3e4a287ec7449bd43c03a8f4878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &4460817374385499148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 586498763088958245, guid: a07fe8297193f7844a130dfbfae28e8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3876376897168146217}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3876376898077518288
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1187,6 +1235,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terminal_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1932078119013998, guid: 9011836f92b38d74e9b9cce367e5a402, type: 3}
+      propertyPath: m_Name
+      value: TerminalScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 4296663965313894, guid: 9011836f92b38d74e9b9cce367e5a402, type: 3}
       propertyPath: m_LocalPosition.x
       value: 47.9
@@ -1243,8 +1295,52 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.6
       objectReference: {fileID: 0}
+    - target: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+        type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+        type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+        type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateIdScan
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+        type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: IdAccessRequirement, EnigmaDragons.Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+        type: 3}
+      propertyPath: action.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 5c3a2aebc2099ee40b1c82b5a3b2c98e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9011836f92b38d74e9b9cce367e5a402, type: 3}
+--- !u!114 &3105172842525830804 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2223760616517962115, guid: 9011836f92b38d74e9b9cce367e5a402,
+    type: 3}
+  m_PrefabInstance: {fileID: 3876376898086872855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876884007191439737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831b5803cdd448a8ab71045d1ba067b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3876884007191439737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1932078119013998, guid: 9011836f92b38d74e9b9cce367e5a402,
+    type: 3}
+  m_PrefabInstance: {fileID: 3876376898086872855}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3874480562494278769 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4296663965313894, guid: 9011836f92b38d74e9b9cce367e5a402,
