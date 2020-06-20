@@ -32,10 +32,10 @@ public class KeypadEntryProgram : MonoBehaviour
 
     public void Init(CodeHackSecret secret)
     {
-        ClearEntry();
         _prompt = secret.Prompt;
         _deviceId = secret.DeviceId;
         _secret = secret.SecretCode;
+        ClearEntry();
     }
 
     public void ClearEntry()
