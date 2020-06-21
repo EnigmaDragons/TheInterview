@@ -12,9 +12,12 @@ GameObject:
   - component: {fileID: 33000011669360550}
   - component: {fileID: 23000011872886746}
   - component: {fileID: 95000011218511560}
+  - component: {fileID: 900486150566685142}
+  - component: {fileID: 1313854895152107837}
+  - component: {fileID: 4389406718752610215}
   m_Layer: 0
   m_Name: buttonAA (2)
-  m_TagString: Untagged
+  m_TagString: RaycastInteract
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +102,61 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &900486150566685142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011330177116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7dc7cce6d08ac46879f81dc1368cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  hasPlayedTrigger: Trigger-HackB3
+  trueTriggerData: {fileID: 11400000, guid: fd7149d566b3f2240ae5245f3959453b, type: 2}
+  falseTriggerData: {fileID: 11400000, guid: 8e63e1aaba04c9e468f174e2fa2ecac1, type: 2}
+--- !u!65 &1313854895152107837
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011330177116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2975517, y: 0.2929561, z: 0.1272232}
+  m_Center: {x: 0.0000019054935, y: 0, z: 0.18451627}
+--- !u!114 &4389406718752610215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011330177116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831b5803cdd448a8ab71045d1ba067b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  action:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 900486150566685142}
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1000011605183280
 GameObject:
   m_ObjectHideFlags: 0
@@ -111,6 +169,7 @@ GameObject:
   - component: {fileID: 33000011017690356}
   - component: {fileID: 23000013583476372}
   - component: {fileID: 95000011738658058}
+  - component: {fileID: 2429488678356766340}
   m_Layer: 0
   m_Name: SupportCprefab
   m_TagString: Untagged
@@ -199,6 +258,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &2429488678356766340
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011605183280}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.60959995, y: 0.6096, z: 2.0056071}
+  m_Center: {x: 0, y: 0, z: 1.0028036}
 --- !u!1 &1000012981613200
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,7 +283,6 @@ GameObject:
   - component: {fileID: 33000011691897922}
   - component: {fileID: 23000010454910466}
   - component: {fileID: 95000013902381882}
-  - component: {fileID: 4012657625179161514}
   m_Layer: 0
   m_Name: ButtonC
   m_TagString: Untagged
@@ -300,19 +371,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4012657625179161514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000012981613200}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7dc7cce6d08ac46879f81dc1368cec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
-  hasPlayedTrigger: 
-  trueTriggerData: {fileID: 0}
-  falseTriggerData: {fileID: 0}
