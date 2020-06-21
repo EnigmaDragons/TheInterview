@@ -21,6 +21,7 @@ public class ObjectiveUI : MonoBehaviour
         Message.Subscribe<ObjectiveSucceeded>(_ => ObjectiveSucceeded(), this);
         Message.Subscribe<SubObjectiveFailed>(_ => SubObjectiveFailed(), this);
         Message.Subscribe<SubObjectiveSucceeded>(_ => SubObjectiveSucceeded(), this);
+        Message.Subscribe<GameSoftResetted>(_ => SoftReset(), this);
 
         if (gameState.Objective.IsMissing || gameState.Objective.Value.Status != ObjectiveStatus.Uncompleted)
             _objectiveUI.SetActive(false);
@@ -59,6 +60,13 @@ public class ObjectiveUI : MonoBehaviour
 
     private void SubObjectiveSucceeded()
     {
+        OnObjectiveChanged();
+    }
+
+    private void SoftReset()
+    {
+        _shouldFade = false;
+        _objectiveUI.SetActive(false);
         OnObjectiveChanged();
     }
 

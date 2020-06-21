@@ -21,6 +21,9 @@ MonoBehaviour:
     to be out of the building by.
   onStarted:
     m_PersistentCalls:
+      m_Calls: []
+  onFinished:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
         m_MethodName: StartTimer
@@ -34,8 +37,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onFinished:
-    m_PersistentCalls:
-      m_Calls: []
   secondsDelay: 0
   priority: 2

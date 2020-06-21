@@ -20,8 +20,12 @@ public sealed class CurrentGameState : ScriptableObject
     public void Init() => Init(new GameState());
     public void Init(GameState initialState) => UpdateState(gs => initialState);
     public void Refresh() => UpdateState(gs => { });
-    public void SoftReset() => UpdateState(gs => gs.SoftReset());
-    
+    public void SoftReset()
+    {
+        UpdateState(gs => gs.SoftReset());
+        Message.Publish(new GameSoftResetted());
+    }
+
     public void LockHud() => UpdateState(gs => gs.HudIsLocked = true);
     public void UnlockHud() => UpdateState(gs => gs.HudIsLocked = false);
     
