@@ -483,6 +483,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4146214839597387533}
   - component: {fileID: 4146214839597387530}
+  - component: {fileID: 2154297947653359368}
+  - component: {fileID: 5869085060457184524}
   m_Layer: 0
   m_Name: ServerJ34
   m_TagString: Untagged
@@ -523,6 +525,37 @@ MonoBehaviour:
     ConstantValue: 
     Variable: {fileID: 11400000, guid: 6a9b6237454628349826dff77d042eb8, type: 2}
   shouldBeEnabledIfTriggered: 0
+--- !u!114 &2154297947653359368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146214839597387532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce9f979e5bd2ef49a23ead8ba1f5477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  hackedKey:
+    UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: 6a9b6237454628349826dff77d042eb8, type: 2}
+  trigger: {fileID: 5869085060457184524}
+--- !u!114 &5869085060457184524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146214839597387532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45100f4352fc42f28d2e1791e32b400a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerData: {fileID: 11400000, guid: b5194e05c02816d419468da87ab027cf, type: 2}
 --- !u!1 &4146214839887734073
 GameObject:
   m_ObjectHideFlags: 0

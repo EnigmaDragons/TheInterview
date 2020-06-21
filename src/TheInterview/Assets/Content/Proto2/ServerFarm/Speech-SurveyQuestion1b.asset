@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
+  m_Name: Speech-SurveyQuestion1b
+  m_EditorClassIdentifier: 
+  narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
+  voiceActor: 1
+  clip: {fileID: 8300000, guid: c79ba2f543f624e4a99ab2a8b36a136e, type: 3}
+  volume: 1
+  subtitle: Are you good with getting creds being a cool infiltrator IRL?
+  onStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
+        m_MethodName: AskSurveyQuestion
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: c30b1dd51bb6e0b4ea7c961192b4a959,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: YesNoSurveyQuestion, EnigmaDragons.Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  secondsDelay: 0
+  priority: 2
