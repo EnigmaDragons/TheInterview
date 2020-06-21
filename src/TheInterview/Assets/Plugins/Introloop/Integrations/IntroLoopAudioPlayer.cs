@@ -22,11 +22,10 @@ public class IntroLoopAudioPlayer : ScriptableObject
         
         currentClip = clipToPlay;
         IntroloopPlayer.Instance.Play(clipToPlay);
-    
         
         var volume = PlayerPrefs.GetFloat(volumeValueName, 0.5f);
         var mixerVolume = (Mathf.Log10(volume) * 20) - reductionDb;
-        Debug.Log($"IntroLoop - Set Audio Level for {volumeValueName} to {volume} ({mixerVolume}db)");
+        //Debug.Log($"IntroLoop - Set Audio Level for {volumeValueName} to {volume} ({mixerVolume}db)");
     }
 
     public void Stop()
