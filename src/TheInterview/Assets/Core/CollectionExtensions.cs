@@ -24,4 +24,10 @@ public static class CollectionExtensions
         foreach (var t in arr)
             action(t);
     }
+    
+    public static void ForEach<T>(this HashSet<T> set, Action<T> action)
+    {
+        foreach (var t in set)
+            action(t);
+    }
 }
