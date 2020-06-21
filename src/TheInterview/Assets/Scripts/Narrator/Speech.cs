@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 [CreateAssetMenu]
 public class Speech : ScriptableObject
@@ -27,10 +29,18 @@ public class Speech : ScriptableObject
         
         onStarted.Invoke();
         narrator.Play(clip, priority, volume);
+        PostAnalyticsEvent();
         yield return new WaitForSeconds(clip.length);
         yield return new WaitForSeconds(secondsDelay);
         onFinished.Invoke();
     }
 
     public void Play() => Message.Publish(new PlaySpeech { Speech = this });
+
+    private void PostAnalyticsEvent()
+    {
+#if !UNITY_EDITOR
+        AnalyticsEvent.Custom("speech_played", new Dictionary<string, object> {{ "speech_name", name }});
+#endif
+    }
 }
