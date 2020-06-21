@@ -691,6 +691,8 @@ GameObject:
   - component: {fileID: 4146214839955598154}
   - component: {fileID: 2956465405471756236}
   - component: {fileID: 5470977589612448377}
+  - component: {fileID: 380227542817831432}
+  - component: {fileID: 4961097218934686673}
   m_Layer: 0
   m_Name: ServerC28
   m_TagString: Untagged
@@ -762,6 +764,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerData: {fileID: 11400000, guid: 315260c5bd0785a40bee2f944a02b6bc, type: 2}
+--- !u!114 &380227542817831432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146214839955598156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce9f979e5bd2ef49a23ead8ba1f5477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  hackedKey:
+    UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: a1d91f2e2dbdfd64bb3a1b612de52408, type: 2}
+  trigger: {fileID: 4961097218934686673}
+--- !u!114 &4961097218934686673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4146214839955598156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45100f4352fc42f28d2e1791e32b400a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerData: {fileID: 11400000, guid: 6b1dd6ec7a98c1346bd2d94b14804f72, type: 2}
 --- !u!1 &8229485605254948530
 GameObject:
   m_ObjectHideFlags: 0
