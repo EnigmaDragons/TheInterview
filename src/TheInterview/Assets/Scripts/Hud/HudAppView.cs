@@ -2,7 +2,7 @@
 
 public class HudAppView : MonoBehaviour
 {
-    [SerializeField] private CurrentGameState game;
+    [SerializeField] protected CurrentGameState game;
     [SerializeField] private StringVariable appViewName;
     [SerializeField] private bool isRequired = true;
 
