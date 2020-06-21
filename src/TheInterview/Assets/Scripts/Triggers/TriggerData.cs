@@ -29,7 +29,7 @@ public class TriggerData : ScriptableObject
     {
         var nextSpeech = GetNextSpeech();
         if (nextSpeech.IsMissing)
-            throw new Exception("Attempted to execute a Trigger with no valid speech.");
+            throw new Exception($"Attempted to execute a Trigger with no valid speech {name}");
 
         if (!nextSpeech.Value.CanPlay)
             return;

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using TMPro;
-using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,6 +11,7 @@ public class IdScanApp : MonoBehaviour
     [SerializeField] private UiSfxPlayer sfx;
     [SerializeField] private AudioClip scanSuccessSound;
     [SerializeField] private AudioClip scanFailureSound;
+    [SerializeField] private GameObject scanButtonParent;
     [SerializeField] private Button scanButton;
 
     private IdAccessRequirement _req;
@@ -22,6 +22,7 @@ public class IdScanApp : MonoBehaviour
     {
         _req = r;
         locationLabel.text = r.Location;
+        scanButtonParent.SetActive(true);
     }
 
     private void Scan()
@@ -31,16 +32,10 @@ public class IdScanApp : MonoBehaviour
         {
             sfx.Play(scanSuccessSound);
             locationLabel.text = "Access Granted";
-            StartCoroutine(ExecuteAfterDelay(1f, 
-                () =>
-                {
-                    gameState.UpdateState(gs =>
-                    {
-                        gs.TransientTriggers.Add(_req.AccessTarget.Value);
-                        gs.HudIsFocused = false;
-                    });
-                    Message.Publish(new RemoveItem(_req.RequiredId.Name));
-                }));
+            scanButtonParent.SetActive(false);
+            gameState.UpdateState(gs => gs.TransientTriggers.Add(_req.AccessTarget.Value));
+            Message.Publish(new RemoveItem(_req.RequiredId.Name));
+            StartCoroutine(ExecuteAfterDelay(1f, () => gameState.UpdateState(gs => gs.HudIsFocused = false)));
         }
         else
         {
