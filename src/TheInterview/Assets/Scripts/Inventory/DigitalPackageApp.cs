@@ -16,7 +16,7 @@ public sealed class DigitalPackageApp : HudAppView
     {
         _item = item;
         itemImage.sprite = item.Image;
-        label.text = $"You gained {item.Article} {item.Name}";
+        label.text = $"You gained {item.Article}\n{item.Name}!";
     }
 
     private void Store()
