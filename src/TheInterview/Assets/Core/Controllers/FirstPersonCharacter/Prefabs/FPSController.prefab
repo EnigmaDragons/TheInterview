@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1449571098993103984}
   - component: {fileID: 6368851879228458688}
   - component: {fileID: 123435647671825135}
+  - component: {fileID: 8580809274654456489}
   m_Layer: 0
   m_Name: FPSController
   m_TagString: Player
@@ -365,6 +366,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 11400000}
+--- !u!114 &8580809274654456489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4e68aace189d1142b998e174a548637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onBurn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
+        m_MethodName: PlayEnding
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: d470df78f7a08c24b9af9368c31e2c75,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: Ending, EnigmaDragons.Game
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  IsBurning: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +746,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -790,6 +820,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607845, g: 0.34901962, b: 0.5529412, a: 1}
   m_RaycastTarget: 1
+  m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
