@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3876376897960616525}
-  - component: {fileID: 3876376897960616524}
+  - component: {fileID: 5796962219237757037}
   m_Layer: 0
   m_Name: ServerFarmExtranceExit
   m_TagString: Untagged
@@ -500,7 +500,7 @@ Transform:
   m_Father: {fileID: 3876376898525919136}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3876376897960616524
+--- !u!114 &5796962219237757037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -509,15 +509,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 3876376897960616526}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8d41a340ea044b78d1c0f263648c8fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 77d28fa8159e9654f9c82c6b74855dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 3876376897994517617}
-  trigger:
-    UseConstant: 0
-    ConstantValue: 
-    Variable: {fileID: 11400000, guid: d48e15bdb98e1ea4db5080fd494bb8ec, type: 2}
-  shouldBeEnabledIfTriggered: 1
+  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  hackedB3: {fileID: 11400000, guid: 7cf3bb0a406342e40ba516605cadfca4, type: 2}
+  buildingOnFire:
+  - {fileID: 11400000, guid: 8e63e1aaba04c9e468f174e2fa2ecac1, type: 2}
+  - {fileID: 11400000, guid: fd7149d566b3f2240ae5245f3959453b, type: 2}
+  securityTeamCalled: {fileID: 11400000, guid: 315260c5bd0785a40bee2f944a02b6bc, type: 2}
+  betrayedByInfiltratorGO: {fileID: 11400000, guid: b5194e05c02816d419468da87ab027cf,
+    type: 2}
+  easyJob: {fileID: 11400000, guid: ec1d20c9f06770943bd970b2e9d6d67a, type: 2}
+  excitingJob: {fileID: 11400000, guid: d78f89b3d71de8f4f92add41b8c86df9, type: 2}
+  burnedJob: {fileID: 11400000, guid: 1abf6021b0dfad0488c8903e9bb9e316, type: 2}
+  postponedJob: {fileID: 11400000, guid: d297fe7fe2d031b4791171b616090098, type: 2}
+  betrayedJob: {fileID: 11400000, guid: a3ae25596783a864ead2808a7e691b6d, type: 2}
+  targetToEnable: {fileID: 3876376897994517617}
 --- !u!1 &3876376897994517617
 GameObject:
   m_ObjectHideFlags: 0

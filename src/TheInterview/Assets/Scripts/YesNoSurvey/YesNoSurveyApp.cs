@@ -31,19 +31,19 @@ public class YesNoSurveyApp : MonoBehaviour
     {
         if (_question == null)
             return;
-        
+
+        game.UnlockAndDismissHud();
         _question.OnYes.Invoke();
         sfx.Play(yesSound);
-        game.UnlockAndDismissHud();
     }
     
     private void No()
     {
         if (_question == null)
             return;
-        
+
+        game.UnlockAndDismissHud();
         _question.OnNo.Invoke();
         sfx.Play(noSound);
-        game.UnlockAndDismissHud();
     }
 }
