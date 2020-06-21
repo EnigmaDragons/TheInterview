@@ -6,5 +6,5 @@ public class Email : ScriptableObject
     public string Sender;
     public string Recipient;
     public string Subject;
-    public string Body;
+    [TextArea(minLines: 3, maxLines: 20)] public string Body;
 }
