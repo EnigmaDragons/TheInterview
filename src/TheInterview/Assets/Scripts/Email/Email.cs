@@ -6,5 +6,5 @@ public class Email : ScriptableObject
     public string Sender;
     public string Recipient;
     public string Subject;
-    public string Body;
+    [TextArea(4, 10)] public string Body;
 }
