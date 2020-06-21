@@ -15,4 +15,5 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void AskSurveyQuestion(YesNoSurveyQuestion q) => Message.Publish(new BeginYesNoSurvey(q));
     public void ActivateIdScan(IdAccessRequirement r) => Message.Publish(new BeginIdScan(r));
     public void StartFire() => Message.Publish(new StartFire());
+    public void ShowEmail(Email e) => Message.Publish(new ShowEmail(e));
 }
