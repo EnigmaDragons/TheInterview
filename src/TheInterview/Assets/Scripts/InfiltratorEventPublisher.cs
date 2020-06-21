@@ -16,4 +16,5 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void ActivateIdScan(IdAccessRequirement r) => Message.Publish(new BeginIdScan(r));
     public void StartFire() => Message.Publish(new StartFire());
     public void ShowEmail(Email e) => Message.Publish(new ShowEmail(e));
+    public void SendItemDigitally(Item item) => Message.Publish(new SendItem(item));
 }
