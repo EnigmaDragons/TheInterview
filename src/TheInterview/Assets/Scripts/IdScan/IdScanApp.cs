@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using TMPro;
+using UnityEditorInternal.VersionControl;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -31,11 +32,15 @@ public class IdScanApp : MonoBehaviour
             sfx.Play(scanSuccessSound);
             locationLabel.text = "Access Granted";
             StartCoroutine(ExecuteAfterDelay(1f, 
-                () => gameState.UpdateState(gs =>
+                () =>
                 {
-                    gs.TransientTriggers.Add(_req.AccessTarget.Value);
-                    gs.HudIsFocused = false;
-                })));
+                    gameState.UpdateState(gs =>
+                    {
+                        gs.TransientTriggers.Add(_req.AccessTarget.Value);
+                        gs.HudIsFocused = false;
+                    });
+                    Message.Publish(new RemoveItem(_req.RequiredId.Name));
+                }));
         }
         else
         {

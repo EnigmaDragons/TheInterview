@@ -8,7 +8,7 @@ public class InventoryUI : OnMessage<GainItem, RemoveItem>
     [SerializeField] private ItemIcon iconTemplate;
     [SerializeField] private List<Item> allItems;
 
-    private readonly Dictionary<Item, ItemIcon> _items = new Dictionary<Item,ItemIcon>();
+    private readonly Dictionary<string, ItemIcon> _items = new Dictionary<string,ItemIcon>();
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class InventoryUI : OnMessage<GainItem, RemoveItem>
     
     protected override void Execute(GainItem msg)
     {
-        if (_items.TryGetValue(msg.Item, out var cachedIcon))
+        if (_items.TryGetValue(msg.Item.Name, out var cachedIcon))
             cachedIcon.gameObject.SetActive(true);
         else
             InitItem(msg.Item);
@@ -34,12 +34,12 @@ public class InventoryUI : OnMessage<GainItem, RemoveItem>
     {
         var icon = Instantiate(iconTemplate, transform);
         icon.Init(item);
-        _items[item] = icon;
+        _items[item.Name] = icon;
     }
 
     protected override void Execute(RemoveItem msg)
     {
-        if (_items.TryGetValue(msg.Item, out var cachedIcon))
+        if (_items.TryGetValue(msg.ItemName, out var cachedIcon))
             cachedIcon.gameObject.SetActive(false);
     }
 }

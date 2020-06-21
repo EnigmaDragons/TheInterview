@@ -9,5 +9,5 @@ public class GainItemHandler : OnMessage<GainItem, RemoveItem>
         => game.UpdateState(gs => gs.InventoryItems.Add(msg.Item.Name));
 
     protected override void Execute(RemoveItem msg)
-        => game.UpdateState(gs => gs.InventoryItems.Remove(msg.Item.Name));
+        => game.UpdateState(gs => gs.InventoryItems.Remove(msg.ItemName));
 }

@@ -1,7 +1,7 @@
 ﻿
 public class RemoveItem
 {
-    public Item Item { get; }
+    public string ItemName { get; }
 
-    public RemoveItem(Item item) => Item = item;
+    public RemoveItem(string itemName) => ItemName = itemName;
 }
