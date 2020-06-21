@@ -950,6 +950,8 @@ GameObject:
   - component: {fileID: 6870332204045019645}
   - component: {fileID: 1500547761845057442}
   - component: {fileID: 6669595519786860945}
+  - component: {fileID: 1938742600809791861}
+  - component: {fileID: 4010495679150648412}
   m_Layer: 0
   m_Name: Interactables
   m_TagString: Untagged
@@ -989,12 +991,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 805a48e4b24c2ad4ca723be03efd4782, type: 2}
-        m_MethodName: SendItemDigitally
+        m_MethodName: StartKeyCodeEntry
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 4a567d2bc89a2374f84e6028c0ad327b,
+          m_ObjectArgument: {fileID: 11400000, guid: 6128e48c8b739ed4bbfcbfcbe7a5d77b,
             type: 2}
-          m_ObjectArgumentAssemblyTypeName: Item, EnigmaDragons.Game
+          m_ObjectArgumentAssemblyTypeName: CodeHackSecret, EnigmaDragons.Game
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1016,6 +1018,37 @@ MonoBehaviour:
   target: {fileID: 4227756782710458546}
   item: {fileID: 11400000, guid: 4a567d2bc89a2374f84e6028c0ad327b, type: 2}
   shouldBeEnabledIfHasItem: 0
+--- !u!114 &1938742600809791861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111927049502223263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce9f979e5bd2ef49a23ead8ba1f5477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentGameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  hackedKey:
+    UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: 287fe1c690aebb348ad1af5b091af8bf, type: 2}
+  trigger: {fileID: 4010495679150648412}
+--- !u!114 &4010495679150648412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8111927049502223263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45100f4352fc42f28d2e1791e32b400a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerData: {fileID: 11400000, guid: 48ace592b5ed0fe47ad75b13bdb4d442, type: 2}
 --- !u!1 &8158721954423140848
 GameObject:
   m_ObjectHideFlags: 0

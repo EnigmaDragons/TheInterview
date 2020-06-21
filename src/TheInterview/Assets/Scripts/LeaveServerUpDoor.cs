@@ -14,6 +14,7 @@ public class LeaveServerUpDoor : MonoBehaviour
     [SerializeField] private Speech burnedJob;
     [SerializeField] private Speech postponedJob;
     [SerializeField] private Speech betrayedJob;
+    [SerializeField] private Speech uncompletedJob;
     [SerializeField] private InteractAction interactable;
     [SerializeField] private UnityEvent executeEvent;
 
@@ -28,7 +29,9 @@ public class LeaveServerUpDoor : MonoBehaviour
         var isBuildingOnFire = buildingOnFire.Any(x => gameState.HasTriggeredThisRun(x.name));
         var isSecurityInbound = gameState.HasTriggeredThisRun(securityTeamCalled.name);
         var isBetrayedByInfiltratorGO = gameState.HasTriggeredThisRun(betrayedByInfiltratorGO.name);
-        if (didHackB3 && (isBuildingOnFire || isSecurityInbound))
+        if (isBetrayedByInfiltratorGO)
+            betrayedJob.Play();
+        else if (didHackB3 && (isBuildingOnFire || isSecurityInbound))
             excitingJob.Play();
         else if (didHackB3)
             easyJob.Play();
@@ -36,7 +39,7 @@ public class LeaveServerUpDoor : MonoBehaviour
             burnedJob.Play();
         else if (isSecurityInbound)
             postponedJob.Play();
-        else if (isBetrayedByInfiltratorGO)
-            betrayedJob.Play();
+        else
+            uncompletedJob.Play();
     }
 }
