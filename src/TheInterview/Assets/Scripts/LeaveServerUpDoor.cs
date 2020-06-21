@@ -1,7 +1,8 @@
 ﻿using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class LeaveServerUpDoor : OnMessage<GameStateChanged>
+public class LeaveServerUpDoor : MonoBehaviour
 {
     [SerializeField] private CurrentGameState gameState;
     [SerializeField] private TriggerData hackedB3;
@@ -13,7 +14,13 @@ public class LeaveServerUpDoor : OnMessage<GameStateChanged>
     [SerializeField] private Speech burnedJob;
     [SerializeField] private Speech postponedJob;
     [SerializeField] private Speech betrayedJob;
-    [SerializeField] private GameObject targetToEnable;
+    [SerializeField] private InteractAction interactable;
+    [SerializeField] private UnityEvent executeEvent;
+
+    private void OnEnable()
+    {
+        interactable.Add(executeEvent);
+    }
 
     public void Execute()
     {
@@ -31,14 +38,5 @@ public class LeaveServerUpDoor : OnMessage<GameStateChanged>
             postponedJob.Play();
         else if (isBetrayedByInfiltratorGO)
             betrayedJob.Play();
-    }
-
-    protected override void Execute(GameStateChanged msg)
-    {
-        if (gameState.HasTriggeredThisRun(hackedB3.name) 
-            || buildingOnFire.Any(x => gameState.HasTriggeredThisRun(x.name)) 
-            || gameState.HasTriggeredThisRun(securityTeamCalled.name) 
-            || gameState.HasTriggeredThisRun(betrayedByInfiltratorGO.name))
-            targetToEnable.SetActive(true);
     }
 }
