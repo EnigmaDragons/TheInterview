@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000012008116756}
   - component: {fileID: 33000010527153472}
   - component: {fileID: 23000010073996542}
+  - component: {fileID: -3067114627085603802}
   m_Layer: 0
   m_Name: Vehicle_PREFAB
   m_TagString: Untagged
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &-3067114627085603802
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013297569420}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4783419501011036929, guid: 4ac05a3a581817649a25aeeafc78f18b, type: 3}
