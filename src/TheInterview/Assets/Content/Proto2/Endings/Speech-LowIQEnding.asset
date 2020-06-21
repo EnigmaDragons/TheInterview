@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-HackServerInfiltratorGO
+  m_Name: Speech-LowIQEnding
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: d78e4e370d065f7408a13c9152adf2e3, type: 3}
+  clip: {fileID: 8300000, guid: 1fef45054bd639b4292d85a4d3d86b8e, type: 3}
   volume: 1
-  subtitle: Getting a sneak preview of upcoming game plot. For no reason at all we
-    suddenly have a mandatory survey for you to take, that will reward you bonus
-    creds.
+  subtitle: No player has failed the first mission so incredibly, I'm afraid this
+    app may not be for someone of your iq range.
   onStarted:
     m_PersistentCalls:
       m_Calls: []
   onFinished:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 647931b7b0ce9f742a3778fae1e8bacf, type: 2}
-        m_MethodName: Play
+      - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+        m_MethodName: SoftReset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36,5 +35,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  secondsDelay: 1
+      - m_Target: {fileID: 11400000, guid: ae5ebd4cc2fb81d43b1949f62386026d, type: 2}
+        m_MethodName: GoToStartingApartment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  secondsDelay: 0
   priority: 2
