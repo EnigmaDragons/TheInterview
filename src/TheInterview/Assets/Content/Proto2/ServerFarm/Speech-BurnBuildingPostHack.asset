@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4cb0011dd39dff428696f14c53a1b2f, type: 3}
-  m_Name: Speech-BurnBuildingPreHack
+  m_Name: Speech-BurnBuildingPostHack
   m_EditorClassIdentifier: 
   narrator: {fileID: 11400000, guid: 67608442fea17004388e194198800239, type: 2}
   voiceActor: 1
-  clip: {fileID: 8300000, guid: 2ad5d4652716d264896736ef95a0b173, type: 3}
+  clip: {fileID: 8300000, guid: 12f883bb12eb7c74d84d450f03e6fc87, type: 3}
   volume: 1
-  subtitle: ou enter a building and the first thing you do is start a fire? Did you
-    get a little chilly and think that maybe a fire would help. Mission failed, and
-    you lose all your xp!
+  subtitle: Creative method for destroying evidence, bonus creds and xp have been
+    awarded. Best get out quick.
   onStarted:
     m_PersistentCalls:
       m_Calls:
@@ -37,11 +36,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
-        m_MethodName: FailObjective
-        m_Mode: 1
+        m_MethodName: SucceedSubObjective
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 406553565b2d34346b6e9ea559b37713,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: SubObjective, EnigmaDragons.Game
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
