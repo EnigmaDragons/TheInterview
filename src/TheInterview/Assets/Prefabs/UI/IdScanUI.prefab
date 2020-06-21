@@ -368,6 +368,7 @@ MonoBehaviour:
   sfx: {fileID: 11400000, guid: bfe56e3518f684c4387de97bd5db348d, type: 2}
   scanSuccessSound: {fileID: 8300000, guid: e04cd6a7f1b4aea41962c36305113dc2, type: 3}
   scanFailureSound: {fileID: 8300000, guid: 4eec4244a4820a247af96e4e2b7333e7, type: 3}
+  scanButtonParent: {fileID: 1553638206971292800}
   scanButton: {fileID: 1450101445736467002}
 --- !u!1 &4847973897717014455
 GameObject:
@@ -728,6 +729,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 958767ade44993f40974bf928e6e76a0, type: 3}
+--- !u!1 &1553638206971292800 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1604287725050692, guid: 958767ade44993f40974bf928e6e76a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1552073503946553284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1627238795120546920 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224915758870864812, guid: 958767ade44993f40974bf928e6e76a0,
@@ -740,7 +747,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1552073503946553284}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1553638206971292800}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
