@@ -12,6 +12,7 @@ public sealed class GameState
     public bool ShouldBeHired = true;
     public PermanentCountersDictionary PermanentCounters = new PermanentCountersDictionary();
     public TransientCountersDictionary TransientCounters = new TransientCountersDictionary();
+    public HashSet<string> EndingsCompleted = new HashSet<string>();
     public HashSet<string> PermanentTriggers = new HashSet<string>();
     public HashSet<string> TransientTriggers = new HashSet<string>();
     public HashSet<string> InventoryItems = new HashSet<string>();
@@ -23,6 +24,7 @@ public sealed class GameState
             ShouldBeHired = true, 
             PermanentCounters = PermanentCounters, 
             PermanentTriggers = PermanentTriggers,
+            EndingsCompleted = EndingsCompleted,
             Objective = Maybe<ObjectiveState>.Missing()
         };
     

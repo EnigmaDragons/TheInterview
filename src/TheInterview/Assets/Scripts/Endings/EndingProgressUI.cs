@@ -8,5 +8,5 @@ public class EndingProgressUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI display;
 
     private void Awake() 
-        => display.text = $"Endings Achieved:\n{game.ReadOnly.PermanentCounters["EndingsCompleted"]} / {endings.Count}";
+        => display.text = $"Endings Achieved:\n{game.ReadOnly.EndingsCompleted.Count} / {endings.Count}";
 }
