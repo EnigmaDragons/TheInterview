@@ -8,6 +8,7 @@ public class PlayEndingHandler : OnMessage<PlayEnding>
     protected override void Execute(PlayEnding msg)
     {
         game.UpdateState(gs => gs.CurrentRunEnding = msg.Ending);
+        game.IncrementCounter(TriggerStateLifecycle.Permanent, "EndingsCompleted");
         navigator.GoToEnding();
     }
 }
