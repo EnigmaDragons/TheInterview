@@ -16,6 +16,7 @@ public class LeaveServerUpDoor : MonoBehaviour
     [SerializeField] private Speech betrayedJob;
     [SerializeField] private Speech uncompletedJob;
     [SerializeField] private InteractAction interactable;
+    [SerializeField] private Door door;
     [SerializeField] private UnityEvent executeEvent;
 
     private void OnEnable()
@@ -25,6 +26,7 @@ public class LeaveServerUpDoor : MonoBehaviour
 
     public void Execute()
     {
+        door.SetDoorSoundsEnabled(false);
         var didHackB3 = gameState.HasTriggeredThisRun(hackedB3.name);
         var isBuildingOnFire = buildingOnFire.Any(x => gameState.HasTriggeredThisRun(x.name));
         var isSecurityInbound = gameState.HasTriggeredThisRun(securityTeamCalled.name);
@@ -40,6 +42,9 @@ public class LeaveServerUpDoor : MonoBehaviour
         else if (isSecurityInbound)
             postponedJob.Play();
         else
+        {
+            door.SetDoorSoundsEnabled(true);
             uncompletedJob.Play();
+        }
     }
 }

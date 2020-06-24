@@ -24,7 +24,10 @@ public class Door : MonoBehaviour
 	private bool isOpen = false;
 	private Vector3 relativePos;
 	private Animation anim;
+	private bool _playSounds = true;
 
+	public void SetDoorSoundsEnabled(bool soundsEnabled) => _playSounds = soundsEnabled;
+	
 	public void SetCanBeOpened(bool state)
 	{
 		canBeOpened = state;
@@ -87,7 +90,6 @@ public class Door : MonoBehaviour
 		
 		if (!canBeOpened)
 		{
-			Debug.Log("Door - Locked Sound Effect");
 			PlaySound(lockedSound);
 			return;
 		}
@@ -97,7 +99,6 @@ public class Door : MonoBehaviour
 			return;
 		
 		isOpen = true;
-		Debug.Log("Door - Opening");
 		PlaySound(openSound);
 		anim[_animName].speed = 1 * OpenSpeed;
 		anim[_animName].normalizedTime = 0;
@@ -106,7 +107,7 @@ public class Door : MonoBehaviour
 
 	private void PlaySound(AudioClip c)
 	{
-		if (c == null)
+		if (c == null || !_playSounds)
 			return;
 		
 		source.Stop();
@@ -120,7 +121,6 @@ public class Door : MonoBehaviour
 			return;
 		
         isOpen = false;
-        Debug.Log("Closing Door");
         StartCoroutine(ExecuteAfterDelay(0.6f, () => PlaySound(closeSound)));
 		anim [_animName].speed = -1 * CloseSpeed;
 		if (anim [_animName].normalizedTime > 0) {
