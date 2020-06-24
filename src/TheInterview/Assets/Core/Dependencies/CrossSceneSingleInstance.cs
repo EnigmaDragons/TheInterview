@@ -16,5 +16,5 @@ public abstract class CrossSceneSingleInstance : MonoBehaviour
     }
 
     protected abstract string UniqueTag { get; }
-    protected abstract void OnAwake();
+    protected virtual void OnAwake() {}
 }

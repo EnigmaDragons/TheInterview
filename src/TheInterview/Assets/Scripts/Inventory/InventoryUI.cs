@@ -24,6 +24,11 @@ public class InventoryUI : OnMessage<GainItem, RemoveItem>
     
     protected override void Execute(GainItem msg)
     {
+        if (string.IsNullOrWhiteSpace(msg.Item.Name))
+        {
+            Debug.LogError($"{msg.Item.name} is missing it's Display Name");
+            return;
+        }
         if (_items.TryGetValue(msg.Item.Name, out var cachedIcon))
             cachedIcon.gameObject.SetActive(true);
         else

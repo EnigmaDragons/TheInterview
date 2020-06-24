@@ -15,7 +15,7 @@ public class EndingPlayer : OnMessage<EndingSpeechFinished>
 
     protected override void Execute(EndingSpeechFinished msg)
     {
-        var achievementToPlay = gameState.ReadOnly.AchievedAchievements.FirstOrDefault(x => !x.HasPlayed);
+        var achievementToPlay = gameState.ReadOnly.AchievedAchievements.FirstOrDefault(x => !x.HasPlayedSpeech);
         if (achievementToPlay == null)
         {
             gameState.SoftReset();
@@ -23,8 +23,8 @@ public class EndingPlayer : OnMessage<EndingSpeechFinished>
         }
         else
         {
-            achievementToPlay.Speech.Play();
-            achievementToPlay.HasPlayed = true;
+            achievementToPlay.Achievement.Speech.Play();
+            achievementToPlay.HasPlayedSpeech = true;
         }
     }
 }
