@@ -9,6 +9,7 @@ public sealed class ShowSpeechSubtitles : OnMessage<PlaySpeech>
     [SerializeField] private TextMeshProUGUI textBox;
     [SerializeField] private FloatReference secondsPerCharacter;
     [SerializeField] private FloatReference delayBeforeHide;
+    [SerializeField] private NarratorSoundPlayer narrator;
 
     private string _text = "";
     private float _t;
@@ -35,8 +36,16 @@ public sealed class ShowSpeechSubtitles : OnMessage<PlaySpeech>
     private IEnumerator HideAfterDelay()
     {
         yield return new WaitForSeconds(delayBeforeHide);
-        if (IsRevealed)
-            ui.SetActive(false);
+        while (IsRevealed)
+        {
+            if (!narrator.IsPlaying)
+            {
+                ui.SetActive(false);
+                yield break;
+            }
+
+            yield return new WaitForSeconds(0.33f);
+        }
     }
     
     private void Display(string text, Action onFinished)

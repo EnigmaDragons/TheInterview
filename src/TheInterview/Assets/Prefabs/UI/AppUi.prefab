@@ -482,6 +482,7 @@ GameObject:
   - component: {fileID: 1436215798368977957}
   - component: {fileID: 3878734994429017113}
   - component: {fileID: 2205043252631076427}
+  - component: {fileID: 3724317231468515324}
   m_Layer: 0
   m_Name: XpUi
   m_TagString: Untagged
@@ -573,6 +574,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusedOpacity: 1
   unfocusedOpacity: 1
+--- !u!114 &3724317231468515324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3853809324090085929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf8da86bb244ad889ab4b2a709877f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appState: {fileID: 11400000, guid: 59d2f0149d17919419a93454f37a8dd6, type: 2}
+  display: {fileID: 3207997451262882320}
 --- !u!1 &4663733291973800918
 GameObject:
   m_ObjectHideFlags: 0
