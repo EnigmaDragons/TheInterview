@@ -106,13 +106,21 @@ public sealed class CurrentGameState : ScriptableObject
 
     public void FailObjective()
     {
-        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Failed);
+        UpdateState(x =>
+        {
+            x.Objective.Value.Status = ObjectiveStatus.Failed;
+            x.ResolvedObjectives.Add(x.Objective.Value);
+        });
         Message.Publish(new ObjectiveFailed());
     }
 
     public void SucceedObjective()
     {
-        UpdateState(x => x.Objective.Value.Status = ObjectiveStatus.Succeeded);
+        UpdateState(x =>
+        {
+            x.Objective.Value.Status = ObjectiveStatus.Succeeded;
+            x.ResolvedObjectives.Add(x.Objective.Value);
+        });
         Message.Publish(new ObjectiveSucceeded(gameState.Objective.Value));
     }
 
@@ -126,5 +134,12 @@ public sealed class CurrentGameState : ScriptableObject
     {
         UpdateState(state => state.Objective.Value.SubObjectives.First(x => x.SubObjective == subObjective).Status = ObjectiveStatus.Succeeded);
         Message.Publish(new SubObjectiveSucceeded());
+    }
+
+    public void GainAchievement(Achievement achievement)
+    {
+        if (gameState.AchievedAchievements.Any(x => x.Achievement == achievement))
+            return;
+        UpdateState(x => x.AchievedAchievements.Add(new AchievementState { Achievement = achievement, HasPlayedSpeech = false }));
     }
 }

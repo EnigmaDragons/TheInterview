@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2661305313891583123}
   - component: {fileID: 1154690469130301806}
   - component: {fileID: 6223343119979637961}
+  - component: {fileID: 6670704138894764616}
+  - component: {fileID: 844732325210195076}
   m_Layer: 0
   m_Name: GameReactiveSystems
   m_TagString: Untagged
@@ -118,3 +120,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   options: {fileID: 11400000, guid: 57e015dbdf1dea14284cbc79b13fce08, type: 2}
+--- !u!114 &6670704138894764616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567482162070727051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bae7ae5feb1c914694956660617c170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  allObjectives:
+  - {fileID: 11400000, guid: 764a6837e8063ce4ab2d97556fb2b205, type: 2}
+  - {fileID: 11400000, guid: 62487aa8edefb0744a0e8709f25c5770, type: 2}
+  profitAchievement: {fileID: 11400000, guid: 1be2ac7014653e142ac511ffcc8ca1a8, type: 2}
+--- !u!114 &844732325210195076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567482162070727051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d62b87a9e659dc46848f0a8f4f575ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState: {fileID: 11400000, guid: 28f32d349f7a89343aa71b1ad27ac9b1, type: 2}
+  halfEndingsAchievement: {fileID: 11400000, guid: d54de3ba04bdea14fa77b00aac953b40,
+    type: 2}
+  allEndingsAchievement: {fileID: 11400000, guid: 7aade22bd2773054eb6ce69128c1eedd,
+    type: 2}
+  allEndings: {fileID: 11400000, guid: fd5201f8457624040a76376c8acf5fc6, type: 2}

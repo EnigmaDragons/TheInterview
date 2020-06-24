@@ -18,4 +18,5 @@ public class InfiltratorEventPublisher : ScriptableObject
     public void StartFire() => Message.Publish(new StartFire());
     public void ShowEmail(Email e) => Message.Publish(new ShowEmail(e));
     public void SendItemDigitally(Item item) => Message.Publish(new SendItem(item));
+    public void EndingSpeechFinished() => Message.Publish(new EndingSpeechFinished());
 }
