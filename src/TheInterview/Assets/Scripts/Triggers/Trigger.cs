@@ -30,7 +30,7 @@ public sealed class Trigger : MonoBehaviour
             return true;
         if (baseCanTrigger && triggerData.Repeatability == TriggerRepeatability.RepeatForever)
             return true;
-        return true; 
+        return baseCanTrigger; 
     }
 
     private void TriggerIfPossible()
