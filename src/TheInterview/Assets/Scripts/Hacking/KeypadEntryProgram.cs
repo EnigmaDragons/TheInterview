@@ -66,8 +66,8 @@ public class KeypadEntryProgram : MonoBehaviour
         {
             sfx.Play(correctEntry);
             promptLabel.text = "Access Granted";
-            gameState.UpdateState(gs => gs.TransientTriggers.Add(_deviceId.Value));
             StartCoroutine(ExecuteAfterDelay(1f, () => gameState.UnlockAndDismissHud()));
+            gameState.UpdateState(gs => gs.TransientTriggers.Add(_deviceId.Value));
         }
         else
         {

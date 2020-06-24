@@ -1,11 +1,24 @@
 ﻿using UnityEngine;
 
-public class EzScreen : MonoBehaviour
+#if UNITY_EDITOR_WIN
+using UnityEngine.Windows;
+#endif
+
+public class EzScreen : CrossSceneSingleInstance
 {
-    private static int _counter;
-    
     [SerializeField] private string filename;
     
+    protected override string UniqueTag => "Screenshots";
+    private static int _counter;
+
+    protected override void OnAwake()
+    {
+#if UNITY_EDITOR_WIN
+        while (File.Exists($"{filename}_{_counter}.png"))
+            _counter++;
+#endif
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F12))
