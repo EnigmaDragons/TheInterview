@@ -17,7 +17,8 @@ public sealed class GameState
     public HashSet<string> TransientTriggers = new HashSet<string>();
     public HashSet<string> InventoryItems = new HashSet<string>();
     public Maybe<ObjectiveState> Objective = new Maybe<ObjectiveState>();
-    
+    public List<Achievement> AchievedAchievements = new List<Achievement>();
+
     public GameState SoftReset() => 
         new GameState 
         {

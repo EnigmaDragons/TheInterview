@@ -127,4 +127,12 @@ public sealed class CurrentGameState : ScriptableObject
         UpdateState(state => state.Objective.Value.SubObjectives.First(x => x.SubObjective == subObjective).Status = ObjectiveStatus.Succeeded);
         Message.Publish(new SubObjectiveSucceeded());
     }
+
+    public void GainAchievement(Achievement achievement)
+    {
+        if (gameState.AchievedAchievements.Contains(achievement))
+            return;
+        achievement.HasPlayed = false;
+        UpdateState(x => x.AchievedAchievements.Add(achievement));
+    }
 }
