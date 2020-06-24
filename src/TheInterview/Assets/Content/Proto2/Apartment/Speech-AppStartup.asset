@@ -16,8 +16,11 @@ MonoBehaviour:
   voiceActor: 1
   clip: {fileID: 8300000, guid: c03cd0ac01dd4654bb77198d213350e3, type: 3}
   volume: 1
-  subtitle: Congratulations you have been accepted into the beta test for Infiltrator
+  subtitle: Congratulations! You have been accepted into the beta test for Infiltrator
     GO.
+  onStarted:
+    m_PersistentCalls:
+      m_Calls: []
   onFinished:
     m_PersistentCalls:
       m_Calls: []
